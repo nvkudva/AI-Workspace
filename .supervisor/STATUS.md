@@ -81,6 +81,16 @@ Every draft is written. Each session only offers an optional rewrite.
 | 10:53 | Clinician mental health | Style → glass (repeat tap) | Deduplicated, not re-sent |
 | 10:52 | Bot with recurring tasks | Kill as duplicate | Archived |
 
+## ⏰ Other routines running on this account
+
+| Routine | Schedule | Bound to | Effect |
+|---|---|---|---|
+| `trig_01EfPd6t` TickTick spec-ready → cloud sessions | hourly at **:25** | AI Loop Runner `017qqS1E` | Spawns a session per untagged spec-ready TickTick task. Budget 15, **9 used, 6 left** |
+| `trig_01PyFHFY` Fleet Control — style pick: glass | one-shot **10:55** | Clinician mental health `01HTQrff` | Delivers Vijay's glass answer |
+
+The TickTick routine grows the fleet without passing through this board.
+Next fire **11:25**.
+
 ## 🔌 Control mechanics
 
 | Capability | How |
