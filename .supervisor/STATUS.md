@@ -3,101 +3,82 @@
 | | |
 |---|---|
 | **Supervisor** | `ai-workspace-8d` · `session_01Krr1y5W84RzUWszj37KLvN` |
-| **Cadence** | 5-min cron sweep · job `7057b37b` · expires in 7d |
-| **Policy** | Intervene where safe · escalate taste/design/scale calls · track every blocker |
-| **Last sweep** | 2026-09-06 10:30 UTC |
-| **Fleet** | 20 sessions (`has_more: true`) |
-
----
+| **Control surface** | [Fleet Control](https://claude.ai/code/artifact/ec57876f-c431-492f-85ae-cbe3a71c77d4) — tap to act |
+| **Cadence** | 5-min cron sweep · job `6a6f0bdb` · expires in 7d |
+| **Last sweep** | 2026-09-06T10:45:00Z |
+| **Fleet** | 24 sessions · **$274.19** burned to date |
 
 ## 📊 Scoreboard
 
-| Status | Count | Meaning |
-|---|---|---|
-| 🔴 Blocked on Vijay | **4** | Needs a human decision |
-| 🟡 Blocked, self-clearable | **7** | Draft done, optional rewrite offered |
-| ⚫ Failed | **1** | Crashed, needs relaunch |
-| 🟢 Done | **4** | Shipped |
-| ⚪ Idle | **4** | No action needed |
+| Status | Count |
+|---|---|
+| 🟠 Waiting on Vijay | **4** |
+| 🔵 Waiting on nothing | **7** |
+| 🔴 Failed | **1** |
+| 🟢 Shipped | **9** |
+| ⚪ Idle | **3** |
 
----
+## 🟠 Waiting on you
 
-## 🔴 Blocked — needs your call
-
-| Session | ID | Ask | Spent |
+| Session | ID | Decision needed | Spent |
 |---|---|---|---|
-| Agent company floor-plan UI | `019UMdbJ` | 3 design decisions in `prd.md §7` — runtime, gate, messaging | $12.30 |
-| Clinician mental-health assistant | `01HTQrff` | Pick style: glass · paper · outline · elevated | $45.20 |
-| Ask My Brain RAG | `017NBXpF` | Pick 1 of 3 voice-console designs for round two | $18.75 |
-| TickTick → LinkedIn loop | `015VjH28` | Approve launching next batch of 50 sessions | $1.27 |
+| [Clinician-supervised mental health assistant](https://claude.ai/code/session_01HTQrffyxN7ctNKYk3YEuWh) | `01HTQrff` | Milestones 5–6 done, 91 tests green. Pick a surface style. | $45.20 |
+| [Ask My Brain — RAG voice console](https://claude.ai/code/session_017NBXpFwZ1nEKwkcEYndkA2) | `017NBXpF` | Three round-two console designs are ready. Pick one to develop. | $18.75 |
+| [Agent company floor-plan UI](https://claude.ai/code/session_019UMdbJABQ293tLbzBnyaCL) | `019UMdbJ` | Three design decisions in prd.md §7 — runtime, gate, messaging. | $12.30 |
+| [TickTick → LinkedIn automation loop](https://claude.ai/code/session_015VjH28XUuzGJDJGfEhEqce) | `015VjH28` | 10 post sessions launched. Wants approval to launch the next 50. | $1.27 |
 
----
+## 🔵 Waiting on nothing
 
-## 🟡 Blocked — I can clear these
-
-All 7 drafts exist. Each session is only offering an optional rewrite.
+Every draft is written. Each session is only offering an optional rewrite.
 
 | Session | ID | Question it's stuck on |
 |---|---|---|
-| India electric energy independence | `01M3gdD2` | Lead with the AI/data-center angle? |
-| Short attention span | `01FqAukR` | Lead with the notification finding? |
-| LLM wait time is the real pain | `01JqEVLs` | Tighter, or lean on the dopamine angle? |
-| Too many terminals | `01Jr3Bxr` | Shorter, or a different hook? |
-| Sarvam AI voice models | `01BJhAci` | Keep the guardrail hunch open? |
-| The agent-readable web | `01QPEoLN` | Punchier at ~120 words? |
-| Todos change with AI memory | `01WXCSKm` | Shorter cut of the 196 words? |
+| [Short attention span, nonstop distraction](https://claude.ai/code/session_01FqAukR8sWdA3du3YMbHRZZ) | `01FqAukR` | Lead with the notification finding instead of the goldfish debunk? |
+| [India needs electric energy independence](https://claude.ai/code/session_01M3gdD2hUaEiGm2AQDJGVRY) | `01M3gdD2` | Lead with the AI/data-centre angle instead? |
+| [Sarvam AI and Indian voice models](https://claude.ai/code/session_01BJhAciDkh1HKH8RHL3TfMt) | `01BJhAci` | Keep the guardrail hunch open instead of correcting it? |
+| [The web when agents read it, not humans](https://claude.ai/code/session_01QPEoLNDfVdW3iNtzgmBQb8) | `01QPEoLN` | Punchier at about 120 words? |
+| [Todos change with AI memory](https://claude.ai/code/session_01WXCSKmKiZdHbYtF4ghNpkB) | `01WXCSKm` | 196 words. Shorter cut? |
+| [Waiting time is the real dev pain with LLMs](https://claude.ai/code/session_01JqEVLsbqkCxjm6tubSunGC) | `01JqEVLs` | Tighter cut, or lean harder on the dopamine angle? |
+| [Too many terminals and shells to choose from](https://claude.ai/code/session_01Jr3Bxrob7vpaWPHPazi7Qi) | `01Jr3Bxr` | Shorter version, or a different opening hook? |
 
----
-
-## ⚫ Failed
+## 🔴 Failed
 
 | Session | ID | Failure |
 |---|---|---|
-| SCORM corporate training | `01BMeNFw` | ARCHIVED · `ede_diagnostic` `stop_reason=null` · needs relaunch |
+| [Corporate training modules with SCORM](https://claude.ai/code/session_01BMeNFwto3HNYVtP2THhojA) | `01BMeNFw` | Archived mid-turn. ede_diagnostic, stop_reason null. Needs a relaunch from the spec. |
 
----
+## 🟢 Shipped
 
-## 🟢 Done
-
-| Session | ID | Outcome |
-|---|---|---|
-| briefwire — topic news briefing | `019vwsyf` | Pushed to GitHub · 4 commits · 62 files · 35 tests green |
-| GAIA / Horizon Zero Dawn post | `01JRUQXC` | 224-word draft on multi-agent AI |
-| Token speed post | `01DMzV8E` | Draft on token speed as AI's real bottleneck |
-| AI storm resets eng leadership | `015Mc9RE` | 218-word draft |
-
----
+| Session | ID | Outcome | Spent |
+|---|---|---|---|
+| [Chitrakathe — event/birthday video site](https://claude.ai/code/session_01PqsG2XdNWnukK1wsHX2ZG1) | `01PqsG2X` | Security round 2: 6 real vulnerabilities fixed and verified. Known gaps documented. | $106.41 |
+| [LiveKit voice interview coach](https://claude.ai/code/session_01UK5q8KkuEV9yQKx1hqxVLS) | `01UK5q8K` | Responsive UI shipped at 390/720/1440px. Dark mode, 38 tests pass. | $26.29 |
+| [Figurine factory — 3D Pixar pipeline](https://claude.ai/code/session_014ZC5hWmizkFX6E4MyY91La) | `014ZC5hW` | Three-column UI shipped, commit 75b995a. 13 Bun + 30 Python tests green. | $23.65 |
+| [AI Loop Runner — spawner](https://claude.ai/code/session_017qqS1E3rSq7JNgEEvFhCFm) | `017qqS1E` | 9 spec-ready tasks picked and running. 6 spawn slots free, blocked on repos. | $13.30 |
+| [Kelu — ESP32 AI speaker](https://claude.ai/code/session_014taZnrrJffm6K9gFSjZGFc) | `014taZnr` | Milestone 1 firmware pushed (f1d882d), builds clean for esp32s3. Needs hardware bring-up. | $11.97 |
+| [briefwire — topic news briefing](https://claude.ai/code/session_019vwsyfNfWY8W1s16eS7zAt) | `019vwsyf` | Pushed to GitHub. 4 commits, 62 files, typecheck and 35 tests green. | $7.34 |
+| [Chat Jimmy and superfast tokens](https://claude.ai/code/session_01DMzV8Ey6zbxzYRoZt8YhTn) | `01DMzV8E` | Draft on token speed as AI's real bottleneck. | $0.49 |
+| [AI storm resets engineering leadership](https://claude.ai/code/session_015Mc9REmrnJbEBA51nEtB8p) | `015Mc9RE` | 218-word draft, hands-on learning over bandwagon adoption. | $0.30 |
+| [GAIA from Horizon Zero Dawn is close to real](https://claude.ai/code/session_01JRUQXCZPLnhxXGavrDXaSk) | `01JRUQXC` | 224-word draft on multi-agent AI architecture. | $0.28 |
 
 ## ⚪ Idle
 
 | Session | ID | State |
 |---|---|---|
-| Obedient-ai Claude Code plugin | `01QkmWRy` | Review-ready |
-| macbook-pro local bridge | `01UMQVoe` | Config reload applied |
-| macbook-pro / ModelCost bridge | `013dk8vH` | `main` clean, 0 unpushed |
+| [Obedient-ai Claude Code plugin](https://claude.ai/code/session_01QkmWRy5UxJPZ1U6twsrinf) | `01QkmWRy` | Review-ready. Nothing pending. |
+| [macbook-pro bridge — temporal-shore](https://claude.ai/code/session_01UMQVoeAZDFYP2SZu2zutDk) | `01UMQVoe` | Config reload applied, no diagnostics. |
+| [macbook-pro bridge — ModelCost](https://claude.ai/code/session_013dk8vHTwvLr6CPKWNVPheM) | `013dk8vH` | main clean, 0 unpushed commits. |
 
----
+## 🔌 Control mechanics
 
-## 💰 Cost watch
-
-| Session | Cost | Context used | Note |
-|---|---|---|---|
-| Clinician mental-health | **$45.20** | 506k / 1M | Highest burn in fleet |
-| Ask My Brain RAG | **$18.75** | 327k / 1M | |
-| Agent floor-plan UI | **$12.30** | 219k / 1M | |
-| briefwire | $7.34 | 189k / 1M | Complete |
-
-Rate limit: **allowed**, five-hour window, no overage.
-
----
-
-## 🔌 Messaging notes
-
-| Capability | Tool |
+| Capability | How |
 |---|---|
-| Push a prompt into a cloud session | `create_trigger` + `persistent_session_id`, or `fire_trigger` |
+| Vijay taps an action | Page writes to `commands/` in the artifact database |
+| Sweep drains the queue | `read_db` → execute → `write_db` status `done` |
+| Deliver into a session | `create_trigger` with `persistent_session_id` |
+| Relaunch a dead session | `create_session` |
 | Stop a runaway turn | `interrupt_session` |
-| Spawn a worker | `create_session` |
-| Discover local peers | `ListAgents` |
 
 `send_message` is **not** available on the Claude_Code_Remote server in this build.
+The artifact wake subscription was refused (HTTP 403), so the page is polled on the
+5-minute cron rather than pushed.
