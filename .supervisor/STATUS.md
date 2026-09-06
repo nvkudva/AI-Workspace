@@ -1,6 +1,6 @@
 # Fleet status
 
-Swept 2026-09-06T16:05:00Z · burn $290.02
+Swept 2026-09-06T16:25:00Z · burn $290.02
 
 Supervisor is LOCAL. Cloud rows are frozen and read-only — no Claude_Code_Remote MCP here.
 Local rows carry no spend or context figures.
@@ -48,4 +48,4 @@ Local rows carry no spend or context figures.
 - **AI - Plugin - Obedient-ai Claude** — Local · scratch workspace · idle since 07:04
 - **App functionality without model download** — Local · VBoard · idle since Aug 31
 - **Generic agents in .claude/agents** — Local · VBoard · idle since Aug 31
-- **Dev server** — Local · AgentOS · idle since 16:02
+- **Dev server** — Local · AgentOS · idle since 16:22
