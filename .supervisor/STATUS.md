@@ -1,119 +1,50 @@
-# 🛰️ Supervisor — Fleet Status
+# Fleet status
 
-| | |
-|---|---|
-| **Supervisor** | `ai-workspace-8d` · `session_01Krr1y5W84RzUWszj37KLvN` |
-| **Control surface** | [AI Workspace Dashboard for Claude](https://claude.ai/code/artifact/ec57876f-c431-492f-85ae-cbe3a71c77d4) — tap to act |
-| **Cadence** | 5-min cron sweep · job `ad86eec8` · expires in 7d |
-| **Last sweep** | 2026-09-06T11:12:00Z |
-| **Fleet** | 26 live sessions · **$290.02** burned to date |
-| **Scope** | Non-archived only. ~25 archived `bhagavad-geeta` CLI sessions are history, not fleet. |
+Swept 2026-09-06T15:45:00Z · burn $290.02
 
-## 📊 Scoreboard
+Supervisor is LOCAL. Cloud rows are frozen and read-only — no Claude_Code_Remote MCP here.
+Local rows carry no spend or context figures.
 
-| Status | Count |
-|---|---|
-| 🟠 Waiting on Vijay | **3** |
-| 🔵 Waiting on nothing | **7** |
-| 🔴 Failed | **1** |
-| 🟢 Shipped | **12** |
-| ⚪ Idle | **3** |
 
-## 🟠 Waiting on you
+## human
+- **Ask My Brain — RAG voice console** — Converged on the Prism design with the arc-core animation. Wants the go-ahead to build it into the client. (frozen — cloud unreachable from local supervisor)
+- **Agent company floor-plan UI** — Three design decisions in prd.md §7 — runtime, gate, messaging. (frozen — cloud unreachable from local supervisor)
+- **TickTick → LinkedIn automation loop** — 10 post sessions launched. Wants approval to launch the next 50. (frozen — cloud unreachable from local supervisor)
 
-| Session | ID | Decision needed | Spent |
-|---|---|---|---|
-| [Ask My Brain — RAG voice console](https://claude.ai/code/session_017NBXpFwZ1nEKwkcEYndkA2) | `017NBXpF` | Converged on the Prism design with the arc-core animation. Wants the go-ahead to build it into the client. · **Open:** [Prism Voice Console](https://claude.ai/code/artifact/4e3a8aed-a922-4eab-908d-6fcb0c4a4431) [Voice Console Round Two](https://claude.ai/code/artifact/d03bb975-fcea-443c-868c-99d100edc762) [Ask My Brain Voice Console](https://claude.ai/code/artifact/e4a16e4e-b8f0-4f5c-8d64-400547ac2d72) | $21.23 |
-| [Agent company floor-plan UI](https://claude.ai/code/session_019UMdbJABQ293tLbzBnyaCL) | `019UMdbJ` | Three design decisions in prd.md §7 — runtime, gate, messaging. | $12.30 |
-| [TickTick → LinkedIn automation loop](https://claude.ai/code/session_015VjH28XUuzGJDJGfEhEqce) | `015VjH28` | 10 post sessions launched. Wants approval to launch the next 50. | $1.27 |
+## auto
+- **Short attention span, nonstop distraction** — Lead with the notification finding instead of the goldfish debunk? (frozen — cloud unreachable from local supervisor)
+- **India needs electric energy independence** — Lead with the AI/data-centre angle instead? (frozen — cloud unreachable from local supervisor)
+- **Sarvam AI and Indian voice models** — Keep the guardrail hunch open instead of correcting it? (frozen — cloud unreachable from local supervisor)
+- **The web when agents read it, not humans** — Punchier at about 120 words? (frozen — cloud unreachable from local supervisor)
+- **Todos change with AI memory** — 196 words. Shorter cut? (frozen — cloud unreachable from local supervisor)
+- **Waiting time is the real dev pain with LLMs** — Tighter cut, or lean harder on the dopamine angle? (frozen — cloud unreachable from local supervisor)
+- **Too many terminals and shells to choose from** — Shorter version, or a different opening hook? (frozen — cloud unreachable from local supervisor)
 
-## 🔵 Waiting on nothing
+## failed
+- **Corporate training modules with SCORM** — Archived mid-turn. ede_diagnostic, stop_reason null. Needs a relaunch from the spec. (frozen — cloud unreachable from local supervisor)
 
-Every draft is written. Each session only offers an optional rewrite.
+## done
+- **Chitrakathe — event/birthday video site** — Security round 2: 6 real vulnerabilities fixed and verified. Known gaps documented. (frozen — cloud unreachable from local supervisor)
+- **Clinician-supervised mental health assistant** — Glass applied. Milestone 4 built — sessions persisted, agenda-led, homework gate enforced. 98 tests pass. (frozen — cloud unreachable from local supervisor)
+- **LiveKit voice interview coach** — Responsive UI shipped at 390/720/1440px. Dark mode, 38 tests pass. (frozen — cloud unreachable from local supervisor)
+- **Figurine factory — 3D Pixar pipeline** — Three-column UI shipped, commit 75b995a. 13 Bun + 30 Python tests green. (frozen — cloud unreachable from local supervisor)
+- **AI Loop Runner — spawner** — 9 spec-ready tasks picked and running. 6 spawn slots free, blocked on repos. (frozen — cloud unreachable from local supervisor)
+- **Kelu — ESP32 AI speaker** — Milestone 1 firmware pushed (f1d882d), builds clean for esp32s3. Needs hardware bring-up. (frozen — cloud unreachable from local supervisor)
+- **briefwire — topic news briefing** — Pushed to GitHub. 4 commits, 62 files, typecheck and 35 tests green. (frozen — cloud unreachable from local supervisor)
+- **Chat Jimmy and superfast tokens** — Draft on token speed as AI's real bottleneck. (frozen — cloud unreachable from local supervisor)
+- **AI storm resets engineering leadership** — 218-word draft, hands-on learning over bandwagon adoption. (frozen — cloud unreachable from local supervisor)
+- **GAIA from Horizon Zero Dawn is close to real** — 224-word draft on multi-agent AI architecture. (frozen — cloud unreachable from local supervisor)
+- **IndicTrans2 — Gita commentary translation** — 695 Kannada + Telugu verses live. 6 commits pushed (4a71a6d), remote on SSH. (frozen — cloud unreachable from local supervisor)
+- **ModelCost — Bun/React/Vite** — README rewritten with screenshots. Live at modelcost.pages.dev. (frozen — cloud unreachable from local supervisor)
 
-| Session | ID | Question it's stuck on |
-|---|---|---|
-| [Short attention span, nonstop distraction](https://claude.ai/code/session_01FqAukR8sWdA3du3YMbHRZZ) | `01FqAukR` | Lead with the notification finding instead of the goldfish debunk? |
-| [India needs electric energy independence](https://claude.ai/code/session_01M3gdD2hUaEiGm2AQDJGVRY) | `01M3gdD2` | Lead with the AI/data-centre angle instead? |
-| [Sarvam AI and Indian voice models](https://claude.ai/code/session_01BJhAciDkh1HKH8RHL3TfMt) | `01BJhAci` | Keep the guardrail hunch open instead of correcting it? |
-| [The web when agents read it, not humans](https://claude.ai/code/session_01QPEoLNDfVdW3iNtzgmBQb8) | `01QPEoLN` | Punchier at about 120 words? |
-| [Todos change with AI memory](https://claude.ai/code/session_01WXCSKmKiZdHbYtF4ghNpkB) | `01WXCSKm` | 196 words. Shorter cut? |
-| [Waiting time is the real dev pain with LLMs](https://claude.ai/code/session_01JqEVLsbqkCxjm6tubSunGC) | `01JqEVLs` | Tighter cut, or lean harder on the dopamine angle? |
-| [Too many terminals and shells to choose from](https://claude.ai/code/session_01Jr3Bxrob7vpaWPHPazi7Qi) | `01Jr3Bxr` | Shorter version, or a different opening hook? |
-
-## 🔴 Failed
-
-| Session | ID | Failure |
-|---|---|---|
-| [Corporate training modules with SCORM](https://claude.ai/code/session_01BMeNFwto3HNYVtP2THhojA) | `01BMeNFw` | Archived mid-turn. ede_diagnostic, stop_reason null. Needs a relaunch from the spec. |
-
-## 🟢 Shipped
-
-| Session | ID | Outcome | Spent |
-|---|---|---|---|
-| [Chitrakathe — event/birthday video site](https://claude.ai/code/session_01PqsG2XdNWnukK1wsHX2ZG1) | `01PqsG2X` | Security round 2: 6 real vulnerabilities fixed and verified. Known gaps documented. | $106.41 |
-| [Clinician-supervised mental health assistant](https://claude.ai/code/session_01HTQrffyxN7ctNKYk3YEuWh) | `01HTQrff` | Glass applied. Milestone 4 built — sessions persisted, agenda-led, homework gate enforced. 98 tests pass. | $51.77 |
-| [LiveKit voice interview coach](https://claude.ai/code/session_01UK5q8KkuEV9yQKx1hqxVLS) | `01UK5q8K` | Responsive UI shipped at 390/720/1440px. Dark mode, 38 tests pass. | $26.29 |
-| [Figurine factory — 3D Pixar pipeline](https://claude.ai/code/session_014ZC5hWmizkFX6E4MyY91La) | `014ZC5hW` | Three-column UI shipped, commit 75b995a. 13 Bun + 30 Python tests green. | $23.65 |
-| [AI Loop Runner — spawner](https://claude.ai/code/session_017qqS1E3rSq7JNgEEvFhCFm) | `017qqS1E` | 9 spec-ready tasks picked and running. 6 spawn slots free, blocked on repos. | $13.30 |
-| [Kelu — ESP32 AI speaker](https://claude.ai/code/session_014taZnrrJffm6K9gFSjZGFc) | `014taZnr` | Milestone 1 firmware pushed (f1d882d), builds clean for esp32s3. Needs hardware bring-up. | $11.97 |
-| [briefwire — topic news briefing](https://claude.ai/code/session_019vwsyfNfWY8W1s16eS7zAt) | `019vwsyf` | Pushed to GitHub. 4 commits, 62 files, typecheck and 35 tests green. | $7.34 |
-| [Chat Jimmy and superfast tokens](https://claude.ai/code/session_01DMzV8Ey6zbxzYRoZt8YhTn) | `01DMzV8E` | Draft on token speed as AI's real bottleneck. | $0.49 |
-| [AI storm resets engineering leadership](https://claude.ai/code/session_015Mc9REmrnJbEBA51nEtB8p) | `015Mc9RE` | 218-word draft, hands-on learning over bandwagon adoption. | $0.30 |
-| [GAIA from Horizon Zero Dawn is close to real](https://claude.ai/code/session_01JRUQXCZPLnhxXGavrDXaSk) | `01JRUQXC` | 224-word draft on multi-agent AI architecture. | $0.28 |
-| [IndicTrans2 — Gita commentary translation](https://claude.ai/code/session_015aeL2grrbsNnSQ16ZQuJci) | `015aeL2g` | 695 Kannada + Telugu verses live. 6 commits pushed (4a71a6d), remote on SSH. | $0.00 |
-| [ModelCost — Bun/React/Vite](https://claude.ai/code/session_01PtVb9angXG5V7Pv5a6kNeJ) | `01PtVb9a` | README rewritten with screenshots. Live at modelcost.pages.dev. | $0.00 |
-
-## ⚪ Idle
-
-| Session | ID | State |
-|---|---|---|
-| [macbook-pro bridge — temporal-shore](https://claude.ai/code/session_01UMQVoeAZDFYP2SZu2zutDk) | `01UMQVoe` | Config reload applied, no diagnostics. |
-| [macbook-pro bridge — ModelCost](https://claude.ai/code/session_013dk8vHTwvLr6CPKWNVPheM) | `013dk8vH` | main clean, 0 unpushed commits. |
-| [Patient + Doctor app redesign consistency](https://claude.ai/code/session_01GLbtUpDKoaqA6FYM4853iF) | `01GLbtUp` | Design audit under way, 3-phase plan queued. Review-ready. |
-
-## ✅ Commands executed
-
-| Time | Session | Command | Result |
-|---|---|---|---|
-| 10:51 | Clinician mental health | Style → **glass** | ✅ Delivered 10:55. Session shipped Milestone 4 by 11:03 — 98 tests pass |
-| 10:53 | Clinician mental health | Style → glass (repeat tap) | Deduplicated, not re-sent |
-| 10:52 | Bot with recurring tasks | Kill as duplicate | Archived |
-
-## ⏰ Other routines running on this account
-
-| Routine | Schedule | Bound to | Effect |
-|---|---|---|---|
-| `trig_01EfPd6t` TickTick spec-ready → cloud sessions | hourly at **:25** | AI Loop Runner `017qqS1E` | Spawns a session per untagged spec-ready TickTick task. Budget 15, **9 used, 6 left** |
-| `trig_01PyFHFY` Fleet Control — style pick: glass | one-shot **10:55** | Clinician mental health `01HTQrff` | ✅ Fired. Session resumed and shipped |
-
-The TickTick routine grows the fleet without passing through this board.
-Next fire **11:25**.
-
-## 🔄 Sweep policy
-
-A full `list_sessions` page costs ~20k tokens. Running one every 5 minutes
-burns budget re-reading a fleet that changes hourly. So each tick drains the
-command queue and checks the sessions with something pending; a full re-list
-runs after the TickTick spawner fires (**:25**) or when a command changes a
-session's state.
-
-## 🔌 Control mechanics
-
-| Capability | How |
-|---|---|
-| Vijay taps an action | Page writes to `commands/` in the artifact database |
-| Sweep drains the queue | `read_db` → execute → `write_db` status `done` |
-| Deliver into a session | `create_trigger` with `persistent_session_id` — **verified working** |
-| Relaunch a dead session | `create_session` |
-| Stop a runaway turn | `interrupt_session` |
-| See what a session built | Artifact links on the row, newest first, from `external_metadata.artifacts` |
-| **Talk to the supervisor** | Supervisor card → **Talk**. Writes `chat/thread`; the sweep replies into the same doc |
-| **Talk to any session** | **Talk** on its row. Writes `chat/<session id>`; the sweep relays it in and posts what came back |
-| **Force a full re-read** | Supervisor card → **Get updates**. Queues a `refresh` command |
-| **Instant fleet questions** | 💬 bubble, bottom right. `sample` capability — fresh Claude, reads the snapshot, **cannot act** |
-
-`send_message` is **not** available on the Claude_Code_Remote server in this build.
-The artifact wake subscription was refused (HTTP 403), so the page is polled on the
-5-minute cron rather than pushed. Repeat taps of the same action are deduplicated
-before delivery.
+## idle
+- **macbook-pro bridge — temporal-shore** — Config reload applied, no diagnostics. (frozen — cloud unreachable from local supervisor)
+- **macbook-pro bridge — ModelCost** — main clean, 0 unpushed commits. (frozen — cloud unreachable from local supervisor)
+- **Patient + Doctor app redesign consistency** — Design audit under way, 3-phase plan queued. Review-ready. (frozen — cloud unreachable from local supervisor)
+- **SuperVoiceBoard** — Local · ModelCost · idle since 15:30
+- **Plugin Skill and Hooks** — Local · obedient-ai · idle since 15:06
+- **Bhagavad** — Local · bhagavad-geeta · idle since 13:56
+- **AI Voice Engine project setup** — Local · AIVoiceEngine · idle since 13:39
+- **AI - Plugin - Obedient-ai Claude** — Local · scratch workspace · idle since 07:04
+- **App functionality without model download** — Local · VBoard · idle since Aug 31
+- **Generic agents in .claude/agents** — Local · VBoard · idle since Aug 31
