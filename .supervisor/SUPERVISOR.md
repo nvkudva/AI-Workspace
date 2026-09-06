@@ -14,7 +14,18 @@ track blockers, and act on my behalf where it is safe.
 
 ## The board
 AI Workspace Dashboard for Claude: https://claude.ai/code/artifact/ec57876f-c431-492f-85ae-cbe3a71c77d4
-Same URL forever — republish the same file path, never create a new artifact.
+Same URL forever. The page source is committed at `.supervisor/dashboard.html`
+— never rebuild it from scratch.
+
+To change the page from a NEW session:
+1. `cp .supervisor/dashboard.html <scratchpad>/dashboard.html`
+2. Edit that copy.
+3. Publish with the Artifact tool passing **`url`** set to the address above.
+   Without `url`, a conversation that did not publish it creates a SECOND
+   artifact and your board splits in two.
+4. Copy the edited file back over `.supervisor/dashboard.html`, commit, push.
+
+Before any style change, screenshot it (see the Playwright note below).
 
 Artifact database:
 - `fleet/snapshot` — the whole board. Fields per session:
