@@ -5,8 +5,8 @@
 | **Supervisor** | `ai-workspace-8d` · `session_01Krr1y5W84RzUWszj37KLvN` |
 | **Control surface** | [Fleet Control](https://claude.ai/code/artifact/ec57876f-c431-492f-85ae-cbe3a71c77d4) — tap to act |
 | **Cadence** | 5-min cron sweep · job `6a6f0bdb` · expires in 7d |
-| **Last sweep** | 2026-09-06T11:05:00Z |
-| **Fleet** | 27 live sessions · **$282.84** burned to date |
+| **Last sweep** | 2026-09-06T11:12:00Z |
+| **Fleet** | 26 live sessions · **$290.02** burned to date |
 | **Scope** | Non-archived only. ~25 archived `bhagavad-geeta` CLI sessions are history, not fleet. |
 
 ## 📊 Scoreboard
@@ -17,13 +17,13 @@
 | 🔵 Waiting on nothing | **7** |
 | 🔴 Failed | **1** |
 | 🟢 Shipped | **12** |
-| ⚪ Idle | **4** |
+| ⚪ Idle | **3** |
 
 ## 🟠 Waiting on you
 
 | Session | ID | Decision needed | Spent |
 |---|---|---|---|
-| [Ask My Brain — RAG voice console](https://claude.ai/code/session_017NBXpFwZ1nEKwkcEYndkA2) | `017NBXpF` | Three round-two console designs are ready. Pick one to develop. | $18.75 |
+| [Ask My Brain — RAG voice console](https://claude.ai/code/session_017NBXpFwZ1nEKwkcEYndkA2) | `017NBXpF` | Converged on the Prism design with the arc-core animation. Wants the go-ahead to build it into the client. · **Open:** [Prism Voice Console](https://claude.ai/code/artifact/4e3a8aed-a922-4eab-908d-6fcb0c4a4431) [Voice Console Round Two](https://claude.ai/code/artifact/d03bb975-fcea-443c-868c-99d100edc762) [Ask My Brain Voice Console](https://claude.ai/code/artifact/e4a16e4e-b8f0-4f5c-8d64-400547ac2d72) | $21.23 |
 | [Agent company floor-plan UI](https://claude.ai/code/session_019UMdbJABQ293tLbzBnyaCL) | `019UMdbJ` | Three design decisions in prd.md §7 — runtime, gate, messaging. | $12.30 |
 | [TickTick → LinkedIn automation loop](https://claude.ai/code/session_015VjH28XUuzGJDJGfEhEqce) | `015VjH28` | 10 post sessions launched. Wants approval to launch the next 50. | $1.27 |
 
@@ -68,7 +68,6 @@ Every draft is written. Each session only offers an optional rewrite.
 
 | Session | ID | State |
 |---|---|---|
-| [Obedient-ai Claude Code plugin](https://claude.ai/code/session_01QkmWRy5UxJPZ1U6twsrinf) | `01QkmWRy` | Review-ready. Nothing pending. |
 | [macbook-pro bridge — temporal-shore](https://claude.ai/code/session_01UMQVoeAZDFYP2SZu2zutDk) | `01UMQVoe` | Config reload applied, no diagnostics. |
 | [macbook-pro bridge — ModelCost](https://claude.ai/code/session_013dk8vHTwvLr6CPKWNVPheM) | `013dk8vH` | main clean, 0 unpushed commits. |
 | [Patient + Doctor app redesign consistency](https://claude.ai/code/session_01GLbtUpDKoaqA6FYM4853iF) | `01GLbtUp` | Design audit under way, 3-phase plan queued. Review-ready. |
@@ -108,6 +107,7 @@ session's state.
 | Deliver into a session | `create_trigger` with `persistent_session_id` — **verified working** |
 | Relaunch a dead session | `create_session` |
 | Stop a runaway turn | `interrupt_session` |
+| See what a session built | Artifact links on the row, newest first, from `external_metadata.artifacts` |
 
 `send_message` is **not** available on the Claude_Code_Remote server in this build.
 The artifact wake subscription was refused (HTTP 403), so the page is polled on the
