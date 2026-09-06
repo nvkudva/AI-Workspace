@@ -3,7 +3,7 @@
 | | |
 |---|---|
 | **Supervisor** | `ai-workspace-8d` · `session_01Krr1y5W84RzUWszj37KLvN` |
-| **Control surface** | [Fleet Control](https://claude.ai/code/artifact/ec57876f-c431-492f-85ae-cbe3a71c77d4) — tap to act |
+| **Control surface** | [AI Workspace Dashboard for Claude](https://claude.ai/code/artifact/ec57876f-c431-492f-85ae-cbe3a71c77d4) — tap to act |
 | **Cadence** | 5-min cron sweep · job `ad86eec8` · expires in 7d |
 | **Last sweep** | 2026-09-06T11:12:00Z |
 | **Fleet** | 26 live sessions · **$290.02** burned to date |

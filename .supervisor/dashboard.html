@@ -1,0 +1,753 @@
+<title>AI Workspace Dashboard for Claude</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{
+  --paper:#f4f5f7; --panel:#ffffff; --sunk:#eceef2;
+  --ink:#171a21; --ink-2:#4b5262; --ink-3:#7b8394;
+  --line:#dcdfe6; --line-2:#c8ccd6;
+  --amber:#b06a05; --amber-soft:#fbeed6;
+  --slate:#3d5a94; --slate-soft:#e3eaf7;
+  --crimson:#a52432; --crimson-soft:#fadfe2;
+  --moss:#2c6e4b; --moss-soft:#dcefe3;
+  --quiet:#6f7787; --quiet-soft:#e7e9ee;
+  --focus:#b06a05; --on-accent:#fffaf2; --super:#6b4ea8; --super-soft:#efeaf9; --super-ink:#fff;
+  --shadow:0 1px 2px rgba(20,24,33,.07), 0 6px 16px -10px rgba(20,24,33,.25);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0f1117; --panel:#171a22; --sunk:#12151c;
+    --ink:#e9ebf0; --ink-2:#a8b0c0; --ink-3:#727b8d;
+    --line:#282d38; --line-2:#39404e;
+    --amber:#e8a33c; --amber-soft:#2e2413;
+    --slate:#8fadea; --slate-soft:#182031;
+    --crimson:#ee7480; --crimson-soft:#2c1619;
+    --moss:#68c194; --moss-soft:#132520;
+    --quiet:#8b93a3; --quiet-soft:#1b1f27;
+    --focus:#e8a33c; --on-accent:#1a1206; --super:#b39ae8; --super-soft:#231d33; --super-ink:#191226;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 20px -12px rgba(0,0,0,.7);
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0f1117; --panel:#171a22; --sunk:#12151c;
+  --ink:#e9ebf0; --ink-2:#a8b0c0; --ink-3:#727b8d;
+  --line:#282d38; --line-2:#39404e;
+  --amber:#e8a33c; --amber-soft:#2e2413;
+  --slate:#8fadea; --slate-soft:#182031;
+  --crimson:#ee7480; --crimson-soft:#2c1619;
+  --moss:#68c194; --moss-soft:#132520;
+  --quiet:#8b93a3; --quiet-soft:#1b1f27;
+  --focus:#e8a33c; --on-accent:#1a1206; --super:#b39ae8; --super-soft:#231d33; --super-ink:#191226;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 20px -12px rgba(0,0,0,.7);
+}
+*{box-sizing:border-box}
+body{
+  background:var(--paper); color:var(--ink);
+  font-family:"IBM Plex Sans",system-ui,-apple-system,sans-serif;
+  font-size:14px; line-height:1.5;
+}
+.wrap{max-width:1180px;margin:0 auto;padding:28px 20px 72px}
+
+/* ---- masthead ---- */
+.mast{display:flex;flex-wrap:wrap;align-items:flex-end;gap:16px 28px;padding-bottom:18px;border-bottom:1px solid var(--line-2)}
+h1{
+  font-family:Archivo,system-ui,sans-serif;font-weight:700;font-size:30px;
+  letter-spacing:-.022em;margin:0;line-height:1.05;text-wrap:balance;
+}
+.mast .sub{color:var(--ink-2);margin:5px 0 0;max-width:56ch}
+.mast-meta{margin-left:auto;display:flex;gap:22px;flex-wrap:wrap}
+.meta-cell{display:flex;flex-direction:column;gap:2px}
+.meta-k{font-size:10.5px;text-transform:uppercase;letter-spacing:.09em;color:var(--ink-3);font-weight:600}
+.meta-v{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:12.5px;font-variant-numeric:tabular-nums;color:var(--ink)}
+.pulse{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--moss);margin-right:6px;vertical-align:middle}
+@media (prefers-reduced-motion:no-preference){
+  .pulse{animation:breathe 2.6s ease-in-out infinite}
+  @keyframes breathe{0%,100%{opacity:1}50%{opacity:.32}}
+}
+
+/* ---- scoreboard ---- */
+.board{display:grid;grid-template-columns:repeat(auto-fit,minmax(132px,1fr));gap:1px;background:var(--line);
+  border:1px solid var(--line);border-radius:8px;overflow:hidden;margin:22px 0 30px}
+.tile{background:var(--panel);padding:13px 15px;display:flex;flex-direction:column;gap:3px;text-align:left;
+  border:0;border-top:2px solid transparent;cursor:pointer;font:inherit;color:inherit;transition:background .12s}
+.tile:hover{background:var(--sunk)}
+.tile[aria-pressed="true"]{background:var(--sunk)}
+.tile .n{font-family:"IBM Plex Mono",monospace;font-size:25px;font-weight:600;font-variant-numeric:tabular-nums;line-height:1}
+.tile .l{font-size:11px;text-transform:uppercase;letter-spacing:.075em;font-weight:600;color:var(--ink-3)}
+.tile.human{border-top-color:var(--amber)} .tile.human .n{color:var(--amber)}
+.tile.auto{border-top-color:var(--slate)} .tile.auto .n{color:var(--slate)}
+.tile.failed{border-top-color:var(--crimson)} .tile.failed .n{color:var(--crimson)}
+.tile.done{border-top-color:var(--moss)} .tile.done .n{color:var(--moss)}
+.tile.idle{border-top-color:var(--quiet)} .tile.idle .n{color:var(--quiet)}
+
+/* ---- groups ---- */
+.group{margin-bottom:34px}
+.ghead{display:flex;align-items:baseline;gap:10px;margin:0 0 3px}
+.ghead h2{font-family:Archivo,sans-serif;font-size:15px;font-weight:600;letter-spacing:.01em;margin:0}
+.ghead .count{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--ink-3);font-variant-numeric:tabular-nums}
+.gnote{color:var(--ink-2);margin:0 0 12px;font-size:13px;max-width:70ch}
+.rows{display:flex;flex-direction:column;gap:8px}
+
+/* ---- session row ---- */
+.row{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--stripe,var(--quiet));
+  border-radius:6px;padding:12px 14px;display:grid;grid-template-columns:1fr auto;gap:10px 18px;align-items:start}
+.row.human{--stripe:var(--amber)} .row.auto{--stripe:var(--slate)}
+.row.failed{--stripe:var(--crimson)} .row.done{--stripe:var(--moss)} .row.idle{--stripe:var(--quiet)}
+.rtitle{font-weight:600;font-size:14.5px;letter-spacing:-.005em;margin:0 0 2px}
+.rtitle a{color:inherit;text-decoration:none;border-bottom:1px solid transparent}
+.rtitle a:hover{border-bottom-color:var(--line-2)}
+.rask{color:var(--ink-2);margin:0 0 7px;max-width:62ch}
+.rask.done{color:var(--ink-3)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;align-items:center;font-family:"IBM Plex Mono",monospace;font-size:11px}
+.chip{background:var(--sunk);border:1px solid var(--line);border-radius:3px;padding:1px 6px;color:var(--ink-3);
+  font-variant-numeric:tabular-nums}
+.chip.spend{color:var(--ink-2);font-weight:500}
+.chip.hot{background:var(--crimson-soft);border-color:transparent;color:var(--crimson);font-weight:600}
+.arts{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 8px}
+.art{display:inline-flex;align-items:center;gap:5px;text-decoration:none;font-size:12px;font-weight:500;
+  background:var(--slate-soft);color:var(--slate);border:1px solid transparent;border-radius:4px;
+  padding:3px 9px;transition:.12s;max-width:100%}
+.art:hover{border-color:var(--slate);filter:brightness(.98)}
+.art .ico{font-size:12px;line-height:1}
+.art .nm{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.art .out{opacity:.6;font-size:11px}
+.rtitle{display:flex;align-items:baseline;gap:7px;flex-wrap:wrap}
+.copy{border:1px solid var(--line);background:var(--sunk);padding:2px 8px;border-radius:4px;cursor:pointer;
+  color:var(--ink-3);font-size:11px;font-weight:500;transition:.12s;white-space:nowrap;line-height:1.5}
+.copy:hover{color:var(--ink);border-color:var(--line-2)}
+.copy.ok{color:var(--moss)}
+.urlbox{grid-column:1/-1;display:none;gap:8px;align-items:center;padding-top:8px;border-top:1px dashed var(--line-2)}
+.urlbox.open{display:flex}
+.urlbox input{flex:1;min-width:0;background:var(--sunk);border:1px solid var(--line-2);color:var(--ink);
+  border-radius:5px;padding:6px 9px;font-family:"IBM Plex Mono",monospace;font-size:12px}
+.urlbox span{font-size:12px;color:var(--ink-3)}
+.acts{display:flex;flex-wrap:wrap;gap:6px;justify-content:flex-end;align-items:flex-start;max-width:560px}
+/* one height and one shape for every control in an action row */
+.acts .btn{height:30px;display:inline-flex;align-items:center;justify-content:center;line-height:1;border-radius:5px}
+.acts a.btn{text-decoration:none}
+#refreshBtn{min-width:112px;font-variant-numeric:tabular-nums}
+.supercard .acts{max-width:none;flex-wrap:nowrap;align-items:center}
+.supercard .acts .copy{height:30px;display:inline-flex;align-items:center;padding:0 10px}
+
+/* ---- supervisor console ---- */
+.supercard{background:var(--panel);border:1px solid var(--super);border-left:3px solid var(--super);
+  border-radius:6px;padding:13px 15px;margin:0 0 30px;display:grid;grid-template-columns:1fr auto;gap:10px 18px;align-items:start}
+.eyebrow{font-size:10px;text-transform:uppercase;letter-spacing:.11em;font-weight:700;color:var(--super);margin:0 0 3px}
+.supercard h2{font-family:Archivo,sans-serif;font-size:15px;font-weight:600;margin:0 0 3px}
+.supercard .line{color:var(--ink-2);margin:0 0 7px;max-width:64ch;font-size:13px}
+.btn.super{background:var(--super);border-color:var(--super);color:var(--super-ink);font-weight:600}
+.btn.super:hover{filter:brightness(1.08)}
+.talk{grid-column:1/-1;display:none;flex-direction:column;gap:9px;padding-top:11px;border-top:1px dashed var(--super)}
+.talk.open{display:flex}
+.said{background:var(--super-soft);border-radius:6px;padding:10px 12px;font-size:13px;line-height:1.55;
+  white-space:pre-wrap;max-height:190px;overflow-y:auto}
+.said .who{display:block;font-size:10px;text-transform:uppercase;letter-spacing:.09em;font-weight:700;
+  color:var(--super);margin-bottom:4px}
+.talkform{display:flex;gap:8px}
+.talkform input{flex:1;min-width:0;background:var(--sunk);border:1px solid var(--line-2);color:var(--ink);
+  border-radius:5px;padding:8px 11px;font:inherit;font-size:13px}
+.talkmeta{display:flex;gap:12px;align-items:center;font-size:11.5px;color:var(--ink-3)}
+.talkmeta button{border:0;background:none;color:var(--super);cursor:pointer;font:inherit;font-size:11.5px;
+  font-weight:600;padding:0;text-decoration:underline;text-underline-offset:2px}
+.hist{display:none;flex-direction:column;gap:7px;max-height:260px;overflow-y:auto;padding-right:2px}
+.hist.open{display:flex}
+.msg{font-size:12.5px;line-height:1.5;padding:7px 10px;border-radius:5px;white-space:pre-wrap}
+.msg.v{background:var(--sunk);color:var(--ink)}
+.msg.c{background:var(--super-soft);color:var(--ink)}
+.msg b{display:block;font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-3);margin-bottom:2px}
+.pending{font-size:12px;color:var(--super);font-weight:600}
+.rtalk{grid-column:1/-1;display:none;flex-direction:column;gap:9px;padding-top:10px;border-top:1px dashed var(--line-2)}
+.rtalk.open{display:flex}
+.rtalk .said{background:var(--sunk)}
+.rtalk .said .who{color:var(--ink-3)}
+.rtalk .msg.c{background:var(--amber-soft)}
+.rtalk .msg.s{background:var(--sunk)}
+
+/* ---- ask-claude bubble ---- */
+.fab{position:fixed;right:20px;bottom:20px;width:50px;height:50px;border-radius:50%;border:0;cursor:pointer;
+  background:var(--ink);color:var(--paper);font-size:21px;line-height:1;box-shadow:var(--shadow);z-index:40;
+  display:flex;align-items:center;justify-content:center;transition:transform .15s}
+.fab:hover{transform:scale(1.06)}
+.chatwin{position:fixed;right:20px;bottom:80px;width:min(370px,calc(100vw - 40px));max-height:min(520px,calc(100vh - 120px));
+  background:var(--panel);border:1px solid var(--line-2);border-radius:10px;box-shadow:var(--shadow);
+  display:none;flex-direction:column;overflow:hidden;z-index:40}
+.chatwin.open{display:flex}
+.chead{padding:11px 14px;border-bottom:1px solid var(--line);background:var(--sunk);display:flex;align-items:baseline;gap:8px}
+.chead h3{font-family:Archivo,sans-serif;font-size:13.5px;margin:0;font-weight:600}
+.chead small{color:var(--ink-3);font-size:11px}
+.chead .x{margin-left:auto;border:0;background:none;cursor:pointer;color:var(--ink-3);font-size:16px;line-height:1;padding:0 2px}
+.chead .x:hover{color:var(--ink)}
+.clog{flex:1;overflow-y:auto;padding:12px 14px;display:flex;flex-direction:column;gap:9px;min-height:120px}
+.cmsg{font-size:13px;line-height:1.55;white-space:pre-wrap;border-radius:7px;padding:8px 11px;max-width:92%}
+.cmsg.u{background:var(--ink);color:var(--paper);align-self:flex-end}
+.cmsg.a{background:var(--sunk);color:var(--ink);align-self:flex-start}
+.cmsg.err{background:var(--crimson-soft);color:var(--crimson);align-self:flex-start}
+.cseed{font-size:12px;color:var(--ink-3);line-height:1.5}
+.cfoot{border-top:1px solid var(--line);padding:10px;display:flex;gap:7px}
+.cfoot input{flex:1;min-width:0;background:var(--sunk);border:1px solid var(--line-2);color:var(--ink);
+  border-radius:5px;padding:8px 10px;font:inherit;font-size:13px}
+.cfoot input::placeholder{color:var(--ink-3)}
+@media (max-width:760px){
+  .chatwin{right:12px;left:12px;width:auto;bottom:76px}
+  .fab{right:14px;bottom:14px}
+}
+@media (max-width:760px){
+  .row{grid-template-columns:1fr}
+  .acts{justify-content:flex-start;max-width:none}
+  .mast-meta{margin-left:0}
+}
+
+/* ---- buttons ---- */
+button{font:inherit}
+.btn{border:1px solid var(--line-2);background:var(--panel);color:var(--ink);border-radius:5px;
+  padding:5px 11px;font-size:12.5px;font-weight:500;cursor:pointer;white-space:nowrap;transition:.12s}
+.btn:hover{background:var(--sunk);border-color:var(--ink-3)}
+.btn:active{transform:translateY(1px)}
+.btn.primary{background:var(--amber);border-color:var(--amber);color:var(--on-accent);font-weight:600}
+.btn.primary:hover{filter:brightness(1.08)}
+.btn.danger{color:var(--crimson);border-color:var(--crimson)}
+.btn.danger:hover{background:var(--crimson-soft)}
+.btn.ghost{border-color:var(--line);color:var(--ink-2);background:transparent}
+.btn.ghost:hover{color:var(--ink);background:var(--sunk)}
+.btn[disabled]{opacity:.45;cursor:default;transform:none}
+:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+
+/* ---- instruct drawer ---- */
+.instruct{grid-column:1/-1;display:none;gap:8px;padding-top:9px;border-top:1px dashed var(--line-2)}
+.instruct.open{display:flex}
+.instruct input{flex:1;min-width:0;background:var(--sunk);border:1px solid var(--line-2);color:var(--ink);
+  border-radius:5px;padding:7px 10px;font:inherit;font-size:13px}
+.instruct input::placeholder{color:var(--ink-3)}
+
+/* ---- queue ---- */
+.queue{background:var(--panel);border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.qhead{display:flex;align-items:center;gap:10px;padding:11px 15px;background:var(--sunk);border-bottom:1px solid var(--line)}
+.qhead h2{font-family:Archivo,sans-serif;font-size:14px;margin:0;font-weight:600}
+.qhead .badge{font-family:"IBM Plex Mono",monospace;font-size:11px;background:var(--amber-soft);color:var(--amber);
+  border-radius:3px;padding:1px 7px;font-weight:600;font-variant-numeric:tabular-nums}
+.qhead .spacer{margin-left:auto}
+.qbody{max-height:290px;overflow-y:auto}
+table{width:100%;border-collapse:collapse;font-size:12.5px}
+th{text-align:left;font-size:10.5px;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-3);
+  font-weight:600;padding:8px 15px;border-bottom:1px solid var(--line);position:sticky;top:0;background:var(--panel)}
+td{padding:8px 15px;border-bottom:1px solid var(--line);vertical-align:top}
+tr:last-child td{border-bottom:0}
+td.mono{font-family:"IBM Plex Mono",monospace;font-variant-numeric:tabular-nums;color:var(--ink-2);white-space:nowrap}
+.state{font-family:"IBM Plex Mono",monospace;font-size:11px;font-weight:600;border-radius:3px;padding:1px 7px;display:inline-block}
+.state.queued{background:var(--amber-soft);color:var(--amber)}
+.state.done{background:var(--moss-soft);color:var(--moss)}
+.state.failed{background:var(--crimson-soft);color:var(--crimson)}
+.empty{padding:26px 15px;text-align:center;color:var(--ink-3)}
+.offline{padding:10px 15px;background:var(--crimson-soft);color:var(--crimson);font-size:12.5px;display:none}
+.offline.show{display:block}
+footer{margin-top:26px;color:var(--ink-3);font-size:12px;display:flex;flex-wrap:wrap;gap:6px 18px}
+footer code{font-family:"IBM Plex Mono",monospace;background:var(--sunk);padding:1px 5px;border-radius:3px}
+.toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);background:var(--ink);color:var(--paper);
+  padding:9px 16px;border-radius:6px;font-size:13px;box-shadow:var(--shadow);opacity:0;pointer-events:none;transition:opacity .18s}
+.toast.show{opacity:1}
+</style>
+
+<div class="wrap">
+  <header class="mast">
+    <div>
+      <h1>AI Workspace Dashboard for Claude</h1>
+      <p class="sub">Tap an action. It queues here; the supervisor session drains the queue on its next 5-minute sweep.</p>
+    </div>
+    <div class="mast-meta">
+      <div class="meta-cell"><span class="meta-k">Supervisor</span><span class="meta-v"><span class="pulse"></span>ai-workspace-8d</span></div>
+      <div class="meta-cell"><span class="meta-k">Sweep</span><span class="meta-v">every 5 min</span></div>
+      <div class="meta-cell"><span class="meta-k">Last sweep</span><span class="meta-v" id="mSwept">10:45 UTC</span></div>
+      <div class="meta-cell"><span class="meta-k">Fleet burn</span><span class="meta-v" id="mBurn">$274.19</span></div>
+    </div>
+  </header>
+
+  <div class="board" id="board"></div>
+
+  <section class="supercard">
+    <div>
+      <p class="eyebrow">Supervisor</p>
+      <h2>ai-workspace-8d</h2>
+      <p class="line" id="superLine">Runs the 5-minute sweep, drains this board's queue, and delivers your answers into the sessions above.</p>
+      <div class="chips">
+        <span class="chip">01Krr1y5</span>
+        <span class="chip" id="superWatch">watching —</span>
+        <span class="chip" id="superSweep">swept —</span>
+      </div>
+    </div>
+    <div class="acts">
+      <a class="btn" href="https://claude.ai/code/session_01Krr1y5W84RzUWszj37KLvN" target="_blank" rel="noopener">Open thread</a>
+      <button class="copy" data-copy="https://claude.ai/code/session_01Krr1y5W84RzUWszj37KLvN" title="Copy the thread link to paste into a browser">copy link</button>
+      <button class="btn" id="refreshBtn" title="Force the next sweep to re-read every session">Get updates</button>
+      <button class="btn super" id="talkBtn">Talk</button>
+    </div>
+    <div class="urlbox"><span>Paste into a browser:</span><input readonly value=""></div>
+    <div class="talk" id="talkPanel">
+      <div class="said" id="lastSaid"><span class="who">Supervisor</span>Loading…</div>
+      <div class="hist" id="histBox"></div>
+      <form class="talkform" id="talkForm">
+        <input name="txt" placeholder="Ask the supervisor, or tell it what to do…" autocomplete="off">
+        <button class="btn super" type="submit">Send</button>
+      </form>
+      <div class="talkmeta">
+        <span>Replies land on the next sweep — up to 5 minutes.</span>
+        <button type="button" id="histBtn">Show history</button>
+        <span class="pending" id="pending" hidden>Waiting for the sweep…</span>
+      </div>
+    </div>
+  </section>
+
+  <div id="groups"></div>
+
+  <section class="queue">
+    <div class="qhead">
+      <h2>Command queue</h2>
+      <span class="badge" id="qbadge">0 queued</span>
+      <span class="spacer"></span>
+      <button class="btn ghost" id="clearDone">Clear finished</button>
+    </div>
+    <div class="offline" id="offline">Not connected to the command store — buttons are inert in this view.</div>
+    <div class="qbody" id="qbody"></div>
+  </section>
+
+  <footer>
+    <span>Stripe colour = who the session is waiting on.</span>
+    <span>Costs are session-to-date.</span>
+    <span>Queue lives in <code>commands/</code>; fleet state in <code>fleet/snapshot</code>.</span>
+  </footer>
+</div>
+<div class="toast" id="toast"></div>
+
+<button class="fab" id="fab" title="Ask Claude about the board" aria-label="Ask Claude about the board">💬</button>
+<section class="chatwin" id="chatwin" aria-label="Ask Claude">
+  <div class="chead">
+    <h3>Ask Claude</h3><small>instant · reads this board · cannot act</small>
+    <button class="x" id="chatX" aria-label="Close">✕</button>
+  </div>
+  <div class="clog" id="clog">
+    <p class="cseed">I can see the current fleet snapshot — statuses, blockers, costs, artifacts.
+Ask me anything about it and I'll answer straight away.
+
+For anything that <em>changes</em> a session, use <strong>Talk</strong> on the supervisor row instead — that reaches the session that can actually act.</p>
+  </div>
+  <form class="cfoot" id="cform">
+    <input name="q" placeholder="What's burning the most budget?" autocomplete="off">
+    <button class="btn primary" type="submit">Ask</button>
+  </form>
+</section>
+
+<script>
+const SEED = [
+ {id:"session_019UMdbJABQ293tLbzBnyaCL",t:"Agent company floor-plan UI",g:"human",
+  ask:"Three design decisions in prd.md §7 — runtime, gate, messaging.",
+  spend:12.30,ctx:219,acts:[["Proceed — lock all three","proceed"],["I'll overrule","overrule"]]},
+ {id:"session_01HTQrffyxN7ctNKYk3YEuWh",t:"Clinician-supervised mental health assistant",g:"human",
+  ask:"Milestones 5–6 done, 91 tests green. Pick a surface style.",
+  spend:45.20,ctx:506,hot:true,acts:[["Paper","style:paper"],["Outline","style:outline"],["Glass","style:glass"],["Elevated","style:elevated"]]},
+ {id:"session_017NBXpFwZ1nEKwkcEYndkA2",t:"Ask My Brain — RAG voice console",g:"human",
+  ask:"Three round-two console designs are ready. Pick one to develop.",
+  spend:18.75,ctx:327,acts:[["Design 1","pick:1"],["Design 2","pick:2"],["Design 3","pick:3"]]},
+ {id:"session_015VjH28XUuzGJDJGfEhEqce",t:"TickTick → LinkedIn automation loop",g:"human",
+  ask:"10 post sessions launched. Wants approval to launch the next 50.",
+  spend:1.27,ctx:96,acts:[["Launch next 50","launch50"],["Hold","hold"]]},
+
+ {id:"session_01M3gdD2hUaEiGm2AQDJGVRY",t:"India needs electric energy independence",g:"auto",
+  ask:"Lead with the AI/data-centre angle instead?",spend:0.75,ctx:72},
+ {id:"session_01FqAukR8sWdA3du3YMbHRZZ",t:"Short attention span, nonstop distraction",g:"auto",
+  ask:"Lead with the notification finding instead of the goldfish debunk?",spend:0.85,ctx:74},
+ {id:"session_01JqEVLsbqkCxjm6tubSunGC",t:"Waiting time is the real dev pain with LLMs",g:"auto",
+  ask:"Tighter cut, or lean harder on the dopamine angle?",spend:0.26,ctx:63},
+ {id:"session_01Jr3Bxrob7vpaWPHPazi7Qi",t:"Too many terminals and shells to choose from",g:"auto",
+  ask:"Shorter version, or a different opening hook?",spend:0.26,ctx:63},
+ {id:"session_01BJhAciDkh1HKH8RHL3TfMt",t:"Sarvam AI and Indian voice models",g:"auto",
+  ask:"Keep the guardrail hunch open instead of correcting it?",spend:0.75,ctx:72},
+ {id:"session_01QPEoLNDfVdW3iNtzgmBQb8",t:"The web when agents read it, not humans",g:"auto",
+  ask:"Punchier at about 120 words?",spend:0.38,ctx:63},
+ {id:"session_01WXCSKmKiZdHbYtF4ghNpkB",t:"Todos change with AI memory",g:"auto",
+  ask:"196 words. Shorter cut?",spend:0.27,ctx:63},
+
+ {id:"session_01BMeNFwto3HNYVtP2THhojA",t:"Corporate training modules with SCORM",g:"failed",
+  ask:"Archived mid-turn. ede_diagnostic, stop_reason null. Needs a relaunch from the spec.",
+  spend:0,ctx:137,acts:[["Relaunch from spec","relaunch"],["Leave archived","leave"]]},
+
+ {id:"session_019vwsyfNfWY8W1s16eS7zAt",t:"briefwire — topic news briefing",g:"done",
+  ask:"Pushed to GitHub. 4 commits, 62 files, typecheck and 35 tests green.",spend:7.34,ctx:189},
+ {id:"session_01JRUQXCZPLnhxXGavrDXaSk",t:"GAIA from Horizon Zero Dawn is close to real",g:"done",
+  ask:"224-word draft on multi-agent AI architecture.",spend:0.28,ctx:63},
+ {id:"session_01DMzV8Ey6zbxzYRoZt8YhTn",t:"Chat Jimmy and superfast tokens",g:"done",
+  ask:"Draft on token speed as AI's real bottleneck.",spend:0.49,ctx:67},
+ {id:"session_015Mc9REmrnJbEBA51nEtB8p",t:"AI storm resets engineering leadership",g:"done",
+  ask:"218-word draft, hands-on learning over bandwagon adoption.",spend:0.30,ctx:63},
+
+ {id:"session_01QkmWRy5UxJPZ1U6twsrinf",t:"Obedient-ai Claude Code plugin",g:"idle",ask:"Review-ready. Nothing pending.",spend:0,ctx:0},
+ {id:"session_01UMQVoeAZDFYP2SZu2zutDk",t:"macbook-pro bridge — temporal-shore",g:"idle",ask:"Config reload applied, no diagnostics.",spend:0,ctx:0},
+ {id:"session_013dk8vHTwvLr6CPKWNVPheM",t:"macbook-pro bridge — ModelCost",g:"idle",ask:"main clean, 0 unpushed commits.",spend:0,ctx:0}
+];
+
+const GROUPS = [
+ {k:"human",label:"Waiting on you",note:"These four cannot move until you decide. Every button below queues your answer verbatim."},
+ {k:"auto",label:"Waiting on nothing",note:"Every draft is written. Each session is only offering an optional rewrite — finalise to close them out."},
+ {k:"failed",label:"Failed",note:"Crashed mid-turn. The spec survives; relaunching starts a fresh session from it."},
+ {k:"done",label:"Shipped",note:""},
+ {k:"idle",label:"Idle",note:""}
+];
+const LABELS={human:"Waiting on you",auto:"Self-clearable",failed:"Failed",done:"Shipped",idle:"Idle"};
+
+let db=null, fleet=SEED, cmds=[], filter=null;
+const $=s=>document.querySelector(s);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const short=id=>id.replace(/^session_/,"").slice(0,8);
+
+function toast(m){const t=$("#toast");t.textContent=m;t.classList.add("show");clearTimeout(t._h);t._h=setTimeout(()=>t.classList.remove("show"),2200);}
+
+function renderBoard(){
+  $("#board").innerHTML=GROUPS.map(g=>{
+    const n=fleet.filter(s=>s.g===g.k).length;
+    return `<button class="tile ${g.k}" data-f="${g.k}" aria-pressed="${filter===g.k}">
+      <span class="n">${n}</span><span class="l">${esc(LABELS[g.k])}</span></button>`;
+  }).join("");
+}
+
+function actionsFor(s){
+  if(s.acts) return s.acts;
+  if(s.g==="auto") return [["Finalise as-is","finalise"],["Ask for a rewrite","rewrite"]];
+  if(s.g==="done"||s.g==="idle") return [];
+  return [];
+}
+
+function renderGroups(){
+  $("#groups").innerHTML=GROUPS.filter(g=>!filter||filter===g.k).map(g=>{
+    const list=fleet.filter(s=>s.g===g.k);
+    if(!list.length) return "";
+    const bulk = g.k==="auto"
+      ? `<button class="btn primary" data-bulk="finalise">Finalise all ${list.length}</button>` : "";
+    return `<section class="group">
+      <div class="ghead"><h2>${esc(g.label)}</h2><span class="count">${list.length}</span>
+        <span style="margin-left:auto">${bulk}</span></div>
+      ${g.note?`<p class="gnote">${esc(g.note)}</p>`:""}
+      <div class="rows">${list.map(rowHTML).join("")}</div>
+    </section>`;
+  }).join("");
+}
+
+function rowHTML(s){
+  const acts=actionsFor(s);
+  return `<article class="row ${s.g}" data-id="${s.id}">
+    <div>
+      <p class="rtitle"><a href="https://claude.ai/code/${s.id}" target="_blank" rel="noopener">${esc(s.t)}</a>
+        <button class="copy" data-copy="https://claude.ai/code/${s.id}" title="Copy the session link to paste into a browser">copy link</button></p>
+      <p class="rask ${s.g==="done"?"done":""}">${esc(s.ask)}</p>
+      ${(s.arts&&s.arts.length)?`<div class="arts">${s.arts.map(a=>
+        `<a class="art" href="${esc(a.url)}" target="_blank" rel="noopener" title="Open ${esc(a.title)}">
+           <span class="ico">${esc(a.icon||"▦")}</span><span class="nm">${esc(a.title)}</span><span class="out">↗</span></a>`
+      ).join("")}</div>`:""}
+      <div class="chips">
+        <span class="chip">${esc(short(s.id))}</span>
+        ${s.spend?`<span class="chip spend${s.hot?" hot":""}">$${s.spend.toFixed(2)}</span>`:""}
+        ${s.ctx?`<span class="chip">${s.ctx}k ctx</span>`:""}
+      </div>
+    </div>
+    <div class="acts">
+      ${acts.map(([l,a])=>`<button class="btn${a==="proceed"||a==="finalise"||a==="relaunch"?" primary":""}${a==="leave"||a==="hold"?" danger":""}" data-act="${esc(a)}">${esc(l)}</button>`).join("")}
+      <button class="btn ghost" data-talk="1">Talk</button>
+      ${s.g==="human"||s.g==="auto"?`<button class="btn ghost" data-act="interrupt">Interrupt</button>`:""}
+    </div>
+    <div class="urlbox"><span>Paste into a browser:</span><input readonly value=""></div>
+    <div class="rtalk">
+      <div class="said"><span class="who">Last word from this session</span>${esc(s.ask)}</div>
+      <div class="hist"></div>
+      <form class="talkform">
+        <input name="txt" placeholder="Reply to this session…" autocomplete="off">
+        <button class="btn primary" type="submit">Send</button>
+      </form>
+      <div class="talkmeta">
+        <span>Delivered on the next sweep — up to 5 minutes.</span>
+        <button type="button" class="hbtn">Show history</button>
+        <span class="pending" hidden>Waiting for the sweep…</span>
+      </div>
+    </div>
+  </article>`;
+}
+
+function renderQueue(){
+  const q=cmds.filter(c=>c.status==="queued").length;
+  $("#qbadge").textContent=`${q} queued`;
+  const body=$("#qbody");
+  if(!cmds.length){body.innerHTML=`<p class="empty">Nothing queued. Tap an action above and it lands here.</p>`;return;}
+  body.innerHTML=`<table><thead><tr><th>Session</th><th>Command</th><th>State</th><th>Queued</th></tr></thead><tbody>
+    ${cmds.map(c=>`<tr>
+      <td>${esc(c.title||"")}<br><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--ink-3)">${esc(short(c.session||""))}</span></td>
+      <td>${esc(c.label||c.action||"")}${c.note?`<br><span style="color:var(--ink-3)">${esc(c.note)}</span>`:""}</td>
+      <td><span class="state ${esc(c.status||"queued")}">${esc(c.status||"queued")}</span></td>
+      <td class="mono">${esc((c.ts||"").slice(11,16))}</td>
+    </tr>`).join("")}</tbody></table>`;
+}
+
+async function queue(session,title,action,label,note){
+  const doc={session,title,action,label,note:note||"",status:"queued",ts:new Date().toISOString()};
+  if(!db){toast("Not connected — command not saved.");return;}
+  try{ await db.collection("commands").add(doc); toast(`Queued: ${label}`); }
+  catch(e){ toast(e && e.code==="quota_exceeded" ? "Queue is full — clear finished commands." : "Could not queue that. Try again."); }
+}
+
+document.addEventListener("click",e=>{
+  const tile=e.target.closest(".tile");
+  if(tile){filter=filter===tile.dataset.f?null:tile.dataset.f;renderBoard();renderGroups();return;}
+  const bulk=e.target.closest("[data-bulk]");
+  if(bulk){fleet.filter(s=>s.g==="auto").forEach(s=>queue(s.id,s.t,"finalise","Finalise as-is"));return;}
+  const tk=e.target.closest("[data-talk]");
+  if(tk){
+    const row=tk.closest(".row"), pnl=row.querySelector(".rtalk");
+    const opened=pnl.classList.toggle("open");
+    if(opened){ pnl.querySelector("input").focus(); watchRow(row.dataset.id,row); }
+    return;
+  }
+  const hb=e.target.closest(".hbtn");
+  if(hb){
+    const h=hb.closest(".rtalk").querySelector(".hist"), o=h.classList.toggle("open");
+    hb.textContent=o?"Hide history":"Show history"; return;
+  }
+  const c=e.target.closest("[data-copy]");
+  if(c){
+    const host=c.closest(".row")||c.closest(".super");
+    const url=c.dataset.copy, box=host.querySelector(".urlbox"), inp=box.querySelector("input");
+    inp.value=url;
+    const reveal=()=>{box.classList.add("open");inp.focus();inp.select();};
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(url).then(()=>{
+        c.textContent="copied";c.classList.add("ok");
+        setTimeout(()=>{c.textContent="copy link";c.classList.remove("ok");},1600);
+      }).catch(reveal);
+    } else reveal();
+    return;
+  }
+  const b=e.target.closest("[data-act]");
+  if(b){const row=b.closest(".row");const s=fleet.find(x=>x.id===row.dataset.id);
+    queue(s.id,s.t,b.dataset.act,b.textContent.trim());}
+});
+
+const rowSubs={}, rowThreads={};
+const WHO={v:"You",c:"Supervisor",s:"Session"};
+
+function renderRowThread(id,row){
+  const pnl=row.querySelector(".rtalk"); if(!pnl)return;
+  const t=rowThreads[id]||{messages:[]}, ms=t.messages||[];
+  const last=[...ms].reverse().find(m=>m.r==="s"||m.r==="c");
+  const sess=fleet.find(x=>x.id===id);
+  pnl.querySelector(".said").innerHTML=
+    `<span class="who">Last word from this session</span>${esc(last?last.t:(sess?sess.ask:""))}`;
+  pnl.querySelector(".pending").hidden=!t.awaiting;
+  pnl.querySelector(".hist").innerHTML= ms.length
+    ? ms.map(m=>`<div class="msg ${m.r==="v"?"v":m.r}"><b>${esc(WHO[m.r]||m.r)} · ${esc((m.ts||"").slice(11,16))}</b>${esc(m.t)}</div>`).join("")
+    : `<div class="msg s">Nothing sent yet.</div>`;
+}
+
+function watchRow(id,row){
+  renderRowThread(id,row);
+  if(rowSubs[id])return;
+  if(!db)return;
+  rowSubs[id]=db.doc("chat/"+id).onSnapshot(snap=>{
+    rowThreads[id]=(snap.exists&&snap.data())||{messages:[]};
+    const live=document.querySelector(`.row[data-id="${id}"]`);
+    if(live)renderRowThread(id,live);
+  },()=>{ rowSubs[id]=null; });
+}
+
+document.addEventListener("submit",async e=>{
+  const f=e.target.closest(".rtalk .talkform"); if(!f)return; e.preventDefault();
+  const row=f.closest(".row"), id=row.dataset.id, sess=fleet.find(x=>x.id===id);
+  const txt=f.txt.value.trim(); if(!txt)return;
+  if(!db){toast("Not connected — message not sent.");return;}
+  const prev=(rowThreads[id]||{}).messages||[];
+  const ms=prev.concat([{r:"v",t:txt,ts:new Date().toISOString()}]).slice(-40);
+  f.txt.value="";
+  try{
+    await db.doc("chat/"+id).set({messages:ms,awaiting:true,title:sess?sess.t:"",
+      session:id,updated:new Date().toISOString()});
+    toast("Sent — delivered on the next sweep.");
+  }catch(err){ f.txt.value=txt; toast("Could not send that. Try again."); }
+});
+
+$("#clearDone").addEventListener("click",async()=>{
+  if(!db)return;
+  const finished=cmds.filter(c=>c.status!=="queued");
+  if(!finished.length){toast("Nothing finished to clear.");return;}
+  for(const c of finished){ try{ await db.collection("commands").doc(c.id).delete(); }catch(err){} }
+  toast(`Cleared ${finished.length}.`);
+});
+
+renderBoard(); renderGroups(); renderQueue();
+
+claude.use("db").then(handle=>{
+  if(!handle){$("#offline").classList.add("show");return;}
+  db=handle;
+  db.doc("fleet/snapshot").onSnapshot(snap=>{
+    const d=snap.exists&&snap.data();
+    if(!d)return;
+    if(Array.isArray(d.sessions)&&d.sessions.length){
+      fleet=d.sessions;renderBoard();renderGroups();
+      Object.keys(rowThreads).forEach(id=>{
+        const r=document.querySelector(`.row[data-id="${id}"]`);
+        if(r){r.querySelector(".rtalk").classList.add("open");renderRowThread(id,r);}
+      });
+    }
+    if(d.sweptAt){
+      document.getElementById("mSwept").textContent=String(d.sweptAt).slice(11,16)+" UTC";
+      $("#superSweep").textContent="swept "+String(d.sweptAt).slice(11,16);
+      if(lastSwept && d.sweptAt!==lastSwept && refreshAsked){
+        refreshAsked=null;
+        const b=$("#refreshBtn");
+        b.disabled=false; b.textContent="Updated ✓";
+        toast("Board refreshed.");
+        setTimeout(()=>{if(!refreshAsked)b.textContent="Get updates";},4000);
+      }
+      lastSwept=d.sweptAt;
+    }
+    $("#superWatch").textContent="watching "+fleet.length;
+    if(typeof d.burn==="number")document.getElementById("mBurn").textContent="$"+d.burn.toFixed(2);
+  },()=>{});
+  db.collection("commands").orderBy("ts","desc").limit(60).onSnapshot(snap=>{
+    cmds=snap.docs.map(d=>Object.assign({id:d.id},d.data()));renderQueue();
+  },()=>{$("#offline").classList.add("show");});
+}).catch(()=>$("#offline").classList.add("show"));
+
+/* ============ Talk — the real supervisor session, via db ============ */
+let thread={messages:[],awaiting:false}, threadReady=false;
+const THREAD="chat/thread";
+
+function renderThread(){
+  const ms=thread.messages||[];
+  const lastC=[...ms].reverse().find(m=>m.r==="c");
+  const box=$("#lastSaid");
+  box.innerHTML=`<span class="who">Supervisor</span>${esc(
+    lastC ? lastC.t : "Nothing said yet. Send the first message and I'll answer on the next sweep.")}`;
+  $("#pending").hidden=!thread.awaiting;
+  const h=$("#histBox");
+  h.innerHTML=ms.length
+    ? ms.map(m=>`<div class="msg ${m.r}"><b>${m.r==="v"?"You":"Supervisor"} · ${esc((m.ts||"").slice(11,16))}</b>${esc(m.t)}</div>`).join("")
+    : `<div class="msg c">No history yet.</div>`;
+  h.scrollTop=h.scrollHeight;
+}
+
+let refreshAsked=null, lastSwept=null;
+
+function refreshTick(){
+  const b=$("#refreshBtn");
+  if(!refreshAsked){b.textContent="Get updates";b.disabled=false;return;}
+  const secs=Math.round((Date.now()-refreshAsked)/1000);
+  const m=Math.floor(secs/60), r=secs%60;
+  b.textContent="Waiting "+(m?m+"m ":"")+r+"s";
+}
+setInterval(refreshTick,1000);
+
+$("#refreshBtn").addEventListener("click",async ()=>{
+  const b=$("#refreshBtn");
+  if(refreshAsked)return;
+  if(!db){toast("Not connected — cannot request a refresh.");return;}
+  b.disabled=true; b.textContent="Sending…";
+  try{
+    await db.collection("commands").add({
+      session:"__fleet__", title:"Whole fleet", action:"refresh",
+      label:"Re-read every session", note:"", status:"queued", ts:new Date().toISOString()});
+    refreshAsked=Date.now(); refreshTick();
+    toast("Asked for a refresh. The next sweep re-reads every session.");
+  }catch(err){
+    b.disabled=false; b.textContent="Get updates";
+    toast("Could not ask for a refresh. Try again.");
+  }
+});
+
+$("#talkBtn").addEventListener("click",()=>{
+  const pnl=$("#talkPanel"); pnl.classList.toggle("open");
+  if(pnl.classList.contains("open")) pnl.querySelector("input").focus();
+});
+$("#histBtn").addEventListener("click",()=>{
+  const h=$("#histBox"), open=h.classList.toggle("open");
+  $("#histBtn").textContent=open?"Hide history":"Show history";
+});
+$("#talkForm").addEventListener("submit",async e=>{
+  e.preventDefault();
+  const inp=e.target.txt, txt=inp.value.trim(); if(!txt)return;
+  if(!db||!threadReady){toast("Not connected — message not sent.");return;}
+  const ms=(thread.messages||[]).concat([{r:"v",t:txt,ts:new Date().toISOString()}]).slice(-40);
+  inp.value="";
+  try{
+    await db.doc(THREAD).set({messages:ms,awaiting:true,updated:new Date().toISOString()});
+    toast("Sent — the supervisor replies on its next sweep.");
+  }catch(err){ inp.value=txt; toast("Could not send that. Try again."); }
+});
+
+claude.use("db").then(h=>{
+  if(!h){
+    $("#lastSaid").innerHTML='<span class="who">Supervisor</span>Not connected to the message store in this view — Talk is unavailable here.';
+    $("#talkForm").querySelector("input").disabled=true;
+    return;
+  }
+  h.doc(THREAD).onSnapshot(snap=>{
+    threadReady=true;
+    thread=(snap.exists&&snap.data())||{messages:[],awaiting:false};
+    renderThread();
+  },()=>{threadReady=false;});
+});
+
+/* ============ Ask Claude — instant, stateless, read-only ============ */
+let sampler=null, chatTurns=[], asking=false;
+const clog=$("#clog");
+
+function bubble(cls,text){
+  const el=document.createElement("div");
+  el.className="cmsg "+cls; el.textContent=text;
+  clog.appendChild(el); clog.scrollTop=clog.scrollHeight; return el;
+}
+function fleetBrief(){
+  return (fleet||[]).map(s=>
+    `- ${s.t} [${s.g}] ${s.spend?("$"+s.spend.toFixed(2)):"$0"} ${s.ctx?s.ctx+"k ctx":""} :: ${s.ask}`
+  ).join("\n");
+}
+
+$("#fab").addEventListener("click",()=>{
+  const w=$("#chatwin"), open=w.classList.toggle("open");
+  $("#fab").textContent=open?"✕":"💬";
+  if(open)$("#cform").q.focus();
+});
+$("#chatX").addEventListener("click",()=>{
+  $("#chatwin").classList.remove("open"); $("#fab").textContent="💬";
+});
+
+$("#cform").addEventListener("submit",async e=>{
+  e.preventDefault();
+  if(asking)return;
+  const inp=e.target.q, q=inp.value.trim(); if(!q)return;
+  inp.value=""; bubble("u",q);
+  if(sampler===null) sampler=await claude.use("sample");
+  if(!sampler){ bubble("err","Ask Claude isn't available in this view. Use Talk on the supervisor row instead."); return; }
+  asking=true;
+  const out=bubble("a","Thinking…");
+  chatTurns.push({role:"user",content:q});
+  const prompt=[{role:"user",content:
+`You are answering questions about a fleet of Claude Code sessions, shown on the AI Workspace Dashboard.
+You can read the snapshot below and nothing else. You cannot change any session, send instructions, or run tools.
+If asked to DO something, say plainly that the Talk button on the supervisor row is the channel that can act, and answer whatever part you can from the data.
+Answer in at most four sentences. Plain English, active voice, lead with the answer. Bold key figures.
+
+Groups: human = waiting on Vijay · auto = blocked but self-clearable · failed · done · idle
+
+FLEET SNAPSHOT
+${fleetBrief()}
+
+CONVERSATION SO FAR
+${chatTurns.map(t=>(t.role==="user"?"Vijay: ":"You: ")+t.content).join("\n")}
+
+Answer the last question from Vijay.`}];
+  try{
+    const res=await sampler(prompt,{modelTier:"quick",onText:({text})=>{out.textContent=text;clog.scrollTop=clog.scrollHeight;}});
+    out.textContent=res.text;
+    chatTurns.push({role:"assistant",content:res.text});
+    chatTurns=chatTurns.slice(-12);
+  }catch(err){
+    const code=err&&err.code;
+    out.className="cmsg err";
+    out.textContent = code==="not_granted" ? "Ask Claude isn't enabled for this view."
+      : code==="rate_limited" ? "Rate limited — give it a moment."
+      : (err&&err.text) ? err.text : "That didn't go through. Try again.";
+  }finally{ asking=false; }
+});
+</script>

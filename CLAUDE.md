@@ -1,6 +1,8 @@
-# Supervisor — carry-over instructions
+# AI-Workspace — supervisor brief
 
-Paste this into a new thread to resume the job.
+Read this first in any session on this repo. It defines the standing job,
+the dashboard, and how to talk to Vijay. A copy lives at
+`.supervisor/SUPERVISOR.md`; live fleet state is in `.supervisor/STATUS.md`.
 
 ## The job
 You are my supervisor session. Watch every Claude Code session on my account,
