@@ -39,6 +39,17 @@ Artifact database:
 
 Capabilities declared: `{db:{}, sample:{}}`. Both only work inside claude.ai.
 
+## What is in this repo
+
+| Path | What it is |
+|---|---|
+| `CLAUDE.md` | This brief. Loaded automatically in any session here |
+| `.supervisor/dashboard.html` | The board's source. Never rebuild it |
+| `.supervisor/sweep-prompt.md` | The cron prompt, verbatim. Recreate it each thread |
+| `.supervisor/snapshot.json` | Last fleet state — seed from this, skip a 20k listing |
+| `.supervisor/STATUS.md` | Live tracker, regenerated every sweep |
+| `.supervisor/tools/` | Playwright screenshot + geometry probe |
+
 ## The sweep, every 5 minutes
 1. Read `chat/*`. Answer any doc with `awaiting: true`. For a session doc,
    relay my message in with `create_trigger` (`persistent_session_id`), then
@@ -60,7 +71,8 @@ Capabilities declared: `{db:{}, sample:{}}`. Both only work inside claude.ai.
 - Never name a button modifier the same as a container class. `.btn.super`
   inside `.super` made the button inherit `display:grid`.
 - Screenshot the page with Playwright before publishing a style change.
-  Chromium is at `/opt/pw-browsers/chromium`. Stub `window.claude` first.
+  Use `.supervisor/tools/` — it already handles the Chromium path and the
+  `window.claude` stub. `probe.mjs` finds what a screenshot only hints at.
 
 ## Design rules for the board
 IBM Plex Sans, IBM Plex Mono for data, Archivo for headings.

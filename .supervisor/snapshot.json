@@ -1,0 +1,275 @@
+{
+ "sessions": [
+  {
+   "id": "session_017NBXpFwZ1nEKwkcEYndkA2",
+   "t": "Ask My Brain \u2014 RAG voice console",
+   "g": "human",
+   "ask": "Converged on the Prism design with the arc-core animation. Wants the go-ahead to build it into the client.",
+   "spend": 21.23,
+   "ctx": 369,
+   "acts": [
+    [
+     "Build Prism",
+     "instruct:build-prism"
+    ],
+    [
+     "Not yet",
+     "hold"
+    ]
+   ],
+   "arts": [
+    {
+     "title": "Prism Voice Console",
+     "icon": "\u25c8",
+     "url": "https://claude.ai/code/artifact/4e3a8aed-a922-4eab-908d-6fcb0c4a4431"
+    },
+    {
+     "title": "Voice Console Round Two",
+     "icon": "\u25a6",
+     "url": "https://claude.ai/code/artifact/d03bb975-fcea-443c-868c-99d100edc762"
+    },
+    {
+     "title": "Ask My Brain Voice Console",
+     "icon": "\u25a6",
+     "url": "https://claude.ai/code/artifact/e4a16e4e-b8f0-4f5c-8d64-400547ac2d72"
+    }
+   ]
+  },
+  {
+   "id": "session_019UMdbJABQ293tLbzBnyaCL",
+   "t": "Agent company floor-plan UI",
+   "g": "human",
+   "ask": "Three design decisions in prd.md \u00a77 \u2014 runtime, gate, messaging.",
+   "spend": 12.3,
+   "ctx": 219,
+   "acts": [
+    [
+     "Proceed \u2014 lock all three",
+     "proceed"
+    ],
+    [
+     "I'll overrule",
+     "overrule"
+    ]
+   ]
+  },
+  {
+   "id": "session_015VjH28XUuzGJDJGfEhEqce",
+   "t": "TickTick \u2192 LinkedIn automation loop",
+   "g": "human",
+   "ask": "10 post sessions launched. Wants approval to launch the next 50.",
+   "spend": 1.27,
+   "ctx": 96,
+   "acts": [
+    [
+     "Launch next 50",
+     "launch50"
+    ],
+    [
+     "Hold",
+     "hold"
+    ]
+   ]
+  },
+  {
+   "id": "session_01FqAukR8sWdA3du3YMbHRZZ",
+   "t": "Short attention span, nonstop distraction",
+   "g": "auto",
+   "ask": "Lead with the notification finding instead of the goldfish debunk?",
+   "spend": 0.85,
+   "ctx": 74
+  },
+  {
+   "id": "session_01M3gdD2hUaEiGm2AQDJGVRY",
+   "t": "India needs electric energy independence",
+   "g": "auto",
+   "ask": "Lead with the AI/data-centre angle instead?",
+   "spend": 0.75,
+   "ctx": 72
+  },
+  {
+   "id": "session_01BJhAciDkh1HKH8RHL3TfMt",
+   "t": "Sarvam AI and Indian voice models",
+   "g": "auto",
+   "ask": "Keep the guardrail hunch open instead of correcting it?",
+   "spend": 0.75,
+   "ctx": 72
+  },
+  {
+   "id": "session_01QPEoLNDfVdW3iNtzgmBQb8",
+   "t": "The web when agents read it, not humans",
+   "g": "auto",
+   "ask": "Punchier at about 120 words?",
+   "spend": 0.38,
+   "ctx": 63
+  },
+  {
+   "id": "session_01WXCSKmKiZdHbYtF4ghNpkB",
+   "t": "Todos change with AI memory",
+   "g": "auto",
+   "ask": "196 words. Shorter cut?",
+   "spend": 0.27,
+   "ctx": 63
+  },
+  {
+   "id": "session_01JqEVLsbqkCxjm6tubSunGC",
+   "t": "Waiting time is the real dev pain with LLMs",
+   "g": "auto",
+   "ask": "Tighter cut, or lean harder on the dopamine angle?",
+   "spend": 0.26,
+   "ctx": 63
+  },
+  {
+   "id": "session_01Jr3Bxrob7vpaWPHPazi7Qi",
+   "t": "Too many terminals and shells to choose from",
+   "g": "auto",
+   "ask": "Shorter version, or a different opening hook?",
+   "spend": 0.26,
+   "ctx": 63
+  },
+  {
+   "id": "session_01BMeNFwto3HNYVtP2THhojA",
+   "t": "Corporate training modules with SCORM",
+   "g": "failed",
+   "ask": "Archived mid-turn. ede_diagnostic, stop_reason null. Needs a relaunch from the spec.",
+   "spend": 0,
+   "ctx": 137,
+   "acts": [
+    [
+     "Relaunch from spec",
+     "relaunch"
+    ],
+    [
+     "Leave archived",
+     "leave"
+    ]
+   ]
+  },
+  {
+   "id": "session_01PqsG2XdNWnukK1wsHX2ZG1",
+   "t": "Chitrakathe \u2014 event/birthday video site",
+   "g": "done",
+   "ask": "Security round 2: 6 real vulnerabilities fixed and verified. Known gaps documented.",
+   "spend": 106.41,
+   "ctx": 608,
+   "hot": true
+  },
+  {
+   "id": "session_01HTQrffyxN7ctNKYk3YEuWh",
+   "t": "Clinician-supervised mental health assistant",
+   "g": "done",
+   "ask": "Glass applied. Milestone 4 built \u2014 sessions persisted, agenda-led, homework gate enforced. 98 tests pass.",
+   "spend": 51.77,
+   "ctx": 556,
+   "hot": true
+  },
+  {
+   "id": "session_01UK5q8KkuEV9yQKx1hqxVLS",
+   "t": "LiveKit voice interview coach",
+   "g": "done",
+   "ask": "Responsive UI shipped at 390/720/1440px. Dark mode, 38 tests pass.",
+   "spend": 26.29,
+   "ctx": 322,
+   "hot": true
+  },
+  {
+   "id": "session_014ZC5hWmizkFX6E4MyY91La",
+   "t": "Figurine factory \u2014 3D Pixar pipeline",
+   "g": "done",
+   "ask": "Three-column UI shipped, commit 75b995a. 13 Bun + 30 Python tests green.",
+   "spend": 23.65,
+   "ctx": 340,
+   "hot": true
+  },
+  {
+   "id": "session_017qqS1E3rSq7JNgEEvFhCFm",
+   "t": "AI Loop Runner \u2014 spawner",
+   "g": "done",
+   "ask": "9 spec-ready tasks picked and running. 6 spawn slots free, blocked on repos.",
+   "spend": 13.3,
+   "ctx": 299
+  },
+  {
+   "id": "session_014taZnrrJffm6K9gFSjZGFc",
+   "t": "Kelu \u2014 ESP32 AI speaker",
+   "g": "done",
+   "ask": "Milestone 1 firmware pushed (f1d882d), builds clean for esp32s3. Needs hardware bring-up.",
+   "spend": 11.97,
+   "ctx": 237
+  },
+  {
+   "id": "session_019vwsyfNfWY8W1s16eS7zAt",
+   "t": "briefwire \u2014 topic news briefing",
+   "g": "done",
+   "ask": "Pushed to GitHub. 4 commits, 62 files, typecheck and 35 tests green.",
+   "spend": 7.34,
+   "ctx": 189
+  },
+  {
+   "id": "session_01DMzV8Ey6zbxzYRoZt8YhTn",
+   "t": "Chat Jimmy and superfast tokens",
+   "g": "done",
+   "ask": "Draft on token speed as AI's real bottleneck.",
+   "spend": 0.49,
+   "ctx": 67
+  },
+  {
+   "id": "session_015Mc9REmrnJbEBA51nEtB8p",
+   "t": "AI storm resets engineering leadership",
+   "g": "done",
+   "ask": "218-word draft, hands-on learning over bandwagon adoption.",
+   "spend": 0.3,
+   "ctx": 63
+  },
+  {
+   "id": "session_01JRUQXCZPLnhxXGavrDXaSk",
+   "t": "GAIA from Horizon Zero Dawn is close to real",
+   "g": "done",
+   "ask": "224-word draft on multi-agent AI architecture.",
+   "spend": 0.28,
+   "ctx": 63
+  },
+  {
+   "id": "session_015aeL2grrbsNnSQ16ZQuJci",
+   "t": "IndicTrans2 \u2014 Gita commentary translation",
+   "g": "done",
+   "ask": "695 Kannada + Telugu verses live. 6 commits pushed (4a71a6d), remote on SSH.",
+   "spend": 0,
+   "ctx": 0
+  },
+  {
+   "id": "session_01PtVb9angXG5V7Pv5a6kNeJ",
+   "t": "ModelCost \u2014 Bun/React/Vite",
+   "g": "done",
+   "ask": "README rewritten with screenshots. Live at modelcost.pages.dev.",
+   "spend": 0,
+   "ctx": 0
+  },
+  {
+   "id": "session_01UMQVoeAZDFYP2SZu2zutDk",
+   "t": "macbook-pro bridge \u2014 temporal-shore",
+   "g": "idle",
+   "ask": "Config reload applied, no diagnostics.",
+   "spend": 0,
+   "ctx": 0
+  },
+  {
+   "id": "session_013dk8vHTwvLr6CPKWNVPheM",
+   "t": "macbook-pro bridge \u2014 ModelCost",
+   "g": "idle",
+   "ask": "main clean, 0 unpushed commits.",
+   "spend": 0,
+   "ctx": 0
+  },
+  {
+   "id": "session_01GLbtUpDKoaqA6FYM4853iF",
+   "t": "Patient + Doctor app redesign consistency",
+   "g": "idle",
+   "ask": "Design audit under way, 3-phase plan queued. Review-ready.",
+   "spend": 0,
+   "ctx": 0
+  }
+ ],
+ "sweptAt": "2026-09-06T11:12:00Z",
+ "burn": 290.02
+}
