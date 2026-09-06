@@ -4,7 +4,7 @@
 |---|---|
 | **Supervisor** | `ai-workspace-8d` · `session_01Krr1y5W84RzUWszj37KLvN` |
 | **Control surface** | [Fleet Control](https://claude.ai/code/artifact/ec57876f-c431-492f-85ae-cbe3a71c77d4) — tap to act |
-| **Cadence** | 5-min cron sweep · job `6b2f0382` · expires in 7d |
+| **Cadence** | 5-min cron sweep · job `ad86eec8` · expires in 7d |
 | **Last sweep** | 2026-09-06T11:12:00Z |
 | **Fleet** | 26 live sessions · **$290.02** burned to date |
 | **Scope** | Non-archived only. ~25 archived `bhagavad-geeta` CLI sessions are history, not fleet. |
@@ -109,6 +109,7 @@ session's state.
 | Stop a runaway turn | `interrupt_session` |
 | See what a session built | Artifact links on the row, newest first, from `external_metadata.artifacts` |
 | **Talk to the supervisor** | Supervisor card → **Talk**. Writes `chat/thread`; the sweep replies into the same doc |
+| **Talk to any session** | **Talk** on its row. Writes `chat/<session id>`; the sweep relays it in and posts what came back |
 | **Force a full re-read** | Supervisor card → **Get updates**. Queues a `refresh` command |
 | **Instant fleet questions** | 💬 bubble, bottom right. `sample` capability — fresh Claude, reads the snapshot, **cannot act** |
 
