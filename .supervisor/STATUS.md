@@ -5,8 +5,8 @@
 | **Supervisor** | `ai-workspace-8d` · `session_01Krr1y5W84RzUWszj37KLvN` |
 | **Control surface** | [Fleet Control](https://claude.ai/code/artifact/ec57876f-c431-492f-85ae-cbe3a71c77d4) — tap to act |
 | **Cadence** | 5-min cron sweep · job `6a6f0bdb` · expires in 7d |
-| **Last sweep** | 2026-09-06T10:55:00Z |
-| **Fleet** | 27 live sessions · **$275.23** burned to date |
+| **Last sweep** | 2026-09-06T11:05:00Z |
+| **Fleet** | 27 live sessions · **$282.84** burned to date |
 | **Scope** | Non-archived only. ~25 archived `bhagavad-geeta` CLI sessions are history, not fleet. |
 
 ## 📊 Scoreboard
@@ -16,8 +16,8 @@
 | 🟠 Waiting on Vijay | **3** |
 | 🔵 Waiting on nothing | **7** |
 | 🔴 Failed | **1** |
-| 🟢 Shipped | **11** |
-| ⚪ Idle | **5** |
+| 🟢 Shipped | **12** |
+| ⚪ Idle | **4** |
 
 ## 🟠 Waiting on you
 
@@ -52,6 +52,7 @@ Every draft is written. Each session only offers an optional rewrite.
 | Session | ID | Outcome | Spent |
 |---|---|---|---|
 | [Chitrakathe — event/birthday video site](https://claude.ai/code/session_01PqsG2XdNWnukK1wsHX2ZG1) | `01PqsG2X` | Security round 2: 6 real vulnerabilities fixed and verified. Known gaps documented. | $106.41 |
+| [Clinician-supervised mental health assistant](https://claude.ai/code/session_01HTQrffyxN7ctNKYk3YEuWh) | `01HTQrff` | Glass applied. Milestone 4 built — sessions persisted, agenda-led, homework gate enforced. 98 tests pass. | $51.77 |
 | [LiveKit voice interview coach](https://claude.ai/code/session_01UK5q8KkuEV9yQKx1hqxVLS) | `01UK5q8K` | Responsive UI shipped at 390/720/1440px. Dark mode, 38 tests pass. | $26.29 |
 | [Figurine factory — 3D Pixar pipeline](https://claude.ai/code/session_014ZC5hWmizkFX6E4MyY91La) | `014ZC5hW` | Three-column UI shipped, commit 75b995a. 13 Bun + 30 Python tests green. | $23.65 |
 | [AI Loop Runner — spawner](https://claude.ai/code/session_017qqS1E3rSq7JNgEEvFhCFm) | `017qqS1E` | 9 spec-ready tasks picked and running. 6 spawn slots free, blocked on repos. | $13.30 |
@@ -67,7 +68,6 @@ Every draft is written. Each session only offers an optional rewrite.
 
 | Session | ID | State |
 |---|---|---|
-| [Clinician-supervised mental health assistant](https://claude.ai/code/session_01HTQrffyxN7ctNKYk3YEuWh) | `01HTQrff` | Style answered: glass. Instruction delivered 10:55; applying it across client and console. |
 | [Obedient-ai Claude Code plugin](https://claude.ai/code/session_01QkmWRy5UxJPZ1U6twsrinf) | `01QkmWRy` | Review-ready. Nothing pending. |
 | [macbook-pro bridge — temporal-shore](https://claude.ai/code/session_01UMQVoeAZDFYP2SZu2zutDk) | `01UMQVoe` | Config reload applied, no diagnostics. |
 | [macbook-pro bridge — ModelCost](https://claude.ai/code/session_013dk8vHTwvLr6CPKWNVPheM) | `013dk8vH` | main clean, 0 unpushed commits. |
@@ -77,7 +77,7 @@ Every draft is written. Each session only offers an optional rewrite.
 
 | Time | Session | Command | Result |
 |---|---|---|---|
-| 10:51 | Clinician mental health | Style → **glass** | ✅ Fired 10:55, session resumed 10:58:47 |
+| 10:51 | Clinician mental health | Style → **glass** | ✅ Delivered 10:55. Session shipped Milestone 4 by 11:03 — 98 tests pass |
 | 10:53 | Clinician mental health | Style → glass (repeat tap) | Deduplicated, not re-sent |
 | 10:52 | Bot with recurring tasks | Kill as duplicate | Archived |
 
@@ -86,7 +86,7 @@ Every draft is written. Each session only offers an optional rewrite.
 | Routine | Schedule | Bound to | Effect |
 |---|---|---|---|
 | `trig_01EfPd6t` TickTick spec-ready → cloud sessions | hourly at **:25** | AI Loop Runner `017qqS1E` | Spawns a session per untagged spec-ready TickTick task. Budget 15, **9 used, 6 left** |
-| `trig_01PyFHFY` Fleet Control — style pick: glass | one-shot **10:55** | Clinician mental health `01HTQrff` | ✅ Fired. Session back to RUNNING |
+| `trig_01PyFHFY` Fleet Control — style pick: glass | one-shot **10:55** | Clinician mental health `01HTQrff` | ✅ Fired. Session resumed and shipped |
 
 The TickTick routine grows the fleet without passing through this board.
 Next fire **11:25**.
