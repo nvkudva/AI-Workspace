@@ -5,18 +5,19 @@
 | **Supervisor** | `ai-workspace-8d` · `session_01Krr1y5W84RzUWszj37KLvN` |
 | **Control surface** | [Fleet Control](https://claude.ai/code/artifact/ec57876f-c431-492f-85ae-cbe3a71c77d4) — tap to act |
 | **Cadence** | 5-min cron sweep · job `6a6f0bdb` · expires in 7d |
-| **Last sweep** | 2026-09-06T10:45:00Z |
-| **Fleet** | 24 sessions · **$274.19** burned to date |
+| **Last sweep** | 2026-09-06T10:50:00Z |
+| **Fleet** | 28 live sessions · **$275.58** burned to date |
+| **Scope** | Non-archived only. ~25 archived `bhagavad-geeta` CLI sessions are history, not fleet. |
 
 ## 📊 Scoreboard
 
 | Status | Count |
 |---|---|
-| 🟠 Waiting on Vijay | **4** |
+| 🟠 Waiting on Vijay | **5** |
 | 🔵 Waiting on nothing | **7** |
 | 🔴 Failed | **1** |
-| 🟢 Shipped | **9** |
-| ⚪ Idle | **3** |
+| 🟢 Shipped | **11** |
+| ⚪ Idle | **4** |
 
 ## 🟠 Waiting on you
 
@@ -26,10 +27,11 @@
 | [Ask My Brain — RAG voice console](https://claude.ai/code/session_017NBXpFwZ1nEKwkcEYndkA2) | `017NBXpF` | Three round-two console designs are ready. Pick one to develop. | $18.75 |
 | [Agent company floor-plan UI](https://claude.ai/code/session_019UMdbJABQ293tLbzBnyaCL) | `019UMdbJ` | Three design decisions in prd.md §7 — runtime, gate, messaging. | $12.30 |
 | [TickTick → LinkedIn automation loop](https://claude.ai/code/session_015VjH28XUuzGJDJGfEhEqce) | `015VjH28` | 10 post sessions launched. Wants approval to launch the next 50. | $1.27 |
+| [Bot with recurring tasks](https://claude.ai/code/session_019dePEvs6Pfqw4eAZ12EsES) | `019dePEv` | Ready to set up a session loop. Needs the task and the interval (or a cron expression). | $0.35 |
 
 ## 🔵 Waiting on nothing
 
-Every draft is written. Each session is only offering an optional rewrite.
+Every draft is written. Each session only offers an optional rewrite.
 
 | Session | ID | Question it's stuck on |
 |---|---|---|
@@ -60,6 +62,8 @@ Every draft is written. Each session is only offering an optional rewrite.
 | [Chat Jimmy and superfast tokens](https://claude.ai/code/session_01DMzV8Ey6zbxzYRoZt8YhTn) | `01DMzV8E` | Draft on token speed as AI's real bottleneck. | $0.49 |
 | [AI storm resets engineering leadership](https://claude.ai/code/session_015Mc9REmrnJbEBA51nEtB8p) | `015Mc9RE` | 218-word draft, hands-on learning over bandwagon adoption. | $0.30 |
 | [GAIA from Horizon Zero Dawn is close to real](https://claude.ai/code/session_01JRUQXCZPLnhxXGavrDXaSk) | `01JRUQXC` | 224-word draft on multi-agent AI architecture. | $0.28 |
+| [IndicTrans2 — Gita commentary translation](https://claude.ai/code/session_015aeL2grrbsNnSQ16ZQuJci) | `015aeL2g` | 695 Kannada + Telugu verses live. 6 commits pushed (4a71a6d), remote on SSH. | $0.00 |
+| [ModelCost — Bun/React/Vite](https://claude.ai/code/session_01PtVb9angXG5V7Pv5a6kNeJ) | `01PtVb9a` | README rewritten with screenshots. Live at modelcost.pages.dev. | $0.00 |
 
 ## ⚪ Idle
 
@@ -68,6 +72,7 @@ Every draft is written. Each session is only offering an optional rewrite.
 | [Obedient-ai Claude Code plugin](https://claude.ai/code/session_01QkmWRy5UxJPZ1U6twsrinf) | `01QkmWRy` | Review-ready. Nothing pending. |
 | [macbook-pro bridge — temporal-shore](https://claude.ai/code/session_01UMQVoeAZDFYP2SZu2zutDk) | `01UMQVoe` | Config reload applied, no diagnostics. |
 | [macbook-pro bridge — ModelCost](https://claude.ai/code/session_013dk8vHTwvLr6CPKWNVPheM) | `013dk8vH` | main clean, 0 unpushed commits. |
+| [Patient + Doctor app redesign consistency](https://claude.ai/code/session_01GLbtUpDKoaqA6FYM4853iF) | `01GLbtUp` | Design audit under way, 3-phase plan queued. Review-ready. |
 
 ## 🔌 Control mechanics
 
