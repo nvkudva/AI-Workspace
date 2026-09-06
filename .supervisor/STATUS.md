@@ -5,29 +5,27 @@
 | **Supervisor** | `ai-workspace-8d` · `session_01Krr1y5W84RzUWszj37KLvN` |
 | **Control surface** | [Fleet Control](https://claude.ai/code/artifact/ec57876f-c431-492f-85ae-cbe3a71c77d4) — tap to act |
 | **Cadence** | 5-min cron sweep · job `6a6f0bdb` · expires in 7d |
-| **Last sweep** | 2026-09-06T10:50:00Z |
-| **Fleet** | 28 live sessions · **$275.58** burned to date |
+| **Last sweep** | 2026-09-06T10:55:00Z |
+| **Fleet** | 27 live sessions · **$275.23** burned to date |
 | **Scope** | Non-archived only. ~25 archived `bhagavad-geeta` CLI sessions are history, not fleet. |
 
 ## 📊 Scoreboard
 
 | Status | Count |
 |---|---|
-| 🟠 Waiting on Vijay | **5** |
+| 🟠 Waiting on Vijay | **3** |
 | 🔵 Waiting on nothing | **7** |
 | 🔴 Failed | **1** |
 | 🟢 Shipped | **11** |
-| ⚪ Idle | **4** |
+| ⚪ Idle | **5** |
 
 ## 🟠 Waiting on you
 
 | Session | ID | Decision needed | Spent |
 |---|---|---|---|
-| [Clinician-supervised mental health assistant](https://claude.ai/code/session_01HTQrffyxN7ctNKYk3YEuWh) | `01HTQrff` | Milestones 5–6 done, 91 tests green. Pick a surface style. | $45.20 |
 | [Ask My Brain — RAG voice console](https://claude.ai/code/session_017NBXpFwZ1nEKwkcEYndkA2) | `017NBXpF` | Three round-two console designs are ready. Pick one to develop. | $18.75 |
 | [Agent company floor-plan UI](https://claude.ai/code/session_019UMdbJABQ293tLbzBnyaCL) | `019UMdbJ` | Three design decisions in prd.md §7 — runtime, gate, messaging. | $12.30 |
 | [TickTick → LinkedIn automation loop](https://claude.ai/code/session_015VjH28XUuzGJDJGfEhEqce) | `015VjH28` | 10 post sessions launched. Wants approval to launch the next 50. | $1.27 |
-| [Bot with recurring tasks](https://claude.ai/code/session_019dePEvs6Pfqw4eAZ12EsES) | `019dePEv` | Ready to set up a session loop. Needs the task and the interval (or a cron expression). | $0.35 |
 
 ## 🔵 Waiting on nothing
 
@@ -69,10 +67,19 @@ Every draft is written. Each session only offers an optional rewrite.
 
 | Session | ID | State |
 |---|---|---|
+| [Clinician-supervised mental health assistant](https://claude.ai/code/session_01HTQrffyxN7ctNKYk3YEuWh) | `01HTQrff` | Style answered: glass. Instruction delivered 10:55; applying it across client and console. |
 | [Obedient-ai Claude Code plugin](https://claude.ai/code/session_01QkmWRy5UxJPZ1U6twsrinf) | `01QkmWRy` | Review-ready. Nothing pending. |
 | [macbook-pro bridge — temporal-shore](https://claude.ai/code/session_01UMQVoeAZDFYP2SZu2zutDk) | `01UMQVoe` | Config reload applied, no diagnostics. |
 | [macbook-pro bridge — ModelCost](https://claude.ai/code/session_013dk8vHTwvLr6CPKWNVPheM) | `013dk8vH` | main clean, 0 unpushed commits. |
 | [Patient + Doctor app redesign consistency](https://claude.ai/code/session_01GLbtUpDKoaqA6FYM4853iF) | `01GLbtUp` | Design audit under way, 3-phase plan queued. Review-ready. |
+
+## ✅ Commands executed
+
+| Time | Session | Command | Result |
+|---|---|---|---|
+| 10:51 | Clinician mental health | Style → **glass** | Delivered `trig_01PyFHFY`, fires 10:55 |
+| 10:53 | Clinician mental health | Style → glass (repeat tap) | Deduplicated, not re-sent |
+| 10:52 | Bot with recurring tasks | Kill as duplicate | Archived |
 
 ## 🔌 Control mechanics
 
@@ -80,10 +87,11 @@ Every draft is written. Each session only offers an optional rewrite.
 |---|---|
 | Vijay taps an action | Page writes to `commands/` in the artifact database |
 | Sweep drains the queue | `read_db` → execute → `write_db` status `done` |
-| Deliver into a session | `create_trigger` with `persistent_session_id` |
+| Deliver into a session | `create_trigger` with `persistent_session_id` — **verified working** |
 | Relaunch a dead session | `create_session` |
 | Stop a runaway turn | `interrupt_session` |
 
 `send_message` is **not** available on the Claude_Code_Remote server in this build.
 The artifact wake subscription was refused (HTTP 403), so the page is polled on the
-5-minute cron rather than pushed.
+5-minute cron rather than pushed. Repeat taps of the same action are deduplicated
+before delivery.
