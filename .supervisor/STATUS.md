@@ -77,7 +77,7 @@ Every draft is written. Each session only offers an optional rewrite.
 
 | Time | Session | Command | Result |
 |---|---|---|---|
-| 10:51 | Clinician mental health | Style → **glass** | Delivered `trig_01PyFHFY`, fires 10:55 |
+| 10:51 | Clinician mental health | Style → **glass** | ✅ Fired 10:55, session resumed 10:58:47 |
 | 10:53 | Clinician mental health | Style → glass (repeat tap) | Deduplicated, not re-sent |
 | 10:52 | Bot with recurring tasks | Kill as duplicate | Archived |
 
@@ -86,10 +86,18 @@ Every draft is written. Each session only offers an optional rewrite.
 | Routine | Schedule | Bound to | Effect |
 |---|---|---|---|
 | `trig_01EfPd6t` TickTick spec-ready → cloud sessions | hourly at **:25** | AI Loop Runner `017qqS1E` | Spawns a session per untagged spec-ready TickTick task. Budget 15, **9 used, 6 left** |
-| `trig_01PyFHFY` Fleet Control — style pick: glass | one-shot **10:55** | Clinician mental health `01HTQrff` | Delivers Vijay's glass answer |
+| `trig_01PyFHFY` Fleet Control — style pick: glass | one-shot **10:55** | Clinician mental health `01HTQrff` | ✅ Fired. Session back to RUNNING |
 
 The TickTick routine grows the fleet without passing through this board.
 Next fire **11:25**.
+
+## 🔄 Sweep policy
+
+A full `list_sessions` page costs ~20k tokens. Running one every 5 minutes
+burns budget re-reading a fleet that changes hourly. So each tick drains the
+command queue and checks the sessions with something pending; a full re-list
+runs after the TickTick spawner fires (**:25**) or when a command changes a
+session's state.
 
 ## 🔌 Control mechanics
 
