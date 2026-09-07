@@ -233,7 +233,7 @@
       "id": "local_1a5bb74d-0ee7-4c01-9961-c79df17efdb8",
       "t": "SuperVoiceBoard",
       "g": "idle",
-      "ask": "Local · ModelCost · idle since 15:30",
+      "ask": "Local · ModelCost · active 04:54",
       "spend": 0,
       "ctx": 0
     },
@@ -265,7 +265,7 @@
       "id": "local_9f2d1a9c-803b-42a0-a0b3-635dcbdede61",
       "t": "AI - Plugin - Obedient-ai Claude",
       "g": "idle",
-      "ask": "Local · scratch workspace · idle since 07:04",
+      "ask": "Local · obedient-ai · active 04:54",
       "spend": 0,
       "ctx": 0
     },
@@ -294,6 +294,6 @@
       "ctx": 0
     }
   ],
-  "sweptAt": "2026-09-07T04:00:00Z",
+  "sweptAt": "2026-09-07T04:55:00Z",
   "burn": 290.02
 }

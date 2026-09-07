@@ -1,6 +1,6 @@
 # Fleet status
 
-Swept 2026-09-07T04:00:00Z · burn $290.02
+Swept 2026-09-07T04:55:00Z · burn $290.02
 
 Supervisor is LOCAL. Cloud rows are frozen and read-only — no Claude_Code_Remote MCP here.
 Local rows carry no spend or context figures.
@@ -41,11 +41,11 @@ Local rows carry no spend or context figures.
 - **macbook-pro bridge — temporal-shore** — Config reload applied, no diagnostics. (frozen — cloud unreachable from local supervisor)
 - **macbook-pro bridge — ModelCost** — main clean, 0 unpushed commits. (frozen — cloud unreachable from local supervisor)
 - **Patient + Doctor app redesign consistency** — Design audit under way, 3-phase plan queued. Review-ready. (frozen — cloud unreachable from local supervisor)
-- **SuperVoiceBoard** — Local · ModelCost · idle since 15:30
+- **SuperVoiceBoard** — Local · ModelCost · active 04:54
 - **Plugin Skill and Hooks** — Local · obedient-ai · idle since 15:06
 - **Bhagavad** — Local · bhagavad-geeta · idle since 13:56
 - **AI Voice Engine project setup** — Local · AIVoiceEngine · idle since 13:39
-- **AI - Plugin - Obedient-ai Claude** — Local · scratch workspace · idle since 07:04
+- **AI - Plugin - Obedient-ai Claude** — Local · obedient-ai · active 04:54
 - **App functionality without model download** — Local · VBoard · idle since Aug 31
 - **Generic agents in .claude/agents** — Local · VBoard · idle since Aug 31
 - **Agent Dev server** — Local · AgentOS · idle since 03:54
