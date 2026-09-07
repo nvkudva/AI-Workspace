@@ -296,13 +296,12 @@
     {
       "id": "local_ce3ae579-59b3-424c-8b94-0916b052b4fd",
       "t": "Global news aggregation app",
-      "g": "auto",
-      "ask": "Local · scratch workspace · running since 06:02",
+      "g": "idle",
+      "ask": "Local · scratch workspace · idle since 06:03",
       "spend": 0,
-      "ctx": 0,
-      "hot": true
+      "ctx": 0
     }
   ],
-  "sweptAt": "2026-09-07T06:05:00Z",
+  "sweptAt": "2026-09-07T06:10:00Z",
   "burn": 290.02
 }
