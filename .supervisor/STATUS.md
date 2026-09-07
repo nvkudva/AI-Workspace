@@ -1,6 +1,6 @@
 # Fleet status
 
-Swept 2026-09-07T03:55:00Z · burn $290.02
+Swept 2026-09-07T04:00:00Z · burn $290.02
 
 Supervisor is LOCAL. Cloud rows are frozen and read-only — no Claude_Code_Remote MCP here.
 Local rows carry no spend or context figures.
@@ -19,7 +19,6 @@ Local rows carry no spend or context figures.
 - **Todos change with AI memory** — 196 words. Shorter cut? (frozen — cloud unreachable from local supervisor)
 - **Waiting time is the real dev pain with LLMs** — Tighter cut, or lean harder on the dopamine angle? (frozen — cloud unreachable from local supervisor)
 - **Too many terminals and shells to choose from** — Shorter version, or a different opening hook? (frozen — cloud unreachable from local supervisor)
-- **Agent Dev server** — Local · AgentOS · running since 03:54
 
 ## failed
 - **Corporate training modules with SCORM** — Archived mid-turn. ede_diagnostic, stop_reason null. Needs a relaunch from the spec. (frozen — cloud unreachable from local supervisor)
@@ -49,3 +48,4 @@ Local rows carry no spend or context figures.
 - **AI - Plugin - Obedient-ai Claude** — Local · scratch workspace · idle since 07:04
 - **App functionality without model download** — Local · VBoard · idle since Aug 31
 - **Generic agents in .claude/agents** — Local · VBoard · idle since Aug 31
+- **Agent Dev server** — Local · AgentOS · idle since 03:54

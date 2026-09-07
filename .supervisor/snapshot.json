@@ -288,13 +288,12 @@
     {
       "id": "local_c9855dcd-98b7-47c9-8cc0-5cb3d6629997",
       "t": "Agent Dev server",
-      "g": "auto",
-      "ask": "Local · AgentOS · running since 03:54",
+      "g": "idle",
+      "ask": "Local · AgentOS · idle since 03:54",
       "spend": 0,
-      "ctx": 0,
-      "hot": true
+      "ctx": 0
     }
   ],
-  "sweptAt": "2026-09-07T03:55:00Z",
+  "sweptAt": "2026-09-07T04:00:00Z",
   "burn": 290.02
 }
