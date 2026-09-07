@@ -20,9 +20,6 @@ Local rows carry no spend or context figures.
 - **Waiting time is the real dev pain with LLMs** — Tighter cut, or lean harder on the dopamine angle? (frozen — cloud unreachable from local supervisor)
 - **Too many terminals and shells to choose from** — Shorter version, or a different opening hook? (frozen — cloud unreachable from local supervisor)
 
-## failed
-- **Corporate training modules with SCORM** — Archived mid-turn. ede_diagnostic, stop_reason null. Needs a relaunch from the spec. (frozen — cloud unreachable from local supervisor)
-
 ## done
 - **Chitrakathe — event/birthday video site** — Security round 2: 6 real vulnerabilities fixed and verified. Known gaps documented. (frozen — cloud unreachable from local supervisor)
 - **Clinician-supervised mental health assistant** — Glass applied. Milestone 4 built — sessions persisted, agenda-led, homework gate enforced. 98 tests pass. (frozen — cloud unreachable from local supervisor)

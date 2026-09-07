@@ -10,7 +10,8 @@ track blockers, and act on my behalf where it is safe.
   cron jobs die with the session. Create the new one BEFORE deleting an old one.
 - Intervene where safe. Escalate taste, design, and scale calls to me.
 - Track blockers, pending items, and done items. Never let a blocker go silent.
-- Scope: non-archived sessions only.
+- Scope: non-archived sessions only. Archiving is also a removal — drop the row
+  from `fleet/snapshot` and STATUS.md, do not leave it under `failed`.
 
 ## The board
 AI Workspace Dashboard for Claude: https://claude.ai/code/artifact/ec57876f-c431-492f-85ae-cbe3a71c77d4
