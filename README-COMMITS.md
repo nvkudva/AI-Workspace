@@ -1,12 +1,12 @@
 # README rewrite — commit links
 
-Run 2026-09-07. Every README below was rewritten to the house template in
+Run 2026-09-07. All **20** keep-list repos rewritten to the house template in
 [README-TEMPLATE.md](README-TEMPLATE.md), with every claim checked against the code.
 
-**13 of 20 done. 7 pending** — those agents died on the account session limit, which resets
-at midnight Asia/Calcutta.
+Each new commit was resolved from the GitHub API, not from the agent's own report, and each
+was verified to touch `README.md` and nothing else.
 
-## Done
+## Commits
 
 | Repo | Old README commit | New README commit | Diff |
 |---|---|---|---|
@@ -22,7 +22,14 @@ at midnight Asia/Calcutta.
 | [ask-my-brain](https://github.com/nvkudva/ask-my-brain) | [`b1554bf`](https://github.com/nvkudva/ask-my-brain/commit/b1554bfdb83c8f28ec6906178d2f8cef6509d6f0) | [`cf23ad0`](https://github.com/nvkudva/ask-my-brain/commit/cf23ad04e910f8a99c7c143e7bb9953fa146c7b4) | [compare](https://github.com/nvkudva/ask-my-brain/compare/b1554bfdb83c8f28ec6906178d2f8cef6509d6f0...cf23ad04e910f8a99c7c143e7bb9953fa146c7b4) |
 | [chitrakathe](https://github.com/nvkudva/chitrakathe) | [`95c6fbb`](https://github.com/nvkudva/chitrakathe/commit/95c6fbba4d856102f9787ecca1087b09a818ea29) | [`830c403`](https://github.com/nvkudva/chitrakathe/commit/830c4031cbde87d187c5dfc9f3575c411a0cef8f) | [compare](https://github.com/nvkudva/chitrakathe/compare/95c6fbba4d856102f9787ecca1087b09a818ea29...830c4031cbde87d187c5dfc9f3575c411a0cef8f) |
 | [obedient-ai](https://github.com/nvkudva/obedient-ai) | [`622d209`](https://github.com/nvkudva/obedient-ai/commit/622d209485b915315dab1ee0fc4cf88b522e5050) | [`7d94e6a`](https://github.com/nvkudva/obedient-ai/commit/7d94e6a6b85d38fb42143fd60a1f377f85a8203d) | [compare](https://github.com/nvkudva/obedient-ai/compare/622d209485b915315dab1ee0fc4cf88b522e5050...7d94e6a6b85d38fb42143fd60a1f377f85a8203d) |
-| [ModelCost](https://github.com/nvkudva/ModelCost) | [`ecb7caf`](https://github.com/nvkudva/ModelCost/commit/ecb7caf3c557ca14bbae9c22776f218e462c08db) | [`b1e8d0a`](https://github.com/nvkudva/ModelCost/commit/b1e8d0afa1b5544ce5b97a544e2e8b54336d9119) | [compare](https://github.com/nvkudva/ModelCost/compare/ecb7caf3c557ca14bbae9c22776f218e462c08db...b1e8d0afa1b5544ce5b97a544e2e8b54336d9119) |
+| [bhagavad-geeta](https://github.com/nvkudva/bhagavad-geeta) | [`4f267a8`](https://github.com/nvkudva/bhagavad-geeta/commit/4f267a881e7f1873417caf8690031e70d63f375c) | [`ea5a2b2`](https://github.com/nvkudva/bhagavad-geeta/commit/ea5a2b2037a2f30b5f07210728f52035f37ca37c) | [compare](https://github.com/nvkudva/bhagavad-geeta/compare/4f267a881e7f1873417caf8690031e70d63f375c...ea5a2b2037a2f30b5f07210728f52035f37ca37c) |
+| [ModelCost](https://github.com/nvkudva/ModelCost) | [`ecb7caf`](https://github.com/nvkudva/ModelCost/commit/ecb7caf3c557ca14bbae9c22776f218e462c08db) | [`2e2efe9`](https://github.com/nvkudva/ModelCost/commit/2e2efe9d87edb20e775f6aa3b148bddf4d2f3b78) | [compare](https://github.com/nvkudva/ModelCost/compare/ecb7caf3c557ca14bbae9c22776f218e462c08db...2e2efe9d87edb20e775f6aa3b148bddf4d2f3b78) |
+| [SuperVoiceBoard](https://github.com/nvkudva/SuperVoiceBoard) | [`df9b37c`](https://github.com/nvkudva/SuperVoiceBoard/commit/df9b37c84088ea67176dfb996e515cb6a7d23414) | [`7cc0de3`](https://github.com/nvkudva/SuperVoiceBoard/commit/7cc0de3be7fdb6ece2e30e5905c8260d21379c8b) | [compare](https://github.com/nvkudva/SuperVoiceBoard/compare/df9b37c84088ea67176dfb996e515cb6a7d23414...7cc0de3be7fdb6ece2e30e5905c8260d21379c8b) |
+| [VBoard](https://github.com/nvkudva/VBoard) | [`f7cce48`](https://github.com/nvkudva/VBoard/commit/f7cce48122ce633db0712b81a64df15d02a2a203) | [`6ef0b07`](https://github.com/nvkudva/VBoard/commit/6ef0b07eb44202b3f687f2ef96eed4a16cae8752) | [compare](https://github.com/nvkudva/VBoard/compare/f7cce48122ce633db0712b81a64df15d02a2a203...6ef0b07eb44202b3f687f2ef96eed4a16cae8752) |
+| [SmartFin](https://github.com/nvkudva/SmartFin) | [`f843d58`](https://github.com/nvkudva/SmartFin/commit/f843d581f7ccbab344133b855a4fe692d7b863c5) | [`6667bcd`](https://github.com/nvkudva/SmartFin/commit/6667bcd7ecfcf0218d9ed3f730469a65b43c072a) | [compare](https://github.com/nvkudva/SmartFin/compare/f843d581f7ccbab344133b855a4fe692d7b863c5...6667bcd7ecfcf0218d9ed3f730469a65b43c072a) |
+| [gym-budy-claude](https://github.com/nvkudva/gym-budy-claude) | [`ed0cb75`](https://github.com/nvkudva/gym-budy-claude/commit/ed0cb75c4e4e78c055219cf6b6a4a2325455305d) | [`18bb3da`](https://github.com/nvkudva/gym-budy-claude/commit/18bb3da58dff5a567ef7a9e21f856838e66d2f42) | [compare](https://github.com/nvkudva/gym-budy-claude/compare/ed0cb75c4e4e78c055219cf6b6a4a2325455305d...18bb3da58dff5a567ef7a9e21f856838e66d2f42) |
+| [magalang](https://github.com/nvkudva/magalang) | [`31d1f2e`](https://github.com/nvkudva/magalang/commit/31d1f2ea68e8e6327c459d37a8d782f3b758004e) | [`51120c1`](https://github.com/nvkudva/magalang/commit/51120c134176b80960e53aee28bd81dc20c64804) | [compare](https://github.com/nvkudva/magalang/compare/31d1f2ea68e8e6327c459d37a8d782f3b758004e...51120c134176b80960e53aee28bd81dc20c64804) |
+| [ticktick-mcp](https://github.com/nvkudva/ticktick-mcp) | [`8412506`](https://github.com/nvkudva/ticktick-mcp/commit/8412506ffc311d55573469df790725ad13f23e0c) | [`57b2eeb`](https://github.com/nvkudva/ticktick-mcp/commit/57b2eeb5dbd09d2502e4964f5a16f5060c7dbfe0) | [compare](https://github.com/nvkudva/ticktick-mcp/compare/8412506ffc311d55573469df790725ad13f23e0c...57b2eeb5dbd09d2502e4964f5a16f5060c7dbfe0) |
 
 ## What each rewrite corrected
 
@@ -30,7 +37,7 @@ at midnight Asia/Calcutta.
 |---|---|
 | `Smart-News` | Removed the self-contradicting default-provider claim; the code actually defaults to `cloudflare`. |
 | `AgentOS` | Removed the dead per-deploy demo URL and a pluggable `LlmDriver` that does not exist in the code. |
-| `AI-Doctor` | Dropped the "voice-first" headline — no client code ever opens the Gemini Live socket. |
+| `AI-Doctor` | Dropped the "voice-first" headline — no client code ever opens the Gemini Live socket, so the consult is text only. |
 | `AI-Workspace` | First README this repo has ever had; states plainly that cloud rows are frozen. |
 | `voice-interview-coach` | Removed the all-em-dash latency table publishing an unmeasured 800 ms p95 as data. |
 | `briefwire` | Removed the claim that topic weight is live — MORE/LESS/DROP write to a table nothing reads. |
@@ -40,27 +47,30 @@ at midnight Asia/Calcutta.
 | `ask-my-brain` | Removed the Results table and the happy path — no corpus has ever been ingested. |
 | `chitrakathe` | Cut the 55-line P&L; states that a clean clone cannot build because `src/lib/storage/` is gitignored. |
 | `obedient-ai` | Dropped a machine-specific local path; Status now says the hook fails silently. |
-| `ModelCost` | States there is no deployed instance, no licence file, no tests; adds the data-refresh date. |
+| `bhagavad-geeta` | Dropped the unbacked MIT claim and the Tailwind stack claim (no such dependency); verse counts measured against `src/data/verses.json`. |
+| `ModelCost` | States outright there is no deployed instance and no URL; adds the data-compile date and the mouse-only controls. |
+| `SuperVoiceBoard` | Removed the false claim that HeliBoard requests no permissions — the inherited manifest declares seven — and fixed a fork link pointing at a non-existent GitHub org. |
+| `VBoard` | Corrected first-run storage from "about 1.2 GB" to the real 610 MB of downloads plus ~1.5 GB free during extraction. |
+| `SmartFin` | Dropped the 653-line architecture essay; accuracy numbers relabelled as simulated ground truth, and the licence line now says all rights reserved. |
+| `gym-budy-claude` | Dropped the unbacked MIT licence claim — no LICENSE file exists. |
+| `magalang` | Status now states plainly that expressions run through `eval`, errors print as values, and floats and comments do not work; the old README documented a comment syntax the tokenizer never supported. |
+| `ticktick-mcp` | Removed `npx ticktick-mcp` / global install, which resolve to an unrelated author's npm package and would hand a user's TickTick token to third-party code. |
 
-## Pending — session limit
+## Two things the agent reports got wrong
 
-These seven never ran. Their old README commit is recorded so the comparison still works
-once they are rewritten.
+**Smart-News.** Another Claude session pushed to `main` while the rewrite was in flight. The
+agent's push was rejected, it merged `origin/main` and pushed the merge, so the sha it reported
+(`5a2c841`) is the merge commit, not the rewrite. The table links the real rewrite, `a44f38e`.
 
-| Repo | Old README commit |
-|---|---|
-| [bhagavad-geeta](https://github.com/nvkudva/bhagavad-geeta) | [`4f267a8`](https://github.com/nvkudva/bhagavad-geeta/commit/4f267a881e7f1873417caf8690031e70d63f375c) |
-| [SuperVoiceBoard](https://github.com/nvkudva/SuperVoiceBoard) | [`df9b37c`](https://github.com/nvkudva/SuperVoiceBoard/commit/df9b37c84088ea67176dfb996e515cb6a7d23414) |
-| [VBoard](https://github.com/nvkudva/VBoard) | [`f7cce48`](https://github.com/nvkudva/VBoard/commit/f7cce48122ce633db0712b81a64df15d02a2a203) |
-| [SmartFin](https://github.com/nvkudva/SmartFin) | [`f843d58`](https://github.com/nvkudva/SmartFin/commit/f843d581f7ccbab344133b855a4fe692d7b863c5) |
-| [gym-budy-claude](https://github.com/nvkudva/gym-budy-claude) | [`ed0cb75`](https://github.com/nvkudva/gym-budy-claude/commit/ed0cb75c4e4e78c055219cf6b6a4a2325455305d) |
-| [magalang](https://github.com/nvkudva/magalang) | [`31d1f2e`](https://github.com/nvkudva/magalang/commit/31d1f2ea68e8e6327c459d37a8d782f3b758004e) |
-| [ticktick-mcp](https://github.com/nvkudva/ticktick-mcp) | [`8412506`](https://github.com/nvkudva/ticktick-mcp/commit/8412506ffc311d55573469df790725ad13f23e0c) |
+**ModelCost.** The first run committed `b1e8d0a`; the resume did not replay it from cache and
+wrote a second, fuller README at `2e2efe9`. Both are in history — the table links the current one.
 
-## Note on Smart-News
+Neither was visible in the agents' own reports. Both were caught by resolving every sha from
+GitHub instead of trusting what the agents returned.
 
-Another Claude session pushed to `Smart-News` main while the rewrite was in flight. The agent's
-push was rejected, it merged `origin/main` and pushed the merge, so the sha it reported
-(`5a2c841`) is the merge commit, not the rewrite. The table above links the real rewrite commit,
-`a44f38e`, resolved from GitHub rather than from the agent's own report. No other repo was affected.
+## Not covered
+
+The 20 repos on the archive list in [REPO-TRIAGE.md](REPO-TRIAGE.md) were left alone —
+polishing a README into a repo slated for archival is throwaway work. `aeon` was excluded too:
+it is an unedited copy of an upstream framework and needs a de-fork decision first.
 
