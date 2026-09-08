@@ -6,7 +6,7 @@ This covers the **42 owned repos**.
 Signals used: last push, disk usage, top-level tree shape, primary language,
 README state (see the README audit), and structural overlap between repos.
 
-**Verdict: keep 20 · archive 20 · 2 special cases.**
+**Verdict: keep 21 · archive 19 · 2 special cases.**
 
 ---
 
@@ -47,12 +47,22 @@ assignment version.
 |---|---|---|---|---|
 | **gym-budy-claude** | 2026-03-28 | 3.1 MB | `.claude/ package.json public/ scripts/ src/` | **keep** (rename) |
 | gym-buddy | 2026-07-30 | 81 KB | `package.json public/ src/` | archive |
-| GymBuddy | 2025-11-18 | 54 KB | — | archive |
+| GymBuddy | 2025-11-18 | 54 KB | AI Studio export, no build step | **keep — it is the one in production** |
 
 gym-buddy is newer by date but is still the unedited `create-vite` template — 81 KB with
-a README that never mentions a gym. GymBuddy is the 2025 AI Studio export. Only
-gym-budy-claude has real content (six working screenshots, matching scripts).
-The keeper's name is misspelled: rename to `gym-buddy-claude`.
+a README that never mentions a gym; archive it.
+
+**Corrected 2026-09-08.** I had this cluster wrong. `GymBuddy` — the smallest repo, which I
+called superseded — is the one actually deployed, at
+<https://gymbuddy-600845087494.us-west1.run.app/> on Google Cloud Run. Confirmed by
+fingerprint: the live page carries 7 `aistudiocdn` references, `@google/genai`, and the same
+pinned `lucide-react@^0.554.0` and `canvas-confetti@^1.9.4` as `GymBuddy/index.html`. Both
+Vite repos have zero `aistudiocdn` references, so neither can be serving it.
+
+So `GymBuddy` moves to **keep**, and it is now the worst-documented app you have in
+production: it was on the archive list, so it received no code review and no README rewrite.
+`gym-budy-claude` stays a keep — it is the larger, better-built codebase — but decide which
+of the two is the real product before investing in either.
 
 ### 4. News — 3 repos, keep 2
 
@@ -108,7 +118,7 @@ tell me which one you are actually taking forward.
 ### Superseded by a sibling (7)
 
 virtual-doctor · virtual-doctor-local-llm · ai-hospital · FinFab · gym-buddy ·
-GymBuddy · ai-news-app — see the clusters above.
+ai-news-app — see the clusters above. (`GymBuddy` was here; it is deployed, so it moved to keep.)
 
 ---
 
