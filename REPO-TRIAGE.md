@@ -6,7 +6,7 @@ This covers the **42 owned repos**.
 Signals used: last push, disk usage, top-level tree shape, primary language,
 README state (see the README audit), and structural overlap between repos.
 
-**Verdict: keep 21 · archive 19 · 2 special cases.**
+**Verdict: keep 20 · archive 20 · 2 special cases.**
 
 ---
 
@@ -45,24 +45,31 @@ assignment version.
 
 | Repo | Pushed | Size | Tree | Verdict |
 |---|---|---|---|---|
-| **gym-budy-claude** | 2026-03-28 | 3.1 MB | `.claude/ package.json public/ scripts/ src/` | **keep** (rename) |
+| **GymBuddy** | 2025-11-18 | 54 KB | AI Studio export, no build step | **keep — the deployed one** |
+| gym-budy-claude | 2026-03-28 | 3.1 MB | `.claude/ package.json public/ scripts/ src/` | archive |
 | gym-buddy | 2026-07-30 | 81 KB | `package.json public/ src/` | archive |
-| GymBuddy | 2025-11-18 | 54 KB | AI Studio export, no build step | **keep — it is the one in production** |
 
-gym-buddy is newer by date but is still the unedited `create-vite` template — 81 KB with
-a README that never mentions a gym; archive it.
+**Decided 2026-09-08: `GymBuddy` is the project. The other two are archived.**
 
-**Corrected 2026-09-08.** I had this cluster wrong. `GymBuddy` — the smallest repo, which I
-called superseded — is the one actually deployed, at
+`GymBuddy` is the one actually deployed, at
 <https://gymbuddy-600845087494.us-west1.run.app/> on Google Cloud Run. Confirmed by
 fingerprint: the live page carries 7 `aistudiocdn` references, `@google/genai`, and the same
 pinned `lucide-react@^0.554.0` and `canvas-confetti@^1.9.4` as `GymBuddy/index.html`. Both
 Vite repos have zero `aistudiocdn` references, so neither can be serving it.
 
-So `GymBuddy` moves to **keep**, and it is now the worst-documented app you have in
-production: it was on the archive list, so it received no code review and no README rewrite.
-`gym-budy-claude` stays a keep — it is the larger, better-built codebase — but decide which
-of the two is the real product before investing in either.
+`gym-budy-claude` is the larger and better-built codebase — 3.1 MB against 54 KB, six real
+screenshots, a matching script set — but it is not the one users reach, and running two
+codebases for one product costs more than the difference is worth. Archive it.
+`gym-buddy` is the unedited `create-vite` template and never became an app.
+
+Two consequences worth knowing:
+
+- **`GymBuddy` is now the worst-documented app in production.** It sat on the archive list
+  during the audit, so it received no code review and no README rewrite. Its README is still
+  the AI Studio export that hands the reader the API-key problem instead of solving it.
+- **Archiving `gym-budy-claude` does not contain its leaked key.** A live Google Gemini key is
+  committed at `.claude/settings.local.json`, and the repo is public. Archived repos stay
+  publicly readable. Revoke the key in Google AI Studio; archiving changes nothing about it.
 
 ### 4. News — 3 repos, keep 2
 
@@ -118,7 +125,8 @@ tell me which one you are actually taking forward.
 ### Superseded by a sibling (7)
 
 virtual-doctor · virtual-doctor-local-llm · ai-hospital · FinFab · gym-buddy ·
-ai-news-app — see the clusters above. (`GymBuddy` was here; it is deployed, so it moved to keep.)
+gym-budy-claude · ai-news-app — see the clusters above.
+(`GymBuddy` was here; it is the deployed app, so it moved to keep.)
 
 ---
 
@@ -159,7 +167,7 @@ These go into the architecture + code-quality review.
 | SuperVoiceBoard | 2026-09-03 | 299 MB | Kotlin | yes |
 | VBoard | 2026-08-31 | 2.0 MB | Kotlin | no |
 | SmartFin | 2026-08-27 | 10.5 MB | TypeScript | no |
-| gym-budy-claude | 2026-03-28 | 3.1 MB | TypeScript | no |
+| GymBuddy | 2025-11-18 | 54 KB | TypeScript | no — **deployed, never reviewed** |
 | magalang | 2026-03-27 | 5.0 MB | JavaScript | yes (`maga-lang`) |
 | ticktick-mcp | 2026-07-30 | 30 KB | JavaScript | yes |
 
