@@ -87,7 +87,7 @@ tell me which one you are actually taking forward.
 | Repo | Last push | Why |
 |---|---|---|
 | nextjs-blog | 2021-07-16 | Next.js tutorial follow-along; README renders broken |
-| metro | 2014-07-09 | CSS, Windows-8-era UI kit, no README |
+| metro | 2014-07-09 | Bootstrap admin dashboard theme; static HTML for tables, charts, forms |
 | KonkniRecipes | 2014-03-30 | Android recipe app on MongoLab, a service that no longer exists |
 | DBtest | 2014-03-30 | Scratch spike for KonkniRecipes' data layer |
 | GmailStyle | 2014-01-03 | Stylebot userstyle for a Gmail UI twelve years gone |
@@ -101,9 +101,9 @@ tell me which one you are actually taking forward.
 | AI-Supervisor | 0 | No code, no README, no description |
 | wizkids-redesign | 0 | No code, no README, no description |
 | claude-playground | 0 | No code, no README, no description |
-| nas-dl | 0 | No code despite a JavaScript label |
-| cyberpunk-coffee | 2 KB | One HTML file, no README |
-| laguna-test | 146 KB | Named as a throwaway test, untouched since July |
+| nas-dl | 0 | **Not empty** — a Chrome extension adding a right-click download over a `nasdl://` deep link. Small, but real. Reconsider before archiving |
+| cyberpunk-coffee | 2 KB | Single-page landing page that references a `styles.css` not in the repo |
+| laguna-test | 146 KB | Bundles three unrelated experiments — AITrader, ai-news-app, sci-fi-coffee. Split or archive |
 
 ### Superseded by a sibling (7)
 
@@ -181,3 +181,22 @@ per-repo:
 This report is triage only — it reads metadata, tree shape and READMEs. It has **not**
 read the source of any repo. The architecture and code-quality review of the 20 keep
 repos is the next step, and no repo has been archived, renamed, or pushed to.
+
+---
+
+## Corrections, 2026-09-08
+
+Setting the GitHub description field on all 42 repos meant reading each one properly.
+That surfaced four errors in the triage above, now fixed in place:
+
+- **`nas-dl` is not empty.** It is a working Chrome extension. GitHub reported 0 KB disk
+  usage, which I took as "no code". It should not be archived without a second look.
+- **`laguna-test` is not one throwaway test.** It holds three unrelated experiments.
+- **`metro` is a Bootstrap admin theme**, not a Windows-8 UI kit — I inferred that from the
+  name and the CSS label rather than from the contents.
+- **`cyberpunk-coffee`** references a stylesheet that is not committed, so it does not
+  render as-is.
+
+The lesson holds for the rest of the archive list: disk usage and repo name are weak
+evidence. Everything in the "empty or near-empty" table deserves a look at the file tree
+before it is archived.
