@@ -1,49 +1,34 @@
 # Fleet status
 
-Swept 2026-09-07T06:40:00Z · burn $290.02
+Swept 2026-09-25T05:55:37Z · 22 sessions tracked
 
-Supervisor is LOCAL. Cloud rows are frozen and read-only — no Claude_Code_Remote MCP here.
-Local rows carry no spend or context figures.
-
-
-## human
-- **Ask My Brain — RAG voice console** — Converged on the Prism design with the arc-core animation. Wants the go-ahead to build it into the client. (frozen — cloud unreachable from local supervisor)
-- **Agent company floor-plan UI** — Three design decisions in prd.md §7 — runtime, gate, messaging. (frozen — cloud unreachable from local supervisor)
-- **TickTick → LinkedIn automation loop** — 10 post sessions launched. Wants approval to launch the next 50. (frozen — cloud unreachable from local supervisor)
+Supervisor is LOCAL. Sessions are reached with SendMessage on their `local_...` id.
+Spend and context figures are not exposed for local sessions.
 
 ## auto
-- **Short attention span, nonstop distraction** — Lead with the notification finding instead of the goldfish debunk? (frozen — cloud unreachable from local supervisor)
-- **India needs electric energy independence** — Lead with the AI/data-centre angle instead? (frozen — cloud unreachable from local supervisor)
-- **Sarvam AI and Indian voice models** — Keep the guardrail hunch open instead of correcting it? (frozen — cloud unreachable from local supervisor)
-- **The web when agents read it, not humans** — Punchier at about 120 words? (frozen — cloud unreachable from local supervisor)
-- **Todos change with AI memory** — 196 words. Shorter cut? (frozen — cloud unreachable from local supervisor)
-- **Waiting time is the real dev pain with LLMs** — Tighter cut, or lean harder on the dopamine angle? (frozen — cloud unreachable from local supervisor)
-- **Too many terminals and shells to choose from** — Shorter version, or a different opening hook? (frozen — cloud unreachable from local supervisor)
+- **Bhagavad — Gita reader** — Marketing launch kit relayed 2026-09-25. Remotion 4:5 + 16:9 renders, facts.md, posts.md. In flight.
+- **AI Wavekey — SuperVoiceBoard** — feat/local-mode. Private-mode surfaces committed minutes ago. Tree clean.
+- **Smart dedupe LinkedIn video** — Announcement video work. 1 dirty file, last commit 4 days ago. Fork session also open.
 
 ## done
-- **Chitrakathe — event/birthday video site** — Security round 2: 6 real vulnerabilities fixed and verified. Known gaps documented. (frozen — cloud unreachable from local supervisor)
-- **Clinician-supervised mental health assistant** — Glass applied. Milestone 4 built — sessions persisted, agenda-led, homework gate enforced. 98 tests pass. (frozen — cloud unreachable from local supervisor)
-- **LiveKit voice interview coach** — Responsive UI shipped at 390/720/1440px. Dark mode, 38 tests pass. (frozen — cloud unreachable from local supervisor)
-- **Figurine factory — 3D Pixar pipeline** — Three-column UI shipped, commit 75b995a. 13 Bun + 30 Python tests green. (frozen — cloud unreachable from local supervisor)
-- **AI Loop Runner — spawner** — 9 spec-ready tasks picked and running. 6 spawn slots free, blocked on repos. (frozen — cloud unreachable from local supervisor)
-- **Kelu — ESP32 AI speaker** — Milestone 1 firmware pushed (f1d882d), builds clean for esp32s3. Needs hardware bring-up. (frozen — cloud unreachable from local supervisor)
-- **briefwire — topic news briefing** — Pushed to GitHub. 4 commits, 62 files, typecheck and 35 tests green. (frozen — cloud unreachable from local supervisor)
-- **Chat Jimmy and superfast tokens** — Draft on token speed as AI's real bottleneck. (frozen — cloud unreachable from local supervisor)
-- **AI storm resets engineering leadership** — 218-word draft, hands-on learning over bandwagon adoption. (frozen — cloud unreachable from local supervisor)
-- **GAIA from Horizon Zero Dawn is close to real** — 224-word draft on multi-agent AI architecture. (frozen — cloud unreachable from local supervisor)
-- **IndicTrans2 — Gita commentary translation** — 695 Kannada + Telugu verses live. 6 commits pushed (4a71a6d), remote on SSH. (frozen — cloud unreachable from local supervisor)
-- **ModelCost — Bun/React/Vite** — README rewritten with screenshots. Live at modelcost.pages.dev. (frozen — cloud unreachable from local supervisor)
+- **Portfolio** — Hosting moved from Cloudflare to GitHub Pages. Clean.
+- **Coding Harness tutorial** — Minimal Node.js coding harness committed. Clean.
+- **gymbuddy old gcp** — Superseded by gym-budy-claude. Archive candidate.
 
 ## idle
-- **macbook-pro bridge — temporal-shore** — Config reload applied, no diagnostics. (frozen — cloud unreachable from local supervisor)
-- **macbook-pro bridge — ModelCost** — main clean, 0 unpushed commits. (frozen — cloud unreachable from local supervisor)
-- **Patient + Doctor app redesign consistency** — Design audit under way, 3-phase plan queued. Review-ready. (frozen — cloud unreachable from local supervisor)
-- **SuperVoiceBoard** — Local · ModelCost · active 04:54
-- **Plugin Skill and Hooks** — Local · obedient-ai · idle since 15:06
-- **Bhagavad** — Local · bhagavad-geeta · idle since 13:56
-- **AI Voice Engine project setup** — Local · AIVoiceEngine · idle since 13:39
-- **AI - Plugin - Obedient-ai Claude** — Local · obedient-ai · active 04:54
-- **App functionality without model download** — Local · VBoard · idle since Aug 31
-- **Generic agents in .claude/agents** — Local · VBoard · idle since Aug 31
-- **Agent Dev server** — Local · AgentOS · idle since 03:54
-- **Global news aggregation app** — Local · scratch workspace · idle since 06:33 · Focus
+- **ModelCost** — Session alive, remote control on, but repo untouched 3 weeks. 5 dirty files.
+- **GymBuddy** — P1s started: colour semantics, focus, day cards. Clean, parked 8 days.
+- **Pix Media** — Signature theme in PIX brand red and white. Clean, 2 days.
+- **Smart news** — Category selection styling, 27 hours ago. 3 dirty files.
+- **Aifix Chrome add-on** — 12 uncommitted files, idle 4 days. Largest unbacked working tree in the fleet.
+- **AI AgentOS** — Branch rooms-say-more, idle 13 days, 2 dirty.
+- **AI Doctor — Advisor Opus** — Consult latency work, idle 12 days, 2 dirty.
+- **Ask My Brain — RAG** — SQLite store, Google sign-in, listing. Clean, 8 days.
+- **AI Sahay** — UX and UI review for the dev agent. Clean, 13 days.
+- **LinkedIn posts to Substack** — AI-Workspace. substack/ untracked, 3 dirty.
+- **Voice computer control** — Smart-Voice-Control. Parked since 2026-09-22.
+- **WD NAS DeDuper** — Parked since 2026-09-18.
+- **WD NAS File browser** — Parked since 2026-09-17.
+- **Google Photos DeDuper** — Two sessions open, parked since 2026-09-17.
+- **HF speech-to-speech setup** — repos/speech-to-speech, 2026-09-25 03:16.
+- **Local HF Laya setup** — laya-mlx, parked 2026-09-20.

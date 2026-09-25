@@ -1,299 +1,138 @@
 {
-  "burn": 290.02,
-  "sessions": [
-    {
-      "arts": [
-        {
-          "icon": "◈",
-          "title": "Prism Voice Console",
-          "url": "https://claude.ai/code/artifact/4e3a8aed-a922-4eab-908d-6fcb0c4a4431"
-        },
-        {
-          "icon": "▦",
-          "title": "Voice Console Round Two",
-          "url": "https://claude.ai/code/artifact/d03bb975-fcea-443c-868c-99d100edc762"
-        },
-        {
-          "icon": "▦",
-          "title": "Ask My Brain Voice Console",
-          "url": "https://claude.ai/code/artifact/e4a16e4e-b8f0-4f5c-8d64-400547ac2d72"
-        }
-      ],
-      "ask": "Converged on the Prism design with the arc-core animation. Wants the go-ahead to build it into the client. (frozen — cloud unreachable from local supervisor)",
-      "ctx": 369,
-      "g": "human",
-      "id": "session_017NBXpFwZ1nEKwkcEYndkA2",
-      "spend": 21.23,
-      "t": "Ask My Brain — RAG voice console"
-    },
-    {
-      "ask": "Three design decisions in prd.md §7 — runtime, gate, messaging. (frozen — cloud unreachable from local supervisor)",
-      "ctx": 219,
-      "g": "human",
-      "id": "session_019UMdbJABQ293tLbzBnyaCL",
-      "spend": 12.3,
-      "t": "Agent company floor-plan UI"
-    },
-    {
-      "ask": "10 post sessions launched. Wants approval to launch the next 50. (frozen — cloud unreachable from local supervisor)",
-      "ctx": 96,
-      "g": "human",
-      "id": "session_015VjH28XUuzGJDJGfEhEqce",
-      "spend": 1.27,
-      "t": "TickTick → LinkedIn automation loop"
-    },
-    {
-      "ask": "Lead with the notification finding instead of the goldfish debunk? (frozen — cloud unreachable from local supervisor)",
-      "ctx": 74,
-      "g": "auto",
-      "id": "session_01FqAukR8sWdA3du3YMbHRZZ",
-      "spend": 0.85,
-      "t": "Short attention span, nonstop distraction"
-    },
-    {
-      "ask": "Lead with the AI/data-centre angle instead? (frozen — cloud unreachable from local supervisor)",
-      "ctx": 72,
-      "g": "auto",
-      "id": "session_01M3gdD2hUaEiGm2AQDJGVRY",
-      "spend": 0.75,
-      "t": "India needs electric energy independence"
-    },
-    {
-      "ask": "Keep the guardrail hunch open instead of correcting it? (frozen — cloud unreachable from local supervisor)",
-      "ctx": 72,
-      "g": "auto",
-      "id": "session_01BJhAciDkh1HKH8RHL3TfMt",
-      "spend": 0.75,
-      "t": "Sarvam AI and Indian voice models"
-    },
-    {
-      "ask": "Punchier at about 120 words? (frozen — cloud unreachable from local supervisor)",
-      "ctx": 63,
-      "g": "auto",
-      "id": "session_01QPEoLNDfVdW3iNtzgmBQb8",
-      "spend": 0.38,
-      "t": "The web when agents read it, not humans"
-    },
-    {
-      "ask": "196 words. Shorter cut? (frozen — cloud unreachable from local supervisor)",
-      "ctx": 63,
-      "g": "auto",
-      "id": "session_01WXCSKmKiZdHbYtF4ghNpkB",
-      "spend": 0.27,
-      "t": "Todos change with AI memory"
-    },
-    {
-      "ask": "Tighter cut, or lean harder on the dopamine angle? (frozen — cloud unreachable from local supervisor)",
-      "ctx": 63,
-      "g": "auto",
-      "id": "session_01JqEVLsbqkCxjm6tubSunGC",
-      "spend": 0.26,
-      "t": "Waiting time is the real dev pain with LLMs"
-    },
-    {
-      "ask": "Shorter version, or a different opening hook? (frozen — cloud unreachable from local supervisor)",
-      "ctx": 63,
-      "g": "auto",
-      "id": "session_01Jr3Bxrob7vpaWPHPazi7Qi",
-      "spend": 0.26,
-      "t": "Too many terminals and shells to choose from"
-    },
-    {
-      "ask": "Security round 2: 6 real vulnerabilities fixed and verified. Known gaps documented. (frozen — cloud unreachable from local supervisor)",
-      "ctx": 608,
-      "g": "done",
-      "hot": true,
-      "id": "session_01PqsG2XdNWnukK1wsHX2ZG1",
-      "spend": 106.41,
-      "t": "Chitrakathe — event/birthday video site"
-    },
-    {
-      "ask": "Glass applied. Milestone 4 built — sessions persisted, agenda-led, homework gate enforced. 98 tests pass. (frozen — cloud unreachable from local supervisor)",
-      "ctx": 556,
-      "g": "done",
-      "hot": true,
-      "id": "session_01HTQrffyxN7ctNKYk3YEuWh",
-      "spend": 51.77,
-      "t": "Clinician-supervised mental health assistant"
-    },
-    {
-      "ask": "Responsive UI shipped at 390/720/1440px. Dark mode, 38 tests pass. (frozen — cloud unreachable from local supervisor)",
-      "ctx": 322,
-      "g": "done",
-      "hot": true,
-      "id": "session_01UK5q8KkuEV9yQKx1hqxVLS",
-      "spend": 26.29,
-      "t": "LiveKit voice interview coach"
-    },
-    {
-      "ask": "Three-column UI shipped, commit 75b995a. 13 Bun + 30 Python tests green. (frozen — cloud unreachable from local supervisor)",
-      "ctx": 340,
-      "g": "done",
-      "hot": true,
-      "id": "session_014ZC5hWmizkFX6E4MyY91La",
-      "spend": 23.65,
-      "t": "Figurine factory — 3D Pixar pipeline"
-    },
-    {
-      "ask": "9 spec-ready tasks picked and running. 6 spawn slots free, blocked on repos. (frozen — cloud unreachable from local supervisor)",
-      "ctx": 299,
-      "g": "done",
-      "id": "session_017qqS1E3rSq7JNgEEvFhCFm",
-      "spend": 13.3,
-      "t": "AI Loop Runner — spawner"
-    },
-    {
-      "ask": "Milestone 1 firmware pushed (f1d882d), builds clean for esp32s3. Needs hardware bring-up. (frozen — cloud unreachable from local supervisor)",
-      "ctx": 237,
-      "g": "done",
-      "id": "session_014taZnrrJffm6K9gFSjZGFc",
-      "spend": 11.97,
-      "t": "Kelu — ESP32 AI speaker"
-    },
-    {
-      "ask": "Pushed to GitHub. 4 commits, 62 files, typecheck and 35 tests green. (frozen — cloud unreachable from local supervisor)",
-      "ctx": 189,
-      "g": "done",
-      "id": "session_019vwsyfNfWY8W1s16eS7zAt",
-      "spend": 7.34,
-      "t": "briefwire — topic news briefing"
-    },
-    {
-      "ask": "Draft on token speed as AI's real bottleneck. (frozen — cloud unreachable from local supervisor)",
-      "ctx": 67,
-      "g": "done",
-      "id": "session_01DMzV8Ey6zbxzYRoZt8YhTn",
-      "spend": 0.49,
-      "t": "Chat Jimmy and superfast tokens"
-    },
-    {
-      "ask": "218-word draft, hands-on learning over bandwagon adoption. (frozen — cloud unreachable from local supervisor)",
-      "ctx": 63,
-      "g": "done",
-      "id": "session_015Mc9REmrnJbEBA51nEtB8p",
-      "spend": 0.3,
-      "t": "AI storm resets engineering leadership"
-    },
-    {
-      "ask": "224-word draft on multi-agent AI architecture. (frozen — cloud unreachable from local supervisor)",
-      "ctx": 63,
-      "g": "done",
-      "id": "session_01JRUQXCZPLnhxXGavrDXaSk",
-      "spend": 0.28,
-      "t": "GAIA from Horizon Zero Dawn is close to real"
-    },
-    {
-      "ask": "695 Kannada + Telugu verses live. 6 commits pushed (4a71a6d), remote on SSH. (frozen — cloud unreachable from local supervisor)",
-      "ctx": 0,
-      "g": "done",
-      "id": "session_015aeL2grrbsNnSQ16ZQuJci",
-      "spend": 0,
-      "t": "IndicTrans2 — Gita commentary translation"
-    },
-    {
-      "ask": "README rewritten with screenshots. Live at modelcost.pages.dev. (frozen — cloud unreachable from local supervisor)",
-      "ctx": 0,
-      "g": "done",
-      "id": "session_01PtVb9angXG5V7Pv5a6kNeJ",
-      "spend": 0,
-      "t": "ModelCost — Bun/React/Vite"
-    },
-    {
-      "ask": "Config reload applied, no diagnostics. (frozen — cloud unreachable from local supervisor)",
-      "ctx": 0,
-      "g": "idle",
-      "id": "session_01UMQVoeAZDFYP2SZu2zutDk",
-      "spend": 0,
-      "t": "macbook-pro bridge — temporal-shore"
-    },
-    {
-      "ask": "main clean, 0 unpushed commits. (frozen — cloud unreachable from local supervisor)",
-      "ctx": 0,
-      "g": "idle",
-      "id": "session_013dk8vHTwvLr6CPKWNVPheM",
-      "spend": 0,
-      "t": "macbook-pro bridge — ModelCost"
-    },
-    {
-      "ask": "Design audit under way, 3-phase plan queued. Review-ready. (frozen — cloud unreachable from local supervisor)",
-      "ctx": 0,
-      "g": "idle",
-      "id": "session_01GLbtUpDKoaqA6FYM4853iF",
-      "spend": 0,
-      "t": "Patient + Doctor app redesign consistency"
-    },
-    {
-      "ask": "Local · ModelCost · active 04:54",
-      "ctx": 0,
-      "g": "idle",
-      "id": "local_1a5bb74d-0ee7-4c01-9961-c79df17efdb8",
-      "spend": 0,
-      "t": "SuperVoiceBoard"
-    },
-    {
-      "ask": "Local · obedient-ai · idle since 15:06",
-      "ctx": 0,
-      "g": "idle",
-      "id": "local_f671a5ac-06a2-45ce-9742-9f69f5b14f51",
-      "spend": 0,
-      "t": "Plugin Skill and Hooks"
-    },
-    {
-      "ask": "Local · bhagavad-geeta · idle since 13:56",
-      "ctx": 0,
-      "g": "idle",
-      "id": "local_7de78781-3885-4615-bd21-b1a0f36805fb",
-      "spend": 0,
-      "t": "Bhagavad"
-    },
-    {
-      "ask": "Local · AIVoiceEngine · idle since 13:39",
-      "ctx": 0,
-      "g": "idle",
-      "id": "local_ce511d1a-3edd-4389-a28e-2c3f41cbdbfe",
-      "spend": 0,
-      "t": "AI Voice Engine project setup"
-    },
-    {
-      "ask": "Local · obedient-ai · active 04:54",
-      "ctx": 0,
-      "g": "idle",
-      "id": "local_9f2d1a9c-803b-42a0-a0b3-635dcbdede61",
-      "spend": 0,
-      "t": "AI - Plugin - Obedient-ai Claude"
-    },
-    {
-      "ask": "Local · VBoard · idle since Aug 31",
-      "ctx": 0,
-      "g": "idle",
-      "id": "local_4d794b5a-2e5e-4ef7-b0b6-7885d61939da",
-      "spend": 0,
-      "t": "App functionality without model download"
-    },
-    {
-      "ask": "Local · VBoard · idle since Aug 31",
-      "ctx": 0,
-      "g": "idle",
-      "id": "local_ac063483-06ff-47c8-beec-8c5674f25bfa",
-      "spend": 0,
-      "t": "Generic agents in .claude/agents"
-    },
-    {
-      "ask": "Local · AgentOS · idle since 03:54",
-      "ctx": 0,
-      "g": "idle",
-      "id": "local_c9855dcd-98b7-47c9-8cc0-5cb3d6629997",
-      "spend": 0,
-      "t": "Agent Dev server"
-    },
-    {
-      "ask": "Local · scratch workspace · idle since 06:33 · Focus",
-      "ctx": 0,
-      "g": "idle",
-      "id": "local_ce3ae579-59b3-424c-8b94-0916b052b4fd",
-      "spend": 0,
-      "t": "Global news aggregation app"
-    }
-  ],
-  "sweptAt": "2026-09-07T06:40:00Z"
+ "sweptAt": "2026-09-25T05:55:37Z",
+ "burn": null,
+ "sessions": [
+  {
+   "id": "local_7de78781-3885-4615-bd21-b1a0f36805fb",
+   "t": "Bhagavad \u2014 Gita reader",
+   "g": "auto",
+   "ask": "Marketing launch kit relayed 2026-09-25. Remotion 4:5 + 16:9 renders, facts.md, posts.md. In flight."
+  },
+  {
+   "id": "local_df2b6368-0637-4d24-ad83-cd6bcaf6b453",
+   "t": "AI Wavekey \u2014 SuperVoiceBoard",
+   "g": "auto",
+   "ask": "feat/local-mode. Private-mode surfaces committed minutes ago. Tree clean."
+  },
+  {
+   "id": "local_1a5bb74d-0ee7-4c01-9961-c79df17efdb8",
+   "t": "ModelCost",
+   "g": "idle",
+   "ask": "Session alive, remote control on, but repo untouched 3 weeks. 5 dirty files."
+  },
+  {
+   "id": "local_5d6718a4-2de6-46f0-819a-85e73737cfba",
+   "t": "Smart dedupe LinkedIn video",
+   "g": "auto",
+   "ask": "Announcement video work. 1 dirty file, last commit 4 days ago. Fork session also open."
+  },
+  {
+   "id": "local_26d6ced6-10f2-4660-ae35-b7b557b84083",
+   "t": "GymBuddy",
+   "g": "idle",
+   "ask": "P1s started: colour semantics, focus, day cards. Clean, parked 8 days."
+  },
+  {
+   "id": "local_7f4363d4-0d99-46b3-87ea-8678a24f2625",
+   "t": "Pix Media",
+   "g": "idle",
+   "ask": "Signature theme in PIX brand red and white. Clean, 2 days."
+  },
+  {
+   "id": "local_eec16a8d-1de1-46dd-a2db-ce3c8b4a2d48",
+   "t": "Smart news",
+   "g": "idle",
+   "ask": "Category selection styling, 27 hours ago. 3 dirty files."
+  },
+  {
+   "id": "local_930e3f07-60ef-42e6-b254-9215a587773c",
+   "t": "Aifix Chrome add-on",
+   "g": "idle",
+   "ask": "12 uncommitted files, idle 4 days. Largest unbacked working tree in the fleet."
+  },
+  {
+   "id": "local_c9855dcd-98b7-47c9-8cc0-5cb3d6629997",
+   "t": "AI AgentOS",
+   "g": "idle",
+   "ask": "Branch rooms-say-more, idle 13 days, 2 dirty."
+  },
+  {
+   "id": "local_1baefbd1-5d51-4483-999a-69d3cb000a5e",
+   "t": "AI Doctor \u2014 Advisor Opus",
+   "g": "idle",
+   "ask": "Consult latency work, idle 12 days, 2 dirty."
+  },
+  {
+   "id": "local_2f078347-54ff-4c13-b48c-f986bbbfd273",
+   "t": "Ask My Brain \u2014 RAG",
+   "g": "idle",
+   "ask": "SQLite store, Google sign-in, listing. Clean, 8 days."
+  },
+  {
+   "id": "local_06b6d43c-df60-4ae7-9ee5-c6fec3c26b7b",
+   "t": "AI Sahay",
+   "g": "idle",
+   "ask": "UX and UI review for the dev agent. Clean, 13 days."
+  },
+  {
+   "id": "local_0a7ce884-e9f5-4ea1-b2c9-a00425e43bbb",
+   "t": "Portfolio",
+   "g": "done",
+   "ask": "Hosting moved from Cloudflare to GitHub Pages. Clean."
+  },
+  {
+   "id": "local_c7f3ea5e-40d1-44bf-b54c-a762e9ece710",
+   "t": "Coding Harness tutorial",
+   "g": "done",
+   "ask": "Minimal Node.js coding harness committed. Clean."
+  },
+  {
+   "id": "local_6bf81b0f-2235-44f4-9c48-cc6e09762e4e",
+   "t": "LinkedIn posts to Substack",
+   "g": "idle",
+   "ask": "AI-Workspace. substack/ untracked, 3 dirty."
+  },
+  {
+   "id": "local_f010839d-f6d6-4ebc-86e9-d3c9416d83cd",
+   "t": "Voice computer control",
+   "g": "idle",
+   "ask": "Smart-Voice-Control. Parked since 2026-09-22."
+  },
+  {
+   "id": "local_566a8e0f-e985-45a6-9bc8-128f5de93412",
+   "t": "WD NAS DeDuper",
+   "g": "idle",
+   "ask": "Parked since 2026-09-18."
+  },
+  {
+   "id": "local_1fe71169-118a-4711-a561-79b51bb2b3f1",
+   "t": "WD NAS File browser",
+   "g": "idle",
+   "ask": "Parked since 2026-09-17."
+  },
+  {
+   "id": "local_faa122e2-68f7-4583-8e7c-b5f87f1263fe",
+   "t": "Google Photos DeDuper",
+   "g": "idle",
+   "ask": "Two sessions open, parked since 2026-09-17."
+  },
+  {
+   "id": "local_e34286ec-a804-4244-9974-297b63889c32",
+   "t": "HF speech-to-speech setup",
+   "g": "idle",
+   "ask": "repos/speech-to-speech, 2026-09-25 03:16."
+  },
+  {
+   "id": "local_968ff97d-b97c-4799-be21-9dfebd7d8250",
+   "t": "Local HF Laya setup",
+   "g": "idle",
+   "ask": "laya-mlx, parked 2026-09-20."
+  },
+  {
+   "id": "local_74ed0b45-9b0e-41f2-a213-ec50e948f4ae",
+   "t": "gymbuddy old gcp",
+   "g": "done",
+   "ask": "Superseded by gym-budy-claude. Archive candidate."
+  }
+ ]
 }
