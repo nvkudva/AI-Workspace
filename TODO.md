@@ -15,6 +15,10 @@
 - [ ] Archive the 20 repos listed in `REPO-TRIAGE.md`, once reviewed; `puzzle` should be made private, `paperboy` has an unresolved NOASSERTION licence
 - [ ] Work through the 57 P0 items in the per-repo `REVIEW.md` files — the recurring one is unauthenticated APIs on `Sahay`, `voice-interview-coach`, `AgentOS` and `AI-Doctor`
 
+## General codebase hygiene suggestions
+
+- [ ] Add PLAN.md acceptance criteria and a verify step to Smart-News and Smart-Voice-Control (86 and 75 correction turns); give subagents Explore/cavecrew types with a budget (88 of 121 were general-purpose)
+
 ## Claude Code efficiency and reliability (session audit 2026-09-26)
 
 - [x] Cap tool results over 40k chars in a PostToolUse/RTK hook; require head/jq/rg first (1,351 oversized results)
@@ -41,7 +45,6 @@
 - [x] Give each project a fixed dev-server port in its CLAUDE.md (36 preview_start port collisions)
 - [x] Add a browser rule: screenshot before any coordinate click (6 failures)
 - [x] Warn on the third full read of one file, and run formatters once at the end (demo.html read 50×; 12 modified-since-read errors)
-- [ ] Add PLAN.md acceptance criteria and a verify step to Smart-News and Smart-Voice-Control (86 and 75 correction turns); give subagents Explore/cavecrew types with a budget (88 of 121 were general-purpose)
 
 ## Done 2026-09-07/08
 
