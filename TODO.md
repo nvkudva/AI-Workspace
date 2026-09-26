@@ -22,8 +22,8 @@
 - [x] Push long work into subagents sooner to reduce cache-read spend (14.4B cache-read vs 45M output tokens)
 - [x] Merge overlapping style injections (caveman, Concise style, obedient-ai rules, lean-build and implementation-path hooks) into one source
 - [x] Remove duplicate MCPs: pick one browser stack and one Context7 (plugin vs claude.ai)
-- [ ] Uninstall duplicate skills: linkedin-post (delete the claude.ai account copy; caveman-learn done)
-- [ ] Fix or disable claude-design MCP; it fails auth (403) every session — run /design-login
+- [x] Uninstall duplicate skills: linkedin-post (delete the claude.ai account copy; caveman-learn done)
+- [x] Fix or disable claude-design MCP; it fails auth (403) every session — run /design-login
 - [x] Pre-load core browser tools per project or batch them into one ToolSearch select (some sessions ran 8–16)
 - [x] Add a hook that blocks foreground `sleep` and points to run_in_background + Monitor (1,403 calls)
 - [x] Add a rule to use absolute paths and `git -C` instead of `cd` prefixes (7,599 calls)
