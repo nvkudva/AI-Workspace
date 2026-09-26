@@ -20,17 +20,17 @@
 - [x] Cap tool results over 40k chars in a PostToolUse/RTK hook; require head/jq/rg first (1,351 oversized results)
 - [x] Hand off and restart sessions at ~300 tool calls to cut compactions (94) and 700–1,234-call sessions
 - [x] Push long work into subagents sooner to reduce cache-read spend (14.4B cache-read vs 45M output tokens)
-- [ ] Merge overlapping style injections (caveman, Concise style, obedient-ai rules, lean-build and implementation-path hooks) into one source
+- [x] Merge overlapping style injections (caveman, Concise style, obedient-ai rules, lean-build and implementation-path hooks) into one source
 - [x] Remove duplicate MCPs: pick one browser stack and one Context7 (plugin vs claude.ai)
-- [ ] Uninstall duplicate skills: linkedin-post and caveman-learn
+- [ ] Uninstall duplicate skills: linkedin-post (delete the claude.ai account copy; caveman-learn done)
 - [ ] Fix or disable claude-design MCP; it fails auth (403) every session — run /design-login
-- [ ] Pre-load core browser tools per project or batch them into one ToolSearch select (some sessions ran 8–16)
-- [ ] Add a hook that blocks foreground `sleep` and points to run_in_background + Monitor (1,403 calls)
-- [ ] Add a rule to use absolute paths and `git -C` instead of `cd` prefixes (7,599 calls)
-- [ ] Export the scratchpad path once as an env var instead of a repeated `S=` preamble (154 calls)
-- [ ] Save recurring python3 scripts under a per-repo `tools/` directory (2,163 ad-hoc calls with repeated tracebacks)
-- [ ] Replace sqlite3 one-offs with duckdb or saved query files (548 calls)
-- [ ] Guard `_omz_nvm_setup_completion` in `.zshrc_claude.sh`; it breaks `node` in non-interactive shells
+- [x] Pre-load core browser tools per project or batch them into one ToolSearch select (some sessions ran 8–16)
+- [x] Add a hook that blocks foreground `sleep` and points to run_in_background + Monitor (1,403 calls)
+- [x] Add a rule to use absolute paths and `git -C` instead of `cd` prefixes (7,599 calls)
+- [x] Export the scratchpad path once as an env var instead of a repeated `S=` preamble (154 calls)
+- [x] Save recurring python3 scripts under a per-repo `tools/` directory (2,163 ad-hoc calls with repeated tracebacks)
+- [x] Replace sqlite3 one-offs with duckdb or saved query files (548 calls)
+- [x] Guard `_omz_nvm_setup_completion` in `.zshrc_claude.sh`; it breaks `node` in non-interactive shells (obsolete: moved to fnm)
 - [ ] List the verbs block-dangerous-git.sh blocks in the rules so the model stops trying them (~300 blocks)
 - [ ] Allow `git switch -f` / `checkout -f` when `git status` is clean — top false positive (68)
 - [ ] Add a rule to ask once up front before deploy or prod steps (~100 classifier denials)
