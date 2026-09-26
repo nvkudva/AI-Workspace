@@ -34,7 +34,7 @@
 - [x] List the verbs block-dangerous-git.sh blocks in the rules so the model stops trying them (~300 blocks)
 - [x] Allow `git switch -f` / `checkout -f` when `git status` is clean — top false positive (68)
 - [x] Add a rule to ask once up front before deploy or prod steps (~100 classifier denials)
-- [ ] Run /fewer-permission-prompts on the 54 user-rejected tool calls to move them to the allowlist or deny list
+- [x] Run /fewer-permission-prompts on the 54 user-rejected tool calls to move them to the allowlist or deny list
 - [x] Standardise on one browser automation stack (~350 errors across Claude_Browser, claude-in-chrome, agent-browser)
 - [x] Keep browser JS evals short to avoid CDP Runtime.evaluate timeouts (17)
 - [ ] Allowlist localhost ports in the browser extension (27 navigation denials)
