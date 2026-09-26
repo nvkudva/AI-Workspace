@@ -37,7 +37,7 @@
 - [x] Run /fewer-permission-prompts on the 54 user-rejected tool calls to move them to the allowlist or deny list
 - [x] Standardise on one browser automation stack (~350 errors across Claude_Browser, claude-in-chrome, agent-browser)
 - [x] Keep browser JS evals short to avoid CDP Runtime.evaluate timeouts (17)
-- [ ] Allowlist localhost ports in the browser extension (27 navigation denials)
+- [x] Allowlist localhost ports in the browser extension (27 navigation denials)
 - [x] Give each project a fixed dev-server port in its CLAUDE.md (36 preview_start port collisions)
 - [x] Add a browser rule: screenshot before any coordinate click (6 failures)
 - [x] Warn on the third full read of one file, and run formatters once at the end (demo.html read 50×; 12 modified-since-read errors)
