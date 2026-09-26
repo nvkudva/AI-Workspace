@@ -15,6 +15,34 @@
 - [ ] Archive the 20 repos listed in `REPO-TRIAGE.md`, once reviewed; `puzzle` should be made private, `paperboy` has an unresolved NOASSERTION licence
 - [ ] Work through the 57 P0 items in the per-repo `REVIEW.md` files — the recurring one is unauthenticated APIs on `Sahay`, `voice-interview-coach`, `AgentOS` and `AI-Doctor`
 
+## Claude Code efficiency and reliability (session audit 2026-09-26)
+
+- [x] Cap tool results over 40k chars in a PostToolUse/RTK hook; require head/jq/rg first (1,351 oversized results)
+- [x] Hand off and restart sessions at ~300 tool calls to cut compactions (94) and 700–1,234-call sessions
+- [x] Push long work into subagents sooner to reduce cache-read spend (14.4B cache-read vs 45M output tokens)
+- [ ] Merge overlapping style injections (caveman, Concise style, obedient-ai rules, lean-build and implementation-path hooks) into one source
+- [x] Remove duplicate MCPs: pick one browser stack and one Context7 (plugin vs claude.ai)
+- [ ] Uninstall duplicate skills: linkedin-post and caveman-learn
+- [ ] Fix or disable claude-design MCP; it fails auth (403) every session — run /design-login
+- [ ] Pre-load core browser tools per project or batch them into one ToolSearch select (some sessions ran 8–16)
+- [ ] Add a hook that blocks foreground `sleep` and points to run_in_background + Monitor (1,403 calls)
+- [ ] Add a rule to use absolute paths and `git -C` instead of `cd` prefixes (7,599 calls)
+- [ ] Export the scratchpad path once as an env var instead of a repeated `S=` preamble (154 calls)
+- [ ] Save recurring python3 scripts under a per-repo `tools/` directory (2,163 ad-hoc calls with repeated tracebacks)
+- [ ] Replace sqlite3 one-offs with duckdb or saved query files (548 calls)
+- [ ] Guard `_omz_nvm_setup_completion` in `.zshrc_claude.sh`; it breaks `node` in non-interactive shells
+- [ ] List the verbs block-dangerous-git.sh blocks in the rules so the model stops trying them (~300 blocks)
+- [ ] Allow `git switch -f` / `checkout -f` when `git status` is clean — top false positive (68)
+- [ ] Add a rule to ask once up front before deploy or prod steps (~100 classifier denials)
+- [ ] Run /fewer-permission-prompts on the 54 user-rejected tool calls to move them to the allowlist or deny list
+- [ ] Standardise on one browser automation stack (~350 errors across Claude_Browser, claude-in-chrome, agent-browser)
+- [ ] Keep browser JS evals short to avoid CDP Runtime.evaluate timeouts (17)
+- [ ] Allowlist localhost ports in the browser extension (27 navigation denials)
+- [ ] Give each project a fixed dev-server port in its CLAUDE.md (36 preview_start port collisions)
+- [ ] Add a browser rule: screenshot before any coordinate click (6 failures)
+- [ ] Warn on the third full read of one file, and run formatters once at the end (demo.html read 50×; 12 modified-since-read errors)
+- [ ] Add PLAN.md acceptance criteria and a verify step to Smart-News and Smart-Voice-Control (86 and 75 correction turns); give subagents Explore/cavecrew types with a budget (88 of 121 were general-purpose)
+
 ## Done 2026-09-07/08
 
 - [x] Audit the README of all 42 non-fork repos
