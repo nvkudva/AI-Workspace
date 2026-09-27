@@ -1,4 +1,4 @@
-From 6967013c4a129d309c0d480bdff06b41c512b00b Mon Sep 17 00:00:00 2001
+From 48acee90e11e266a232fd131663be9b4bf0df42c Mon Sep 17 00:00:00 2001
 From: nvkudva <nvkudva@gmail.com>
 Date: Sun, 27 Sep 2026 06:25:37 +0000
 Subject: [PATCH] Add Samsung Internet build target for uBO Lite
@@ -111,13 +111,13 @@ index 0000000..f85b54c
 +- Keep `LICENSE.txt` and publish this source. GPLv3 requires both.
 diff --git a/platform/mv3/samsung/brand.json b/platform/mv3/samsung/brand.json
 new file mode 100644
-index 0000000..bb3613f
+index 0000000..a362cac
 --- /dev/null
 +++ b/platform/mv3/samsung/brand.json
 @@ -0,0 +1,6 @@
 +{
-+    "name": "SmartBlock",
-+    "shortName": "SmartBlock",
++    "name": "SmartUblock",
++    "shortName": "SmartUblock",
 +    "author": "nvkudva",
 +    "description": "A lightweight ad and tracker blocker for Samsung Internet. Based on uBlock Origin Lite (GPLv3)."
 +}
