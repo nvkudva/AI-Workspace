@@ -1,0 +1,379 @@
+From a183962e86668f1351f279aff6a1dae500f40813 Mon Sep 17 00:00:00 2001
+From: nvkudva <nvkudva@gmail.com>
+Date: Sun, 27 Sep 2026 06:25:37 +0000
+Subject: [PATCH] Add Samsung Internet build target for uBO Lite
+
+New 'samsung' platform for tools/make-mv3.sh: Chromium manifest without
+offscreen or keyboard commands, optional userScripts, a guarded offscreen
+shim, and a rebranding step driven by platform/mv3/samsung/brand.json.
+Adds a workflow that builds the Galaxy Store package.
+
+Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01LiQRpgpS6VYiwfY1sTx4sc
+---
+ .github/workflows/samsung.yml           | 31 +++++++++
+ platform/mv3/make-rulesets.js           |  2 +-
+ platform/mv3/samsung/README.md          | 26 ++++++++
+ platform/mv3/samsung/brand.json         |  6 ++
+ platform/mv3/samsung/ext-offscreen.js   | 40 +++++++++++
+ platform/mv3/samsung/manifest.json      | 88 +++++++++++++++++++++++++
+ platform/mv3/samsung/patch-extension.js | 81 +++++++++++++++++++++++
+ tools/make-mv3.sh                       |  8 +++
+ 8 files changed, 281 insertions(+), 1 deletion(-)
+ create mode 100644 .github/workflows/samsung.yml
+ create mode 100644 platform/mv3/samsung/README.md
+ create mode 100644 platform/mv3/samsung/brand.json
+ create mode 100644 platform/mv3/samsung/ext-offscreen.js
+ create mode 100644 platform/mv3/samsung/manifest.json
+ create mode 100644 platform/mv3/samsung/patch-extension.js
+
+diff --git a/.github/workflows/samsung.yml b/.github/workflows/samsung.yml
+new file mode 100644
+index 0000000..cc7e264
+--- /dev/null
++++ b/.github/workflows/samsung.yml
+@@ -0,0 +1,31 @@
++name: Samsung Internet build
++
++on:
++  workflow_dispatch:
++  push:
++    branches: [ samsung ]
++
++permissions:
++  contents: read
++
++jobs:
++  build:
++    name: Build Samsung Internet package
++    runs-on: ubuntu-latest
++    steps:
++      - name: Clone repository
++        uses: actions/checkout@v4
++        with:
++          persist-credentials: false
++          submodules: true
++      - uses: actions/setup-node@v4
++        with:
++          node-version: 22
++      - name: Build package
++        run: |
++          tools/make-mv3.sh samsung "$(date -u +%Y.%-m.%-d%H%M)"
++      - name: Upload package
++        uses: actions/upload-artifact@v4
++        with:
++          name: samsung-package
++          path: dist/build/uBOLite_*.samsung.zip
+diff --git a/platform/mv3/make-rulesets.js b/platform/mv3/make-rulesets.js
+index b65ba21..0fe74bf 100644
+--- a/platform/mv3/make-rulesets.js
++++ b/platform/mv3/make-rulesets.js
+@@ -86,7 +86,7 @@ const env = [
+     ...envExtra,
+ ];
+ 
+-if ( platform === 'edge' ) {
++if ( platform === 'edge' || platform === 'samsung' ) {
+     env.push('chromium');
+ }
+ 
+diff --git a/platform/mv3/samsung/README.md b/platform/mv3/samsung/README.md
+new file mode 100644
+index 0000000..f85b54c
+--- /dev/null
++++ b/platform/mv3/samsung/README.md
+@@ -0,0 +1,26 @@
++# Samsung Internet port
++
++A rebranded build of uBlock Origin Lite (MV3) for Samsung Internet on
++Android, published through the Galaxy Store.
++
++## Build
++
++    tools/make-mv3.sh samsung 2026.9.27
++
++The package lands in `dist/build/uBOLite_<version>.samsung.zip`. The
++`Samsung Internet build` GitHub workflow does the same on each push to
++the `samsung` branch.
++
++## What differs from the Chromium build
++
++- `manifest.json` drops `offscreen` and keyboard `commands`, and makes
++  `userScripts` optional. Samsung Internet may not expose either API.
++- `ext-offscreen.js` no-ops when `chrome.offscreen` is missing. Bundled
++  rulesets keep working; custom and imported lists need the API.
++- `patch-extension.js` renames the extension from `brand.json`.
++
++## Before submitting to the Galaxy Store
++
++- Replace the icons in `img/` with your own. Put them in
++  `platform/mv3/samsung/img/` and the build copies them over.
++- Keep `LICENSE.txt` and publish this source. GPLv3 requires both.
+diff --git a/platform/mv3/samsung/brand.json b/platform/mv3/samsung/brand.json
+new file mode 100644
+index 0000000..9e14043
+--- /dev/null
++++ b/platform/mv3/samsung/brand.json
+@@ -0,0 +1,6 @@
++{
++    "name": "SwiftBlock Lite",
++    "shortName": "SwiftBlock",
++    "author": "nvkudva",
++    "description": "A lightweight ad and tracker blocker for Samsung Internet. Based on uBlock Origin Lite (GPLv3)."
++}
+diff --git a/platform/mv3/samsung/ext-offscreen.js b/platform/mv3/samsung/ext-offscreen.js
+new file mode 100644
+index 0000000..45808d7
+--- /dev/null
++++ b/platform/mv3/samsung/ext-offscreen.js
+@@ -0,0 +1,40 @@
++/*******************************************************************************
++
++    uBlock Origin Lite - a comprehensive, MV3-compliant content blocker
++    Copyright (C) 2025-present Raymond Hill
++
++    This program is free software: you can redistribute it and/or modify
++    it under the terms of the GNU General Public License as published by
++    the Free Software Foundation, either version 3 of the License, or
++    (at your option) any later version.
++
++    This program is distributed in the hope that it will be useful,
++    but WITHOUT ANY WARRANTY; without even the implied warranty of
++    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++    GNU General Public License for more details.
++
++    You should have received a copy of the GNU General Public License
++    along with this program.  If not, see {http://www.gnu.org/licenses/}.
++
++    Home: https://github.com/gorhill/uBlock
++*/
++
++// Samsung Internet may not expose the offscreen API. Degrade the same way
++// Safari does: custom and imported filter compilation becomes unavailable,
++// while the bundled rulesets keep working.
++
++export const supportsOffscreenDocument = chrome.offscreen !== undefined;
++
++export async function createOffscreenDocument(path) {
++    if ( supportsOffscreenDocument === false ) { return; }
++    return chrome.offscreen.createDocument({
++        url: path,
++        reasons: [ 'WORKERS' ],
++        justification: 'To compile custom & imported filters in a modular way from service worker (service workers do not allow dynamic module import)',
++    });
++}
++
++export async function closeOffscreenDocument() {
++    if ( supportsOffscreenDocument === false ) { return; }
++    return chrome.offscreen.closeDocument();
++}
+diff --git a/platform/mv3/samsung/manifest.json b/platform/mv3/samsung/manifest.json
+new file mode 100644
+index 0000000..89fbfaf
+--- /dev/null
++++ b/platform/mv3/samsung/manifest.json
+@@ -0,0 +1,88 @@
++{
++  "action": {
++    "default_icon": {
++      "16": "img/icon_16.png",
++      "32": "img/icon_32.png",
++      "64": "img/icon_64.png"
++    },
++    "default_popup": "popup.html"
++  },
++  "author": "__BRAND_AUTHOR__",
++  "background": {
++    "service_worker": "/js/background.js",
++    "type": "module"
++  },
++  "declarative_net_request": {
++    "rule_resources": []
++  },
++  "default_locale": "en",
++  "description": "__MSG_extShortDesc__",
++  "host_permissions": [
++    "<all_urls>"
++  ],
++  "incognito": "split",
++  "icons": {
++    "16": "img/icon_16.png",
++    "32": "img/icon_32.png",
++    "64": "img/icon_64.png",
++    "128": "img/icon_128.png"
++  },
++  "manifest_version": 3,
++  "minimum_chrome_version": "122.0",
++  "name": "__MSG_extName__",
++  "options_page": "dashboard.html",
++  "permissions": [
++    "activeTab",
++    "alarms",
++    "declarativeNetRequest",
++    "scripting",
++    "storage",
++    "unlimitedStorage"
++  ],
++  "short_name": "__BRAND_SHORT__",
++  "storage": {
++    "managed_schema": "managed_storage.json"
++  },
++  "version": "1.0",
++  "web_accessible_resources": [
++    {
++      "resources": [
++        "/strictblock.html"
++      ],
++      "matches": [
++        "<all_urls>"
++      ],
++      "use_dynamic_url": true
++    },
++    {
++      "resources": [
++        "/zapper-ui.html"
++      ],
++      "matches": [
++        "<all_urls>"
++      ],
++      "use_dynamic_url": true
++    },
++    {
++      "resources": [
++        "/picker-ui.html"
++      ],
++      "matches": [
++        "<all_urls>"
++      ],
++      "use_dynamic_url": true
++    },
++    {
++      "resources": [
++        "/unpicker-ui.html"
++      ],
++      "matches": [
++        "<all_urls>"
++      ],
++      "use_dynamic_url": true
++    }
++  ],
++  "optional_permissions": [
++    "userScripts"
++  ]
++}
+diff --git a/platform/mv3/samsung/patch-extension.js b/platform/mv3/samsung/patch-extension.js
+new file mode 100644
+index 0000000..5fc8f61
+--- /dev/null
++++ b/platform/mv3/samsung/patch-extension.js
+@@ -0,0 +1,81 @@
++/*******************************************************************************
++
++    Samsung Internet port of uBlock Origin Lite
++    Copyright (C) 2014-present Raymond Hill and contributors
++
++    This program is free software: you can redistribute it and/or modify
++    it under the terms of the GNU General Public License as published by
++    the Free Software Foundation, either version 3 of the License, or
++    (at your option) any later version.
++
++    This program is distributed in the hope that it will be useful,
++    but WITHOUT ANY WARRANTY; without even the implied warranty of
++    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++    GNU General Public License for more details.
++
++    You should have received a copy of the GNU General Public License
++    along with this program.  If not, see {http://www.gnu.org/licenses/}.
++
++    Home: https://github.com/gorhill/uBlock
++*/
++
++// Rebrand the package for the Galaxy Store. The uBlock Origin name belongs
++// to its author, so a fork published elsewhere must carry its own name.
++
++import fs from 'fs/promises';
++import path from 'path';
++import process from 'process';
++
++/******************************************************************************/
++
++const commandLineArgs = (( ) => {
++    const args = Object.create(null);
++    for ( const arg of process.argv.slice(2) ) {
++        const pos = arg.indexOf('=');
++        if ( pos === -1 ) {
++            args[arg] = '';
++        } else {
++            args[arg.slice(0, pos)] = arg.slice(pos+1);
++        }
++    }
++    return args;
++})();
++
++/******************************************************************************/
++
++async function readJSON(fpath) {
++    return JSON.parse(await fs.readFile(fpath, { encoding: 'utf8' }));
++}
++
++async function writeJSON(fpath, data) {
++    await fs.writeFile(fpath, JSON.stringify(data, null, 2));
++}
++
++async function main() {
++    const packageDir = commandLineArgs.packageDir;
++    const brand = await readJSON(commandLineArgs.brand);
++
++    const manifestPath = `${packageDir}/manifest.json`;
++    const manifest = await readJSON(manifestPath);
++    manifest.author = brand.author;
++    manifest.short_name = brand.shortName;
++    await writeJSON(manifestPath, manifest);
++
++    const localesDir = `${packageDir}/_locales`;
++    for ( const locale of await fs.readdir(localesDir) ) {
++        const messagesPath = path.join(localesDir, locale, 'messages.json');
++        const messages = await readJSON(messagesPath).catch(( ) => null);
++        if ( messages === null ) { continue; }
++        if ( messages.extName ) {
++            messages.extName.message = brand.name;
++        }
++        if ( locale === 'en' && messages.extShortDesc ) {
++            messages.extShortDesc.message = brand.description;
++        }
++        await writeJSON(messagesPath, messages);
++    }
++}
++
++main();
++
++/******************************************************************************/
+diff --git a/tools/make-mv3.sh b/tools/make-mv3.sh
+index 6292578..2154f1f 100755
+--- a/tools/make-mv3.sh
++++ b/tools/make-mv3.sh
+@@ -26,6 +26,9 @@ for i in "$@"; do
+     safari)
+       PLATFORM="safari"
+       ;;
++    samsung)
++      PLATFORM="samsung"
++      ;;
+     +([0-9]).+([0-9]).+([0-9]))
+       TAGNAME="$i"
+       FULL="yes"
+@@ -193,6 +196,11 @@ if [ "$PLATFORM" = "edge" ]; then
+ elif [ "$PLATFORM" = "safari" ]; then
+     # For Safari, we must fix the package for compliance
+     node platform/mv3/safari/patch-extension.js packageDir="$UBOL_DIR"
++elif [ "$PLATFORM" = "samsung" ]; then
++    # For the Galaxy Store, rebrand the package
++    echo "*** uBOLite.samsung: Rebrand package for Samsung Internet"
++    node platform/mv3/samsung/patch-extension.js packageDir="$UBOL_DIR" \
++        brand=platform/mv3/samsung/brand.json
+ fi
+ 
+ if [ "$FULL" = "yes" ]; then
+-- 
+2.43.0
+
