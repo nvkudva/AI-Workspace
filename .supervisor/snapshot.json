@@ -1,5 +1,5 @@
 {
- "sweptAt": "2026-09-30T08:51:42Z",
+ "sweptAt": "2026-09-30T09:20:09Z",
  "burn": null,
  "sessions": [
   {
@@ -29,8 +29,8 @@
   {
    "id": "local_df2b6368-0637-4d24-ad83-cd6bcaf6b453",
    "t": "AI Wavekey \u2014 SuperVoiceBoard",
-   "g": "idle",
-   "ask": "feat/local-mode, clean, last commit 5 days ago. Branch never merged to main."
+   "g": "auto",
+   "ask": "Active again on feat/local-mode. 5 files now dirty, last commit 5 days ago."
   },
   {
    "id": "local_1a5bb74d-0ee7-4c01-9961-c79df17efdb8",

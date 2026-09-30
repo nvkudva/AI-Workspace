@@ -1,6 +1,6 @@
 # Fleet status
 
-Swept 2026-09-30T08:51:42Z · 23 sessions tracked
+Swept 2026-09-30T09:20:09Z · 23 sessions tracked
 
 Supervisor is LOCAL. Sessions are reached with SendMessage on their `local_...` id.
 Spend and context figures are not exposed for local sessions.
@@ -12,13 +12,13 @@ Spend and context figures are not exposed for local sessions.
 ## auto
 - **fnm bypass message in zshrc** — New session in AI-Workspace, running. Shell startup noise.
 - **Claude API prompt audit** — New session in AI-Workspace, 2026-09-30.
+- **AI Wavekey — SuperVoiceBoard** — Active again on feat/local-mode. 5 files now dirty, last commit 5 days ago.
 
 ## done
 - **Portfolio** — Hosting on GitHub Pages. Clean.
 - **Coding Harness tutorial** — Node.js harness committed. Clean.
 
 ## idle
-- **AI Wavekey — SuperVoiceBoard** — feat/local-mode, clean, last commit 5 days ago. Branch never merged to main.
 - **ModelCost** — Repo untouched 4 weeks, dirty grew 5 to 8 files.
 - **Smart dedupe LinkedIn video** — 1 dirty file, last commit 4 days ago. Fork session also open.
 - **Smart news** — 6 days since commit, 4 dirty.
