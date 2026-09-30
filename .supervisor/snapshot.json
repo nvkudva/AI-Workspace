@@ -1,102 +1,114 @@
 {
- "sweptAt": "2026-09-25T05:55:37Z",
+ "sweptAt": "2026-09-30T08:38:00Z",
  "burn": null,
  "sessions": [
   {
    "id": "local_7de78781-3885-4615-bd21-b1a0f36805fb",
    "t": "Bhagavad \u2014 Gita reader",
+   "g": "human",
+   "ask": "Launch kit shipped: both mp4 cuts, facts.md, posts.md. 11 files uncommitted for 5 days. Needs a commit decision."
+  },
+  {
+   "id": "local_930e3f07-60ef-42e6-b254-9215a587773c",
+   "t": "Aifix Chrome add-on",
+   "g": "human",
+   "ask": "12 uncommitted files, idle 9 days. Largest unbacked working tree in the fleet."
+  },
+  {
+   "id": "local_a4699922-6ce3-4378-beff-1f8058e43e35",
+   "t": "fnm bypass message in zshrc",
    "g": "auto",
-   "ask": "Marketing launch kit relayed 2026-09-25. Remotion 4:5 + 16:9 renders, facts.md, posts.md. In flight."
+   "ask": "New session in AI-Workspace, running. Shell startup noise."
+  },
+  {
+   "id": "local_b5492b5e-b19b-4ea9-a417-ba5a28a70a07",
+   "t": "Claude API prompt audit",
+   "g": "auto",
+   "ask": "New session in AI-Workspace, 2026-09-30."
   },
   {
    "id": "local_df2b6368-0637-4d24-ad83-cd6bcaf6b453",
    "t": "AI Wavekey \u2014 SuperVoiceBoard",
-   "g": "auto",
-   "ask": "feat/local-mode. Private-mode surfaces committed minutes ago. Tree clean."
+   "g": "idle",
+   "ask": "feat/local-mode, clean, last commit 5 days ago. Branch never merged to main."
   },
   {
    "id": "local_1a5bb74d-0ee7-4c01-9961-c79df17efdb8",
    "t": "ModelCost",
    "g": "idle",
-   "ask": "Session alive, remote control on, but repo untouched 3 weeks. 5 dirty files."
+   "ask": "Repo untouched 4 weeks, dirty grew 5 to 8 files."
   },
   {
    "id": "local_5d6718a4-2de6-46f0-819a-85e73737cfba",
    "t": "Smart dedupe LinkedIn video",
-   "g": "auto",
-   "ask": "Announcement video work. 1 dirty file, last commit 4 days ago. Fork session also open."
-  },
-  {
-   "id": "local_26d6ced6-10f2-4660-ae35-b7b557b84083",
-   "t": "GymBuddy",
    "g": "idle",
-   "ask": "P1s started: colour semantics, focus, day cards. Clean, parked 8 days."
-  },
-  {
-   "id": "local_7f4363d4-0d99-46b3-87ea-8678a24f2625",
-   "t": "Pix Media",
-   "g": "idle",
-   "ask": "Signature theme in PIX brand red and white. Clean, 2 days."
+   "ask": "1 dirty file, last commit 4 days ago. Fork session also open."
   },
   {
    "id": "local_eec16a8d-1de1-46dd-a2db-ce3c8b4a2d48",
    "t": "Smart news",
    "g": "idle",
-   "ask": "Category selection styling, 27 hours ago. 3 dirty files."
+   "ask": "6 days since commit, 4 dirty."
   },
   {
-   "id": "local_930e3f07-60ef-42e6-b254-9215a587773c",
-   "t": "Aifix Chrome add-on",
+   "id": "local_26d6ced6-10f2-4660-ae35-b7b557b84083",
+   "t": "GymBuddy",
    "g": "idle",
-   "ask": "12 uncommitted files, idle 4 days. Largest unbacked working tree in the fleet."
+   "ask": "Clean, parked 13 days."
+  },
+  {
+   "id": "local_7f4363d4-0d99-46b3-87ea-8678a24f2625",
+   "t": "Pix Media",
+   "g": "idle",
+   "ask": "Clean, parked 7 days."
   },
   {
    "id": "local_c9855dcd-98b7-47c9-8cc0-5cb3d6629997",
    "t": "AI AgentOS",
    "g": "idle",
-   "ask": "Branch rooms-say-more, idle 13 days, 2 dirty."
+   "ask": "Branch rooms-say-more, 3 weeks, 2 dirty."
   },
   {
    "id": "local_1baefbd1-5d51-4483-999a-69d3cb000a5e",
    "t": "AI Doctor \u2014 Advisor Opus",
    "g": "idle",
-   "ask": "Consult latency work, idle 12 days, 2 dirty."
+   "ask": "2 weeks, 2 dirty."
   },
   {
    "id": "local_2f078347-54ff-4c13-b48c-f986bbbfd273",
    "t": "Ask My Brain \u2014 RAG",
    "g": "idle",
-   "ask": "SQLite store, Google sign-in, listing. Clean, 8 days."
+   "ask": "Clean, 13 days."
   },
   {
    "id": "local_06b6d43c-df60-4ae7-9ee5-c6fec3c26b7b",
    "t": "AI Sahay",
    "g": "idle",
-   "ask": "UX and UI review for the dev agent. Clean, 13 days."
+   "ask": "Clean, 3 weeks."
   },
   {
-   "id": "local_0a7ce884-e9f5-4ea1-b2c9-a00425e43bbb",
-   "t": "Portfolio",
-   "g": "done",
-   "ask": "Hosting moved from Cloudflare to GitHub Pages. Clean."
-  },
-  {
-   "id": "local_c7f3ea5e-40d1-44bf-b54c-a762e9ece710",
-   "t": "Coding Harness tutorial",
-   "g": "done",
-   "ask": "Minimal Node.js coding harness committed. Clean."
-  },
-  {
-   "id": "local_6bf81b0f-2235-44f4-9c48-cc6e09762e4e",
-   "t": "LinkedIn posts to Substack",
+   "id": "local_335f8174-7f64-4d1d-be50-d90d58b765aa",
+   "t": "btw \u2014 speech-to-speech",
    "g": "idle",
-   "ask": "AI-Workspace. substack/ untracked, 3 dirty."
+   "ask": "Pinned. Parked since 2026-09-10."
+  },
+  {
+   "id": "local_e34286ec-a804-4244-9974-297b63889c32",
+   "t": "HF speech-to-speech setup",
+   "g": "idle",
+   "ask": "repos/speech-to-speech, parked 2026-09-25."
+  },
+  {
+   "id": "local_968ff97d-b97c-4799-be21-9dfebd7d8250",
+   "t": "Local HF Laya setup",
+   "g": "idle",
+   "ask": "laya-mlx, parked 2026-09-20."
   },
   {
    "id": "local_f010839d-f6d6-4ebc-86e9-d3c9416d83cd",
    "t": "Voice computer control",
    "g": "idle",
-   "ask": "Smart-Voice-Control. Parked since 2026-09-22."
+   "ask": "Parked since 2026-09-22."
   },
   {
    "id": "local_566a8e0f-e985-45a6-9bc8-128f5de93412",
@@ -114,25 +126,19 @@
    "id": "local_faa122e2-68f7-4583-8e7c-b5f87f1263fe",
    "t": "Google Photos DeDuper",
    "g": "idle",
-   "ask": "Two sessions open, parked since 2026-09-17."
+   "ask": "Two sessions open, parked 2026-09-17."
   },
   {
-   "id": "local_e34286ec-a804-4244-9974-297b63889c32",
-   "t": "HF speech-to-speech setup",
-   "g": "idle",
-   "ask": "repos/speech-to-speech, 2026-09-25 03:16."
-  },
-  {
-   "id": "local_968ff97d-b97c-4799-be21-9dfebd7d8250",
-   "t": "Local HF Laya setup",
-   "g": "idle",
-   "ask": "laya-mlx, parked 2026-09-20."
-  },
-  {
-   "id": "local_74ed0b45-9b0e-41f2-a213-ec50e948f4ae",
-   "t": "gymbuddy old gcp",
+   "id": "local_0a7ce884-e9f5-4ea1-b2c9-a00425e43bbb",
+   "t": "Portfolio",
    "g": "done",
-   "ask": "Superseded by gym-budy-claude. Archive candidate."
+   "ask": "Hosting on GitHub Pages. Clean."
+  },
+  {
+   "id": "local_c7f3ea5e-40d1-44bf-b54c-a762e9ece710",
+   "t": "Coding Harness tutorial",
+   "g": "done",
+   "ask": "Node.js harness committed. Clean."
   }
  ]
 }
