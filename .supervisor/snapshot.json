@@ -1,12 +1,12 @@
 {
- "sweptAt": "2026-09-30T08:38:00Z",
+ "sweptAt": "2026-09-30T08:51:42Z",
  "burn": null,
  "sessions": [
   {
    "id": "local_7de78781-3885-4615-bd21-b1a0f36805fb",
    "t": "Bhagavad \u2014 Gita reader",
    "g": "human",
-   "ask": "Launch kit shipped: both mp4 cuts, facts.md, posts.md. 11 files uncommitted for 5 days. Needs a commit decision."
+   "ask": "Launch kit recut to 13.9s in a manuscript-folio style: 9x16 and 4x5, full phone screens, no crops. Second cut never re-scored. 11 files uncommitted for 5 days."
   },
   {
    "id": "local_930e3f07-60ef-42e6-b254-9215a587773c",

@@ -1,12 +1,12 @@
 # Fleet status
 
-Swept 2026-09-30T08:38:00Z · 23 sessions tracked
+Swept 2026-09-30T08:51:42Z · 23 sessions tracked
 
 Supervisor is LOCAL. Sessions are reached with SendMessage on their `local_...` id.
 Spend and context figures are not exposed for local sessions.
 
 ## human
-- **Bhagavad — Gita reader** — Launch kit shipped: both mp4 cuts, facts.md, posts.md. 11 files uncommitted for 5 days. Needs a commit decision.
+- **Bhagavad — Gita reader** — Launch kit recut to 13.9s in a manuscript-folio style: 9x16 and 4x5, full phone screens, no crops. Second cut never re-scored. 11 files uncommitted for 5 days.
 - **Aifix Chrome add-on** — 12 uncommitted files, idle 9 days. Largest unbacked working tree in the fleet.
 
 ## auto
