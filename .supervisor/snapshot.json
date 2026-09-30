@@ -1,5 +1,5 @@
 {
- "sweptAt": "2026-09-30T09:20:09Z",
+ "sweptAt": "2026-09-30T09:34:30Z",
  "burn": null,
  "sessions": [
   {
@@ -30,7 +30,7 @@
    "id": "local_df2b6368-0637-4d24-ad83-cd6bcaf6b453",
    "t": "AI Wavekey \u2014 SuperVoiceBoard",
    "g": "auto",
-   "ask": "Active again on feat/local-mode. 5 files now dirty, last commit 5 days ago."
+   "ask": "Landed e1f71586 on feat/local-mode: setup and correction copy now read the real install state. Tree clean, nothing unpushed."
   },
   {
    "id": "local_1a5bb74d-0ee7-4c01-9961-c79df17efdb8",
